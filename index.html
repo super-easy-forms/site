@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title> Super Easy Forms </title>
+		
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono&display=swap" rel="stylesheet">
+		<!-- Bootstrap 4 -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<!-- Custom styles for this template -->
+
+	</head>
+
+	<style>
+		html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+		font-family: 'Open Sans', sans-serif;
+		}
+		h1, h2, h3, h4 {
+			font-family: 'Roboto Mono', monospace;
+		}
+		section, header {
+			overflow-x: hidden;
+		}
+		header {
+			padding-bottom: 4%;
+		}
+		section {
+			padding-top: 5%;
+			padding-bottom: 5%;
+		}
+		header ul li{
+			padding-bottom: 7%;
+			list-style-type: none;
+		}
+		.try-it{
+			background-color: #efdfb1;
+		}
+		.bg-primary{
+			background-image: linear-gradient(to right,#ED3E3E , #F25F6D);
+		}
+		.bg-cream {
+			background-color: #FCFBED;
+		}
+		.bg-lgrey{
+			background-color: #F2F2F2; 
+		}
+		.bg-grey {
+			background-color: #EDEDE8;
+		}
+		.bg-slight{
+			background-color:  #FCFBED;  
+		}
+		.btn-main {
+			background-image: linear-gradient(to right,#ED3E3E , #F25F6D);
+			font-family: 'Roboto Mono', monospace;
+			border-radius: 0% !important;
+		}
+		.nav-link{
+			color: #000 !important;
+		}
+		.container-extra {
+			padding-right: 200px !important;
+			padding-left: 200px !important;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.tech-icon {
+			max-width: 140px;
+			max-height: 140px
+		}
+	</style>
+
+	<body id="page-top">
+		
+    <!-- PUT YOUR STUFF HERE-->
+    <!-- Just an image -->
+		<nav class="navbar navbar-expand-lg bg-primary px-5">
+			<a class="navbar-brand" href="#">
+				<img src="img/SEF-LOGO.svg" width="auto" height="40" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto navbar-right">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#">Disabled</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<header class="container">
+			<div class="row pt-5">
+				<div class="col-sm-12 text-center">
+						<h1 class="pb-2">Super Easy Forms</h1>
+						<h4 class="pb-1">Create html contact forms for your website seconds!</h4>
+				</div>			
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<img class="img-fluid" src="form.png">
+					<h2 class="small ml-1">Create an html contact form in less than a minute!</h2>
+				</div>
+				<div class="col-md-6">
+					<ul class="pt-5 h2">
+						<li>Open Source and Free!</li>
+						<li>Easy Setup</li>
+						<li>Have full control of your data</li>
+						<li>We just help you make it easy!</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<!-- GET STARTED -->
+		<section class="try-it" id="tryit">
+			<div class="row justify-content-center">
+				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main">
+					<i class="fab fa-github"></i>
+					Try it Out!
+				</a>
+			</div>
+		</section>
+
+		<!-- FEATURES -->
+		<section id="features" class="bg-cream">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h2 class="text-center">Features</h2>
+							<ul class="pt-5 h2">
+								<li>Open Source and Free!</li>
+								<li>Easy Setup</li>
+								<li>Have full control of your data</li>
+								<li>We just help you make it easy!</li>
+							</ul>
+					</div>
+					<div class="col-md-6 p-5">
+						<div class="bg-primary p-5">
+							<h4 class="text-center">Have Any Questions?</h4>
+							<!-- FORM BY SUPER EASY FORMS -->
+							<form id="super-easy-form" alt="Form by Super Easy Forms" class="pb-3" action="#">
+								<label for="name" class="small mb-0">name</label>
+								<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
+							
+								<label for="email" class="small mb-0">email</label>
+								<input type="email" class="form-control" id="email" name="email" placeholder="email" required>
+							
+								<label for="message" class="small mb-0">message</label>
+								<textarea type="text" class="form-control" id="message" name="message" placeholder="message" required></textarea>
+
+								<h5 id="contact-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
+								<button class="btn btn-primary mt-3" type="submit" id="super-easy-btn">Send</button>
+							</form>
+							<small>made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- it's bad etiquette to use free stuff without giving some cred to the creators :) -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- BUILD YOUR FORM -->
+		<section id="form-build" class="bg-lgrey">
+			<div class="container-extra">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h2>Features</h2>
+						<p>You can style the way you want our forms.</p>    
+						<p>Use codepen to get inspiration and Super Easy Forms to generate your form fields.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- GET STARTED -->
+		<section class="bg-primary" id="tryit">
+			<div class="row justify-content-center">
+				<h3>Want to know more about Super Easy Forms?</h3>
+			</div>
+		</section>
+
+		<!-- HOW IT WORKS -->
+		<section id="form-build" class="bg-cream">
+			<div class="container-extra">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="text-center">How it Works</h2>
+						<p>Super Easy Forms is a simple CLI built with node js. It helps you register your email with AWS SES, it automatically creates the necessary resources for you in AWS, and it outputs a Bootstrap HTML form that's already connected to your API, ready to copy paste into your website.</p>    
+						<strong>Resources Created</strong>
+						<ol>
+							<li>A Dynamodb table with your desired fields.</li>
+							<li>A lambda function that will send an email to your registered address and add the entry to the database.</li>
+							<li>A REST API endpoint for the lambda function with a POST method.</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 80%; ">
+			</div>
+		</section>
+
+			<!-- BUILT WITH -->
+			<section class="bg-grey" id="tryit">
+					<div class="row justify-content-center">
+						<h3>Built With</h3>
+					</div>
+					<div class="row text-center align-middle">
+						<div class="col-md-4 p-2 p-lg-5">
+							<img class="tech-icon" src="img/Node.js_logo.svg" alt="node js logo">
+						</div>
+						<div class="col-md-4 p-2 p-lg-5">
+							<img class="tech-icon" src="img/bootstrap-solid.svg" alt="bootstrap logo">
+						</div>
+						<div class="col-md-4 p-2 p-lg-5">
+							<img class="tech-icon" src="img/Amazon_Web_Services_Logo.svg" alt="AWS logo">
+						</div>
+					</div>
+				</section>
+
+		<!-- Bootstrap core JavaScript -->
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+		<!-- Custom scripts for this template -->
+
+		<!--Javascript-->
+
+		<script>
+			$(function(){
+				$('#super-easy-form').submit(function(e){
+						e.preventDefault();
+						var formdata = toJSONString(this);
+						console.log(formdata);
+						$.ajax({
+								type: "POST",
+								url: "https://5gtjl3amef.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T06-12-27-870Z/",
+								dataType: "json",
+								contentType: "application/json",
+								data: JSON.stringify( { "id": "","name": $('#name').val(),"email": $('#email').val(),"message": $('#message').val() } ),
+								beforeSend: function(data) {
+										$('#super-easy-btn').prop('disabled', true);
+										$('#super-easy-form :input').prop('disabled', true);
+										$('#contact-status').html('Sending...').show();
+								},
+								success: function(data) {
+										console.log(data);
+										$('#contact-status').text("We'll get back to you soon").show();
+										$('#super-easy-form :input').removeProp('disabled');
+										$('#super-easy-btn').removeProp('disabled');
+								},
+								error: function(jqXHR, textStatus, errorThrown) {
+										$('#contact-status').text('Error. Please try again soon.').show();
+										$('#super-easy-form :input').removeProp('disabled');
+										$('#super-easy-btn').removeProp('disabled');
+								}
+						});
+				}); 
+		
+				function toJSONString (form) {
+				var obj = {};
+				var elements = form.querySelectorAll("input, select, textarea");
+				for(var i = 0; i < elements.length; ++i) {
+					var element = elements[i];
+					var name = element.name;
+					var value = element.value;
+					if(name) {
+						obj[name] = value;
+					}
+						}
+						return JSON.stringify(obj);
+				}
+			});
+		</script>
+	</body>
+
+</html>
+
+
+
+
+
+
+		
