@@ -40,7 +40,7 @@
 			padding-top: 5%;
 			padding-bottom: 5%;
 		}
-		header ul li{
+		.list ul li{
 			padding-bottom: 7%;
 			list-style-type: none;
 		}
@@ -70,15 +70,18 @@
 		.nav-link{
 			color: #000 !important;
 		}
-		.container-extra {
-			padding-right: 200px !important;
-			padding-left: 200px !important;
-			margin-right: auto;
-			margin-left: auto;
+
+		@media(min-width: 900px) {
+			.container {
+				padding-right: 100px !important;
+				padding-left: 100px !important;
+			}
 		}
+
+		
 		.tech-icon {
 			max-width: 140px;
-			max-height: 140px
+			max-height: 100px
 		}
 	</style>
 
@@ -88,7 +91,7 @@
     <!-- Just an image -->
 		<nav class="navbar navbar-expand-lg bg-primary px-5">
 			<a class="navbar-brand" href="#">
-				<img src="img/SEF-LOGO.svg" width="auto" height="40" alt="">
+				<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -112,17 +115,19 @@
 		<header class="container">
 			<div class="row pt-5">
 				<div class="col-sm-12 text-center">
-						<h1 class="pb-2">Super Easy Forms</h1>
-						<h4 class="pb-1">Create html contact forms for your website seconds!</h4>
+						<h1 class="pb-3">Super Easy Forms</h1>
+						<h4 class="pb-3">Create html contact forms for your website seconds!</h4>
 				</div>			
 			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<img class="img-fluid" src="form.png">
+				<div class="col-md-7">
+					<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" width="100%">
+						<source src="vid/SEF-intro.mp4" type="video/mp4">
+					</video>
 					<h2 class="small ml-1">Create an html contact form in less than a minute!</h2>
 				</div>
-				<div class="col-md-6">
-					<ul class="pt-5 h2">
+				<div class="col-md-5 list">
+					<ul class="pt-5 h4">
 						<li>Open Source and Free!</li>
 						<li>Easy Setup</li>
 						<li>Have full control of your data</li>
@@ -135,7 +140,7 @@
 		<!-- GET STARTED -->
 		<section class="try-it" id="tryit">
 			<div class="row justify-content-center">
-				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main">
+				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main py-3">
 					<i class="fab fa-github"></i>
 					Try it Out!
 				</a>
@@ -146,20 +151,20 @@
 		<section id="features" class="bg-cream">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-6 list">
 						<h2 class="text-center">Features</h2>
-							<ul class="pt-5 h2">
+							<ul class="pt-5 h4">
 								<li>Open Source and Free!</li>
 								<li>Easy Setup</li>
 								<li>Have full control of your data</li>
 								<li>We just help you make it easy!</li>
 							</ul>
 					</div>
-					<div class="col-md-6 p-5">
-						<div class="bg-primary p-5">
+					<div class="col-md-6 pb-0">
+						<div class="bg-primary p-5 mx-4">
 							<h4 class="text-center">Have Any Questions?</h4>
 							<!-- FORM BY SUPER EASY FORMS -->
-							<form id="super-easy-form" alt="Form by Super Easy Forms" class="pb-3" action="#">
+							<form id="super-easy-form" alt="Form by Super Easy Forms" action="#">
 								<label for="name" class="small mb-0">name</label>
 								<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
 							
@@ -172,7 +177,14 @@
 								<h5 id="contact-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
 								<button class="btn btn-primary mt-3" type="submit" id="super-easy-btn">Send</button>
 							</form>
-							<small>made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- it's bad etiquette to use free stuff without giving some cred to the creators :) -->
+							<div class="col-12 text-right">
+								<small class="mx-auto">
+									made with
+									<a href="http://supereasyforms.com">
+										<img src="img/SEF-LOGO.svg" width="auto" height="40" alt="">
+									</a> 
+								</small> <!-- it's bad etiquette to use free stuff without giving some cred to the creators :) -->
+							</div>
 						</div>
 					</div>
 				</div>
@@ -181,7 +193,7 @@
 
 		<!-- BUILD YOUR FORM -->
 		<section id="form-build" class="bg-lgrey">
-			<div class="container-extra">
+			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<h2>Features</h2>
@@ -189,7 +201,14 @@
 						<p>Use codepen to get inspiration and Super Easy Forms to generate your form fields.</p>
 					</div>
 				</div>
-			</div>
+				<div>
+					<p class="codepen" data-height="400" data-theme-id="0" data-editable="true" data-default-tab="html,result" data-user="gkpty" data-slug-hash="Ezoaxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="super-easy-form">
+						<span>See the Pen <a href="https://codepen.io/gkpty/pen/Ezoaxa/">
+						super-easy-form</a> by gkpty (<a href="https://codepen.io/gkpty">@gkpty</a>)
+						on <a href="https://codepen.io">CodePen</a>.</span>
+					</p>
+					<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+				</div>
 		</section>
 
 		<!-- GET STARTED -->
@@ -201,7 +220,7 @@
 
 		<!-- HOW IT WORKS -->
 		<section id="form-build" class="bg-cream">
-			<div class="container-extra">
+			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="text-center">How it Works</h2>
@@ -216,12 +235,13 @@
 				</div>
 			</div>
 			<div class="row justify-content-center">
-				<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 80%; ">
+				<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 65%; ">
 			</div>
 		</section>
 
 			<!-- BUILT WITH -->
 			<section class="bg-grey" id="tryit">
+				<div class="container">
 					<div class="row justify-content-center">
 						<h3>Built With</h3>
 					</div>
@@ -236,7 +256,8 @@
 							<img class="tech-icon" src="img/Amazon_Web_Services_Logo.svg" alt="AWS logo">
 						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
 		<!-- Bootstrap core JavaScript -->
 		<script
