@@ -27,6 +27,9 @@
     padding: 0px;
 		font-family: 'Open Sans', sans-serif;
 		}
+		p, strong, li{
+			font-size: 1.5rem;
+		}
 		h1, h2, h3, h4 {
 			font-family: 'Roboto Mono', monospace;
 		}
@@ -48,8 +51,16 @@
 			list-style-type: none;
 			margin-left: -40px !important;
 		}
+		ul li {
+			list-style-type: none;
+			margin-left: -40px !important;
+			padding-bottom: 2%;
+		}
 		.try-it{
 			background-color: #efdfb1;
+		}
+		.text-primary {
+			color: #F25F6D !important;
 		}
 		.bg-primary{
 			background-image: linear-gradient(to right,#ED3E3E , #F25F6D);
@@ -89,7 +100,7 @@
 		}
 	</style>
 
-	<body id="page-top">
+	<body id="page-top" class="text-center text-md-left">
 		
     <!-- PUT YOUR STUFF HERE-->
     <!-- Just an image -->
@@ -190,7 +201,7 @@
 									<a href="http://supereasyforms.com">
 										<img src="img/SEF-LOGO.svg" width="auto" height="40" alt="">
 									</a> 
-								</small> <!-- it's bad etiquette to use free stuff without giving some cred to the creators :) -->
+								</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
 							</div>
 						</div>
 					</div>
@@ -204,8 +215,9 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<h2 class="section-title">Customize your Form</h2>
-						<p>The CLI outputs an html file with your ready-to-use form pre-set with default bootstrap classes and an inline JQuery handler.</p>    
-						<p>You can add custom CSS, modify the HTML layout of the form and adapt to your project however you like.</p>
+						<p>The CLI outputs an html file with your ready-to-use form preset with default bootstrap classes and an inline JQuery handler.</p>    
+						<p>You can add custom CSS, modify the HTML layout of the form and adapt it to your project however you like.</p>
+						<p>If you need inpiration you can check out <a href="https://codepen.io/collection/DpzJme/" target="_blank">this collection</a> of bootstrap html contact forms in codepen.</p>
 					</div>
 				</div>
 				<div>
@@ -232,7 +244,7 @@
 						<div class="col-md-9 col-lg-10">
 							<input type="email" class="form-control py-4 w-100" id="register-email" name="email" placeholder="email" required>
 						</div>				
-						<div class="col-md-3 col-lg-2 col-4 pt-sm-3 ml-sm-auto mb-3">
+						<div class="col-md-3 col-lg-2 col-6 pt-3 pt-md-0 ml-auto">
 								<button class="btn btn-light py-2 w-100" type="submit" id="super-easy-btn-register">
 									<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Sign Up
 								</button>			
@@ -241,7 +253,7 @@
 				</div>
 				<div class="col-12">
 					<h5 id="contact-status-register" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
-					<small class="ml-0">made with <a href="http://supereasyforms.com">super easy forms</a> <small> <!-- it's bad etiquette to use free stuff without giving some cred to the creators :) -->
+					<small class="ml-0">made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
 				</div>
 			</div>
 		</section>
@@ -258,6 +270,13 @@
 							<li>A Dynamodb table with your desired fields.</li>
 							<li>A lambda function that will send an email to your registered address and add the entry to the database.</li>
 							<li>A REST API endpoint for the lambda function with a POST method.</li>
+						</ol>
+						<strong>The Form</strong>
+						<ol>
+							<li>Responsive bootsrap 4 layout</li>
+							<li>Automatic form fields with labels</li>
+							<li>JQuery CDN</li>
+							<li>JQuery handler connected to your API endpoint</li>
 						</ol>
 					</div>
 				</div>
@@ -299,18 +318,17 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h2 class="text-center section-title">Whats Included with AWS in Super Easy Forms?</h2>
-							<p>Super Easy Forms is a simple CLI built with node js. It helps you register your email with AWS SES, it automatically creates the necessary resources for you in AWS, and it outputs a Bootstrap HTML form that's already connected to your API, ready to copy paste into your website.</p>    
-							<strong>Resources Created</strong>
-							<ol>
-								<li>A Dynamodb table with your desired fields.</li>
-								<li>A lambda function that will send an email to your registered address and add the entry to the database.</li>
-								<li>A REST API endpoint for the lambda function with a POST method.</li>
-							</ol>
+							<p>You need to have an AWS account to be able to use Super Easy Forms. In the near future we are going to solve our vendor-lock in but for now AWS is a pretty good start.</p>    
+							<strong >Super Easy Form uses the following services from AWS</strong>
+							<ul class="pt-4">
+								<li><strong>SES </strong> Simple Email Service. 1,000 emails/month for free then $.10 for every 1,000 emails recieved.</li>
+								<li><strong>DynamoDB </strong> Fully managed NoSQL database. 25GB of storage free for always.</li>
+								<li><strong>Lambda</strong> Let’s you run code without managing servers. 1M requests/month free always. Then $.20 per 1M requests.</li>
+								<li><strong>API Gateway </strong> 1M REST API requests/month for 12months then $3.50/1M requests.</li>
+								<li><strong>S3 Bucket </strong> Object storage for your file submissions. <span class="text-primary">Coming soon!</span> 5Gb free for 12 months then $0.023 for GB.</li>
+							</ul>
 						</div>
 					</div>
-				</div>
-				<div class="row justify-content-center">
-					<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 65%; ">
 				</div>
 			</section>
 
@@ -320,50 +338,34 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="text-center section-title">Roadmap</h2>
-								<p>Stay tuned as we'll be adding new features all the time!</p>    
-								<strong>Resources Created</strong>
-								<ol>
-									<li>A Dynamodb table with your desired fields.</li>
-									<li>A lambda function that will send an email to your registered address and add the entry to the database.</li>
-									<li>A REST API endpoint for the lambda function with a POST method.</li>
-								</ol>
-							</div>
-						</div>
-					</div>
-					<div class="row justify-content-center">
-						<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 65%; ">
-					</div>
-				</section>
-
-				<!-- SUGGESTIONS -->
-			<section class="try-it" id="tryit">
-				<div class="container">
-					<div class="p-4 bg-primary">
-						<div class="row justify-content-center">
-							<div class="col-sm-12 text-center">
-								<h3>Any Suggestions?</h3>
+								<p>Super Easy Forms doesn't stop here. We have a bunch of features planned that will make it more easy and more Super!</p> 
+								   
+								<strong>Some of these include</strong>
+								<ul>
+									<li>File submissions (images, videos, PDFs and more!)</li>
+									<li>Payment forms (integrations with leading solution providers)</li>
+									<li>Direct integration with the gmail API</li>
+									<li>Direct export of submissions to XLS and CSV</li>
+									<li>Optional Captcha (Spam protection)</li>
+								</ul>
 							</div>
 						</div>
 						<div class="row">
-							<!-- FORM BY SUPER EASY FORMS -->
-							<form id="super-easy-form-register" alt="Form by Super Easy Forms" class="form-inline col-12 w-100" action="#">
-								<div class="col-md-9 col-lg-10">
-									<input type="email" class="form-control py-4 w-100" id="register-email" name="email" placeholder="email" required>
-								</div>				
-								<div class="col-md-3 col-lg-2 col-4 pt-sm-3 ml-sm-auto mb-3">
-										<button class="btn btn-light py-2 w-100" type="submit" id="super-easy-btn-register">
-											<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Sign Up
-										</button>			
-								</div>			
-							</form>
-						</div>
-						<div class="col-12">
-							<h5 id="contact-status-register" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
-							<small class="ml-0">made with <a href="http://supereasyforms.com">super easy forms</a> <small> <!-- it's bad etiquette to use free stuff without giving some cred to the creators :) -->
+							<div class="col-sm-12">
+								<!-- FORM BY SUPER EASY FORMS -->
+								<div class="p-5 m-5 bg-primary mx-auto" style="width: 85%;">
+									<form id="super-easy-form" alt="Form by Super Easy Forms" class="pb-3" action="#">
+										<label for="message" class="small mb-0">message</label>
+										<textarea type="text" class="form-control" id="message" name="message" placeholder="message" required></textarea>	
+										<h5 id="contact-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
+										<button class="btn btn-primary mt-3" type="submit" id="super-easy-btn">Send</button>
+									</form>
+									<small>made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
 			<!-- VISION -->
 			<section id="included" class="bg-light">
@@ -371,22 +373,22 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="text-center section-title">Our Vision</h2>
-								<p>Stay tuned as we'll be adding new features all the time!</p>    
-								<strong>Resources Created</strong>
+								<p><strong>The more Open Source the Better! </strong> We are working on a suite of free & open source tools that help people use microservices effectively in smaller use cases like building websites.</p>    
+								<strong>We believe that</strong>
 								<ol>
-									<li>A Dynamodb table with your desired fields.</li>
-									<li>A lambda function that will send an email to your registered address and add the entry to the database.</li>
-									<li>A REST API endpoint for the lambda function with a POST method.</li>
+									<li>building websites should be fun, easy and free.</li>
+									<li>The websites you build should be fast, secure and should not require any maintenance.</li>
+									<li>There shouldn’t be a compromise between what the devs consider good tech and what the beginner perceives as user-friendly.</li>
 								</ol>
 							</div>
 						</div>
-					</div>
-					<div class="row justify-content-center">
-						<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 65%; ">
+						<div class="row justify-content-center">
+							<div class="col-sm-12">
+								<p>If you share our vision, or want to learn more check out the rest of our projects at <a href="http://torusproject.org">Torus Project</a>.</p>
+							</div>
+						</div>
 					</div>
 				</section>
-
-			
 
 		<!-- Bootstrap core JavaScript -->
 		<script
@@ -399,6 +401,7 @@
 
 		<!--Javascript-->
 
+		<!-- FEATURES FORM-->
 		<script>
 			$(function(){
 				$('#super-easy-form').submit(function(e){
@@ -445,52 +448,100 @@
 				}
 			});
 		</script>
-				<script>
-						$(function(){
-							$('#super-easy-form-register').submit(function(e){
-									e.preventDefault();
-									var formdata = toJSONString(this);
-									console.log(formdata);
-									$.ajax({
-											type: "POST",
-											url: "https://9wqrnmzlv0.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T22-53-02-822Z/",
-											dataType: "json",
-											contentType: "application/json",
-											data: JSON.stringify( { "id": "","email": $('#email').val() } ),
-											beforeSend: function(data) {
-													$('#super-easy-btn-register').prop('disabled', true);
-													$('#super-easy-form-register :input').prop('disabled', true);
-													$('#contact-status-register').html('Sending...').show();
-											},
-											success: function(data) {
-													console.log(data);
-													$('#contact-status-register').text("We'll get back to you soon").show();
-													$('#super-easy-form-register :input').removeProp('disabled');
-													$('#super-easy-btn-register').removeProp('disabled');
-											},
-											error: function(jqXHR, textStatus, errorThrown) {
-													$('#contact-status-register').text('Error. Please try again soon.').show();
-													$('#super-easy-form-register :input').removeProp('disabled');
-													$('#super-easy-btn-register').removeProp('disabled');
-											}
-									});
-							}); 
-					
-							function toJSONString (form) {
-							var obj = {};
-							var elements = form.querySelectorAll("input, select, textarea");
-							for(var i = 0; i < elements.length; ++i) {
-								var element = elements[i];
-								var name = element.name;
-								var value = element.value;
-								if(name) {
-									obj[name] = value;
+
+		<!-- SIGNUP FORM -->
+		<script>
+			$(function(){
+				$('#super-easy-form-register').submit(function(e){
+						e.preventDefault();
+						var formdata = toJSONString(this);
+						console.log(formdata);
+						$.ajax({
+								type: "POST",
+								url: "https://9wqrnmzlv0.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T22-53-02-822Z/",
+								dataType: "json",
+								contentType: "application/json",
+								data: JSON.stringify( { "id": "","email": $('#email').val() } ),
+								beforeSend: function(data) {
+										$('#super-easy-btn-register').prop('disabled', true);
+										$('#super-easy-form-register :input').prop('disabled', true);
+										$('#contact-status-register').html('Sending...').show();
+								},
+								success: function(data) {
+										console.log(data);
+										$('#contact-status-register').text("We'll get back to you soon").show();
+										$('#super-easy-form-register :input').removeProp('disabled');
+										$('#super-easy-btn-register').removeProp('disabled');
+								},
+								error: function(jqXHR, textStatus, errorThrown) {
+										$('#contact-status-register').text('Error. Please try again soon.').show();
+										$('#super-easy-form-register :input').removeProp('disabled');
+										$('#super-easy-btn-register').removeProp('disabled');
 								}
-									}
-									return JSON.stringify(obj);
-							}
 						});
-					</script>
+				}); 
+		
+				function toJSONString (form) {
+				var obj = {};
+				var elements = form.querySelectorAll("input, select, textarea");
+				for(var i = 0; i < elements.length; ++i) {
+					var element = elements[i];
+					var name = element.name;
+					var value = element.value;
+					if(name) {
+						obj[name] = value;
+					}
+						}
+						return JSON.stringify(obj);
+				}
+			});
+		</script>
+		<script>
+			$(function(){
+				$('#super-easy-form-suggestion').submit(function(e){
+						e.preventDefault();
+						var formdata = toJSONString(this);
+						console.log(formdata);
+						$.ajax({
+								type: "POST",
+								url: "https://i7bicxy6nh.execute-api.us-east-1.amazonaws.com/deployment2019-05-23T04-18-48-494Z/",
+								dataType: "json",
+								contentType: "application/json",
+								data: JSON.stringify( { "id": "","message": $('#message').val() } ),
+								beforeSend: function(data) {
+										$('#super-easy-btn-suggestion').prop('disabled', true);
+										$('#super-easy-form-suggestion :input').prop('disabled', true);
+										$('#contact-status-suggestion').html('Sending...').show();
+								},
+								success: function(data) {
+										console.log(data);
+										$('#contact-status-suggestion').text("We'll get back to you soon").show();
+										$('#super-easy-form-suggestion :input').removeProp('disabled');
+										$('#super-easy-btn-suggestion').removeProp('disabled');
+								},
+								error: function(jqXHR, textStatus, errorThrown) {
+										$('#contact-status-suggestion').text('Error. Please try again soon.').show();
+										$('#super-easy-form-suggestion :input').removeProp('disabled');
+										$('#super-easy-btn-suggestion').removeProp('disabled');
+								}
+						});
+				}); 
+		
+				function toJSONString (form) {
+				var obj = {};
+				var elements = form.querySelectorAll("input, select, textarea");
+				for(var i = 0; i < elements.length; ++i) {
+					var element = elements[i];
+					var name = element.name;
+					var value = element.value;
+					if(name) {
+						obj[name] = value;
+					}
+						}
+						return JSON.stringify(obj);
+				}
+			});
+		</script>
 	</body>
 
 </html>
