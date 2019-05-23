@@ -27,14 +27,38 @@
     padding: 0px;
 		font-family: 'Open Sans', sans-serif;
 		}
+		input, textarea{
+			font-size: 1.3rem !important;
+		}
 		p, strong, li{
 			font-size: 1.5rem;
 		}
-		h1, h2, h3, h4 {
+		h1, h2, h3, h4, h5 {
 			font-family: 'Roboto Mono', monospace;
 		}
 		.section-title {
-			padding-bottom: 4%;
+			padding-bottom: 6%;
+			font-size: 2rem;
+		}
+		.title {
+			font-size: 2rem;
+		}
+		.main-title{
+			font-size: 2.2rem;
+			padding-bottom: 3%;
+		}
+		@media(min-width:600px) {
+			.section-title {
+				padding-bottom: 6%;
+				font-size: 3rem;
+			}
+			.title {
+				font-size: 3rem;
+			}
+			.main-title{
+				font-size: 3.5rem;
+				padding-bottom: 3%;
+			}
 		}
 		section, header {
 			overflow-x: hidden;
@@ -42,19 +66,24 @@
 		header {
 			padding-bottom: 4%;
 		}
-		section {
+		.section {
 			padding-top: 5%;
-			padding-bottom: 5%;
+			padding-bottom: 8%;
 		}
 		.list ul li{
 			padding-bottom: 7%;
 			list-style-type: none;
 			margin-left: -40px !important;
+			font-size: 1.8rem;
 		}
-		ul li {
+		section ul li {
 			list-style-type: none;
 			margin-left: -40px !important;
 			padding-bottom: 2%;
+		}
+		section ul li strong {
+			color: #000 !important;
+			margin-right: 1%;
 		}
 		.try-it{
 			background-color: #efdfb1;
@@ -63,7 +92,8 @@
 			color: #F25F6D !important;
 		}
 		.bg-primary{
-			background-image: linear-gradient(to right,#ED3E3E , #F25F6D);
+			background-image: linear-gradient(to right, hsla(354, 85%, 66%, .9)
+, hsla(0, 83%, 59%, .9) , hsla(354, 85%, 66%, .9));
 		}
 		.bg-cream {
 			background-color: #FCFBED;
@@ -76,6 +106,12 @@
 		}
 		.bg-slight{
 			background-color:  #FCFBED;  
+		}
+		.btn-lg{
+			font-size: 1.6rem;
+		}
+		.bg-dark {
+			background-color: #24292e;
 		}
 		.btn-main {
 			background-image: linear-gradient(to right,#ED3E3E , #F25F6D);
@@ -91,9 +127,11 @@
 				padding-right: 100px !important;
 				padding-left: 100px !important;
 			}
+			.navbar-expand-lg .navbar-nav .nav-link {
+				padding-right: 1.5rem;
+				padding-left: 1.5rem;
+			}
 		}
-
-		
 		.tech-icon {
 			max-width: 140px;
 			max-height: 100px
@@ -105,33 +143,39 @@
     <!-- PUT YOUR STUFF HERE-->
     <!-- Just an image -->
 		<nav class="navbar navbar-expand-lg bg-primary px-5">
-			<a class="navbar-brand" href="#">
-				<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto navbar-right">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
-					</li>
-				</ul>
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-2x fa-bars"></span>
+				</button>
+			
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto navbar-right">
+						<li class="nav-item active">
+							<a class="nav-link" href="#features">Features <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#how-it-works">How it works</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#roadmap">Roadmap</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#vision">Vision</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 
+		<!-- HEADER -->
 		<header class="container">
 			<div class="row pt-5">
 				<div class="col-sm-12 text-center">
-						<h1 class="pb-3 section-title">Super Easy Forms</h1>
-						<h3 class="pb-3 px-5">A Free and open source tool that helps you create responsive HTML contact forms in an instant.</h3>
+						<h1 class="main-title">Super Easy Forms</h1>
+						<h3 class="pb-5 px-md-5">A Free and open source tool that helps you create responsive HTML contact forms in an instant.</h3>
 				</div>			
 			</div>
 			<div class="row pt-2">
@@ -139,10 +183,10 @@
 					<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" width="100%">
 						<source src="vid/SEF-intro.mp4" type="video/mp4">
 					</video>
-					<h3 class="h6 pt-3 ml-1">Serverless backend components are automatically deployed for you and linked to your HTML form.</h3>
+					<h3 class="h6 pt-4 ml-1">Serverless backend components are automatically deployed for you and linked to your HTML form.</h3>
 				</div>
 				<div class="col-md-5 list">
-					<ul class="h4 pt-4 text-secondary ml-lg-4">
+					<ul class="h4 text-secondary ml-lg-5 pt-4 pt-sm-0">
 						<li>Install in a breeze</li>
 						<li>type in your input fields</li>
 						<li>Copy paste the form into your site</li>
@@ -155,43 +199,41 @@
 		</header>
 
 		<!-- GET STARTED -->
-		<section class="try-it" id="tryit">
+		<section class="try-it py-5" id="tryit">
 			<div class="row justify-content-center">
-				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main py-3">
-					<i class="fab fa-github"></i>
+				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main py-3 px-5">
+					<i class="fab fa-github h4"></i>
 					Try it Out!
 				</a>
 			</div>
 		</section>
 
 		<!-- FEATURES -->
-		<section id="features" class="bg-cream">
-			<div class="container ">
+		<section id="features" class="section bg-cream">
+			<div class="container">
+				<div class="row justify-content-center">
+					<h3 class="text-center section-title h2">Features</h3>
+				</div>
 				<div class="row">
-					<div class="col-md-6 list">
-						<h3 class="text-center section-title h2">Features</h3>
-							<ul class="h4 text-secondary"> 
-								<li>100% customizable html forms (No iframes)</li>
-								<li>Create an unlimited amount of forms</li>
-								<li>Store unlimited form submissions</li>
-								<li>Register an unlimited amount of emails.</li>
-								<li>Easily export submissions from the database</li>
-							</ul>
+					<div class="col-md-6">
+							<div class="list pt-2">
+								<ul class="h4 text-secondary"> 
+									<li>100% customizable html forms (No iframes)</li>
+									<li>Create an unlimited amount of forms</li>
+									<li>Store unlimited form submissions</li>
+									<li>Register an unlimited amount of emails.</li>
+									<li>Easily export submissions from the database</li>
+								</ul>
+							</div>
 					</div>
 					<div class="col-md-6 pb-0">
-						<div class="bg-primary p-5 ml-4">
-							<h4 class="text-center">Have Any Questions?</h4>
+						<div class="bg-primary p-4 ml-md-4">
+							<h4 class="text-center pb-4">Have Any Questions?</h4>
 							<!-- FORM BY SUPER EASY FORMS -->
 							<form id="super-easy-form" alt="Form by Super Easy Forms" action="#">
-								<label for="name" class="small mb-0">name</label>
-								<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
-							
-								<label for="email" class="small mb-0">email</label>
-								<input type="email" class="form-control" id="email" name="email" placeholder="email" required>
-							
-								<label for="message" class="small mb-0">message</label>
-								<textarea type="text" class="form-control" id="message" name="message" placeholder="message" required></textarea>
-
+								<input type="text" class="form-control mb-3" id="name" name="name" placeholder="name" required>
+								<input type="email" class="form-control mb-3" id="email" name="email" placeholder="email" required>
+								<textarea type="text" class="form-control mb-3" id="message" name="message" placeholder="message" required></textarea>
 								<h5 id="contact-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
 								<button class="btn btn-primary mt-3" type="submit" id="super-easy-btn">Send</button>
 							</form>
@@ -210,17 +252,17 @@
 		</section>
 
 		<!-- CUSTOMIZE YOUR FORM -->
-		<section id="form-build" class="bg-lgrey">
+		<section id="customize-form" class="section bg-lgrey">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 text-center">
-						<h2 class="section-title">Customize your Form</h2>
+					<div class="col-md-12">
+						<h2 class="section-title text-center">Customize your Form</h2>
 						<p>The CLI outputs an html file with your ready-to-use form preset with default bootstrap classes and an inline JQuery handler.</p>    
 						<p>You can add custom CSS, modify the HTML layout of the form and adapt it to your project however you like.</p>
 						<p>If you need inpiration you can check out <a href="https://codepen.io/collection/DpzJme/" target="_blank">this collection</a> of bootstrap html contact forms in codepen.</p>
 					</div>
 				</div>
-				<div>
+				<div class="pt-5">
 					<p class="codepen" data-height="500" data-theme-id="0" data-editable="true" data-default-tab="html,result" data-user="gkpty" data-slug-hash="Ezoaxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="super-easy-form">
 						<span>See the Pen <a href="https://codepen.io/gkpty/pen/Ezoaxa/">
 						super-easy-form</a> by gkpty (<a href="https://codepen.io/gkpty">@gkpty</a>)
@@ -231,10 +273,10 @@
 		</section>
 
 		<!-- GET STARTED -->
-		<section class="bg-primary" id="tryit">
+		<section class="bg-primary py-5" id="get-started">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-sm-12 text-center">
+					<div class="col-sm-12 text-center pb-4">
 						<h3>Want to know more about Super Easy Forms?</h3>
 					</div>
 				</div>
@@ -259,7 +301,7 @@
 		</section>
 
 		<!-- HOW IT WORKS -->
-		<section id="form-build" class="bg-cream">
+		<section id="how-it-works" class="bg-cream section">
 			<div class="container ">
 				<div class="row">
 					<div class="col-md-12">
@@ -282,29 +324,29 @@
 				</div>
 			</div>
 			<div class="row justify-content-center">
-				<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 65%; ">
+				<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 80%; ">
 			</div>
 		</section>
 
 			<!-- BUILT WITH -->
-			<section class="bg-grey" id="tryit">
+			<section class="bg-grey py-5" id="built-with">
 				<div class="container">
-					<div class="row justify-content-center pb-4">
-						<h3 class="h2">Built With</h3>
+					<div class="row justify-content-center">
+						<h3 class="h2 pb-4 title">Built With</h3>
 					</div>
-					<div class="row text-center align-middle">
+					<div class="row text-center align-middle pb-4">
 						<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
-							<a href="">
+							<a href="https://nodejs.org/en/" target="_blank">
 								<img class="tech-icon" src="img/Node.js_logo.svg" alt="node js logo">
 							</a>
 						</div>
 						<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
-							<a href="">
+							<a href="https://getbootstrap.com/" target="_blank">
 								<img class="tech-icon" src="img/bootstrap-solid.svg" alt="bootstrap logo">
 							</a>
 						</div>
 						<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
-							<a href="">
+							<a href="https://aws.amazon.com/" target="_blank">
 								<img class="tech-icon" src="img/Amazon_Web_Services_Logo.svg" alt="AWS logo">
 							</a>
 						</div>
@@ -313,27 +355,28 @@
 			</section>
 
 			<!-- INCLUDED -->
-			<section id="included" class="bg-white">
+			<section id="included-in-aws" class="section bg-white">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<h2 class="text-center section-title">Whats Included with AWS in Super Easy Forms?</h2>
-							<p>You need to have an AWS account to be able to use Super Easy Forms. In the near future we are going to solve our vendor-lock in but for now AWS is a pretty good start.</p>    
-							<strong >Super Easy Form uses the following services from AWS</strong>
-							<ul class="pt-4">
+							<p class="pb-4">You need to have an AWS account to be able to use Super Easy Forms. In the near future we are going to solve our vendor-lock in but for now AWS is a pretty good start.</p>    
+							<span class="h3 font-weight-bold">Super Easy Form uses the following services from AWS</span>
+							<ul class="pt-4 text-secondary">
 								<li><strong>SES </strong> Simple Email Service. 1,000 emails/month for free then $.10 for every 1,000 emails recieved.</li>
 								<li><strong>DynamoDB </strong> Fully managed NoSQL database. 25GB of storage free for always.</li>
-								<li><strong>Lambda</strong> Let’s you run code without managing servers. 1M requests/month free always. Then $.20 per 1M requests.</li>
+								<li><strong>Lambda </strong> Let’s you run code without managing servers. 1M requests/month free always. Then $.20 per 1M requests.</li>
 								<li><strong>API Gateway </strong> 1M REST API requests/month for 12months then $3.50/1M requests.</li>
-								<li><strong>S3 Bucket </strong> Object storage for your file submissions. <span class="text-primary">Coming soon!</span> 5Gb free for 12 months then $0.023 for GB.</li>
+								<li><strong>S3 Bucket </strong> Object storage for your file submissions <span class="text-primary">(Coming soon!)</span>. 5Gb free for 12 months then $0.023 for GB.</li>
 							</ul>
+							<p>Want more info? <a href="https://aws.amazon.com/free/" target="_blank"> https://aws.amazon.com/free</a></p>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<!-- ROADMAP -->
-			<section id="included" class="bg-light">
+			<section id="roadmap" class="section bg-light">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
@@ -353,14 +396,25 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<!-- FORM BY SUPER EASY FORMS -->
-								<div class="p-5 m-5 bg-primary mx-auto" style="width: 85%;">
-									<form id="super-easy-form" alt="Form by Super Easy Forms" class="pb-3" action="#">
-										<label for="message" class="small mb-0">message</label>
-										<textarea type="text" class="form-control" id="message" name="message" placeholder="message" required></textarea>	
-										<h5 id="contact-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
-										<button class="btn btn-primary mt-3" type="submit" id="super-easy-btn">Send</button>
+								<div class="p-5 mt-5 bg-primary">
+									<h5 class="h2 text-center pb-4">Anything else you'd like us to consider?</h5>
+									<form id="super-easy-form-suggestion" alt="Form by Super Easy Forms" class="pb-3" action="#">
+										<textarea type="text" style="height: 10rem; font-size: 1.5rem;" class="form-control" id="message" name="message" placeholder="Type something here" required></textarea>	
+										<h5 id="contact-status-suggestion" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
+										<div class="">
+											<button class="btn btn-light py-2 mt-3" type="submit" id="super-easy-btn-register">
+												<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Give Feedback
+											</button>
+										</div>
 									</form>
-									<small>made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
+									<div class="text-right">
+										<small class="">
+											made with
+											<a href="http://supereasyforms.com">
+												<img src="img/SEF-LOGO.svg" width="auto" height="40" alt="">
+											</a> 
+										</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
+									</div>
 								</div>
 							</div>
 						</div>
@@ -368,7 +422,7 @@
 				</section>
 
 			<!-- VISION -->
-			<section id="included" class="bg-light">
+			<section id="vision" class="section bg-white">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
@@ -389,6 +443,19 @@
 						</div>
 					</div>
 				</section>
+
+				<footer class="bg-dark text-center text-white py-4">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6">
+								<p class="text-lg-left">Copyright &copy; Uliantzeff 2018</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="text-lg-right">powered by <a href="http://torus-digital.com">Torus</a></p>
+							</div>
+						</div>
+					</div>
+				</footer>
 
 		<!-- Bootstrap core JavaScript -->
 		<script
@@ -469,7 +536,7 @@
 								},
 								success: function(data) {
 										console.log(data);
-										$('#contact-status-register').text("We'll get back to you soon").show();
+										$('#contact-status-register').text("We'll keep you posted").show();
 										$('#super-easy-form-register :input').removeProp('disabled');
 										$('#super-easy-btn-register').removeProp('disabled');
 								},
@@ -515,7 +582,7 @@
 								},
 								success: function(data) {
 										console.log(data);
-										$('#contact-status-suggestion').text("We'll get back to you soon").show();
+										$('#contact-status-suggestion').text("Thank you for the feedback").show();
 										$('#super-easy-form-suggestion :input').removeProp('disabled');
 										$('#super-easy-btn-suggestion').removeProp('disabled');
 								},
