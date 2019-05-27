@@ -117,3 +117,9 @@ section ul li strong {
   max-width: 140px;
   max-height: 100px
 }
+@media(max-width: 600px) {
+  .container {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
