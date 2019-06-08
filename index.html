@@ -28,14 +28,14 @@
 		<!-- favicon -->
 		<link rel="icon" href="img/sef-favicon.png">
 		<!-- Custom styles for this template -->
-		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="index.min.css">
 
 	</head>
 
 	<body id="page-top" class="text-left">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-expand-lg bg-primary px-5">
+		<nav class="navbar navbar-expand-lg bg-primary px-5" id="mainNav">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
 					<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
@@ -94,7 +94,7 @@
 		<!-- GET STARTED -->
 		<section class="try-it py-5" id="tryit">
 			<div class="row justify-content-center">
-				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main py-3 px-5">
+				<a href="https://github.com/gkpty/super_easy_forms" target="_blank" class="btn btn-lg btn-main py-3 px-5">
 					<i class="fab fa-github h4"></i>
 					Try it Out!
 				</a>
@@ -135,7 +135,7 @@
 							<div class="col-12 text-right">
 								<small class="mx-auto">
 									made with
-									<a href="http://supereasyforms.com">
+									<a href="http://supereasyforms.com" target="_blank">
 										<img src="img/SEF-LOGO.svg" width="auto" height="30" alt="">
 									</a> 
 								</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
@@ -304,7 +304,7 @@
 									<div class="text-right">
 										<small class="">
 											made with
-											<a href="http://supereasyforms.com">
+											<a href="http://supereasyforms.com" target="_blank">
 												<img src="img/SEF-LOGO.svg" width="auto" height="30" alt="">
 											</a> 
 										</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
@@ -353,14 +353,33 @@
 
 		<!-- Bootstrap core JavaScript -->
 		<script
+			async defer
 			src="https://code.jquery.com/jquery-3.4.1.min.js"
 			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			crossorigin="anonymous">
 		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+		<script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 		<!-- Custom scripts for this template -->
-		<script src="index.js"></script>
+		<script async defer src="index.min.js"></script>
 		<!--Javascript-->
+		<script async defer>
+			$(document).ready(function(){
+				// Add scrollspy to <body>
+				$('body').scrollspy({target: ".navbar", offset: 50});   		
+				// Add smooth scrolling on all links inside the navbar
+				$("#mainNav a").on('click', function(event) {
+					if (this.hash !== "") {
+						event.preventDefault();
+						var hash = this.hash;
+						$('html, body').animate({
+							scrollTop: $(hash).offset().top
+						}, 400, function(){
+							window.location.hash = hash;
+						});
+					}
+				});
+			});
+			</script>
 
 		<!-- FEATURES FORM-->
 		

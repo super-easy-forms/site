@@ -1,9 +1,10 @@
 html,body {
-width: 100%;
-height: 100%;
-margin: 0px;
-padding: 0px;
-font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-display: auto;
 }
 input, textarea{
   font-size: 1.3rem !important;
@@ -16,6 +17,9 @@ h1, h2, h3, h4, h5 {
 }
 .nav-link {
   font-family: 'Roboto Mono', monospace;
+}
+nav a:hover {
+  color: #F2F2F2 !important;
 }
 .section-title {
   padding-bottom: 6%;
@@ -98,6 +102,9 @@ section ul li strong {
   background-image: linear-gradient(to right,#ED3E3E , #F25F6D);
   font-family: 'Roboto Mono', monospace;
   border-radius: 0% !important;
+}
+a.btn-main:hover {
+  color: #F2F2F2;
 }
 .nav-link{
   color: #000 !important;
