@@ -14,8 +14,8 @@
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+		<meta name="description" content="A Free and open source tool that helps you create responsive HTML contact forms in an instant.">
+		<meta name="author" content="Torus Digital">
 
 		<title> Super Easy Forms </title>
 		
@@ -28,14 +28,42 @@
 		<!-- favicon -->
 		<link rel="icon" href="img/sef-favicon.png">
 		<!-- Custom styles for this template -->
-		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="index.min.css">
 
 	</head>
 
-	<body id="page-top" class="text-center text-md-left">
+	<body id="page-top" class="text-left">
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+			var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
+			if ("IntersectionObserver" in window) {
+				var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+					entries.forEach(function(video) {
+						if (video.isIntersecting) {
+							for (var source in video.target.children) {
+								var videoSource = video.target.children[source];
+								if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+									videoSource.src = videoSource.dataset.src;
+								}
+							}
+
+							video.target.load();
+							video.target.classList.remove("lazy");
+							lazyVideoObserver.unobserve(video.target);
+						}
+					});
+				});
+
+				lazyVideos.forEach(function(lazyVideo) {
+					lazyVideoObserver.observe(lazyVideo);
+				});
+			}
+		});
+		</script>
+		
 		<!-- Navigation -->
-		<nav class="navbar navbar-expand-lg bg-primary px-5">
+		<nav class="navbar navbar-expand-lg bg-primary px-5" id="mainNav">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
 					<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
@@ -73,8 +101,8 @@
 			</div>
 			<div class="row pt-2">
 				<div class="col-md-7">
-					<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" width="100%">
-						<source src="vid/SEF-intro.mp4" type="video/mp4">
+					<video playsinline autoplay muted loop width="100%" poster="img/SEF-intro.png" class="lazy">
+						<source data-src="vid/SEF-intro.mp4" type="video/mp4">
 					</video>
 					<h3 class="h6 pt-4 ml-1">Serverless backend components are automatically deployed for you and linked to your HTML form.</h3>
 				</div>
@@ -91,10 +119,37 @@
 			</div>
 		</header>
 
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+				if ("IntersectionObserver" in window) {
+					let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+						entries.forEach(function(entry) {
+							if (entry.isIntersecting) {
+								let lazyImage = entry.target;
+								lazyImage.src = lazyImage.dataset.src;
+								lazyImage.srcset = lazyImage.dataset.srcset;
+								lazyImage.classList.remove("lazy");
+								lazyImageObserver.unobserve(lazyImage);
+							}
+						});
+					});
+
+					lazyImages.forEach(function(lazyImage) {
+						lazyImageObserver.observe(lazyImage);
+					});
+				} else {
+					// Possibly fall back to a more compatible method here
+				}
+			});
+		</script>
+	
+
 		<!-- GET STARTED -->
 		<section class="try-it py-5" id="tryit">
 			<div class="row justify-content-center">
-				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main py-3 px-5">
+				<a href="https://github.com/gkpty/super_easy_forms" target="_blank" class="btn btn-lg btn-main py-3 px-5">
 					<i class="fab fa-github h4"></i>
 					Try it Out!
 				</a>
@@ -135,7 +190,7 @@
 							<div class="col-12 text-right">
 								<small class="mx-auto">
 									made with
-									<a href="http://supereasyforms.com">
+									<a href="http://supereasyforms.com" target="_blank">
 										<img src="img/SEF-LOGO.svg" width="auto" height="30" alt="">
 									</a> 
 								</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
@@ -158,7 +213,7 @@
 					</div>
 				</div>
 				<div class="pt-5">
-					<p class="codepen" data-height="500" data-theme-id="0" data-editable="true" data-default-tab="html,result" data-user="gkpty" data-slug-hash="Ezoaxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="super-easy-form">
+					<p class="codepen lazy" data-height="500" data-theme-id="0" data-editable="true" data-default-tab="html,result" data-user="gkpty" data-slug-hash="Ezoaxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="super-easy-form">
 						<span>See the Pen <a href="https://codepen.io/gkpty/pen/Ezoaxa/">
 						super-easy-form</a> by gkpty (<a href="https://codepen.io/gkpty">@gkpty</a>)
 						on <a href="https://codepen.io">CodePen</a>.</span>
@@ -219,7 +274,7 @@
 				</div>
 			</div>
 			<div class="row justify-content-center">
-				<img src="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 80%; ">
+				<img  class="lazy" src="img/placeholder.svg" data-src="img/architecture.svg" data-srcset="img/architecture.svg" alt="AWS architecture diagram of super easy forms" style="height: 100%; width: 80%; ">
 			</div>
 		</section>
 
@@ -291,7 +346,7 @@
 							<div class="col-sm-12">
 								<!-- FORM BY SUPER EASY FORMS -->
 								<div class="p-5 mt-5 bg-primary">
-									<h5 class="h2 text-center pb-4">Anything else you'd like us to consider?</h5>
+									<h5 class="h3 text-center pb-4">Anything else you'd like us to consider?</h5>
 									<form id="super-easy-form-suggestion" alt="Form by Super Easy Forms" class="pb-3" action="#">
 										<textarea type="text" style="height: 10rem; font-size: 1.5rem;" class="form-control" id="message" name="message" placeholder="Type something here" required></textarea>	
 										<h5 id="contact-status-suggestion" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
@@ -304,7 +359,7 @@
 									<div class="text-right">
 										<small class="">
 											made with
-											<a href="http://supereasyforms.com">
+											<a href="http://supereasyforms.com" target="_blank">
 												<img src="img/SEF-LOGO.svg" width="auto" height="30" alt="">
 											</a> 
 										</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
@@ -357,10 +412,28 @@
 			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			crossorigin="anonymous">
 		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+		<script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 		<!-- Custom scripts for this template -->
-		<script src="index.js"></script>
+		<script defer src="index.min.js"></script>
 		<!--Javascript-->
+		<script async defer>
+			$(document).ready(function(){
+				// Add scrollspy to <body>
+				$('body').scrollspy({target: ".navbar", offset: 50});   		
+				// Add smooth scrolling on all links inside the navbar
+				$("#mainNav a").on('click', function(event) {
+					if (this.hash !== "") {
+						event.preventDefault();
+						var hash = this.hash;
+						$('html, body').animate({
+							scrollTop: $(hash).offset().top
+						}, 400, function(){
+							window.location.hash = hash;
+						});
+					}
+				});
+			});
+			</script>
 
 		<!-- FEATURES FORM-->
 		
