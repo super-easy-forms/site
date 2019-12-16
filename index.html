@@ -33,34 +33,6 @@
 	</head>
 
 	<body id="page-top" class="text-left">
-		<script>
-			document.addEventListener("DOMContentLoaded", function() {
-			var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
-
-			if ("IntersectionObserver" in window) {
-				var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-					entries.forEach(function(video) {
-						if (video.isIntersecting) {
-							for (var source in video.target.children) {
-								var videoSource = video.target.children[source];
-								if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-									videoSource.src = videoSource.dataset.src;
-								}
-							}
-
-							video.target.load();
-							video.target.classList.remove("lazy");
-							lazyVideoObserver.unobserve(video.target);
-						}
-					});
-				});
-
-				lazyVideos.forEach(function(lazyVideo) {
-					lazyVideoObserver.observe(lazyVideo);
-				});
-			}
-		});
-		</script>
 		
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg bg-primary px-5" id="mainNav">
@@ -118,33 +90,6 @@
 				</div>
 			</div>
 		</header>
-
-		<script>
-			document.addEventListener("DOMContentLoaded", function() {
-				var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-				if ("IntersectionObserver" in window) {
-					let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-						entries.forEach(function(entry) {
-							if (entry.isIntersecting) {
-								let lazyImage = entry.target;
-								lazyImage.src = lazyImage.dataset.src;
-								lazyImage.srcset = lazyImage.dataset.srcset;
-								lazyImage.classList.remove("lazy");
-								lazyImageObserver.unobserve(lazyImage);
-							}
-						});
-					});
-
-					lazyImages.forEach(function(lazyImage) {
-						lazyImageObserver.observe(lazyImage);
-					});
-				} else {
-					// Possibly fall back to a more compatible method here
-				}
-			});
-		</script>
-	
 
 		<!-- GET STARTED -->
 		<section class="try-it py-5" id="tryit">
@@ -213,12 +158,11 @@
 					</div>
 				</div>
 				<div class="pt-5">
-					<p class="codepen lazy" data-height="500" data-theme-id="0" data-editable="true" data-default-tab="html,result" data-user="gkpty" data-slug-hash="Ezoaxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="super-easy-form">
+					<p class="codepen lazy"  data-height="500" data-theme-id="0" data-editable="true" data-default-tab="html,result" data-user="gkpty" data-slug-hash="Ezoaxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="super-easy-form">
 						<span>See the Pen <a href="https://codepen.io/gkpty/pen/Ezoaxa/">
 						super-easy-form</a> by gkpty (<a href="https://codepen.io/gkpty">@gkpty</a>)
 						on <a href="https://codepen.io">CodePen</a>.</span>
 					</p>
-					<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 				</div>
 		</section>
 
@@ -412,6 +356,60 @@
 			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			crossorigin="anonymous">
 		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+			var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+			if ("IntersectionObserver" in window) {
+				var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+					entries.forEach(function(video) {
+						if (video.isIntersecting) {
+							for (var source in video.target.children) {
+								var videoSource = video.target.children[source];
+								if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+									videoSource.src = videoSource.dataset.src;
+								}
+							}
+
+							video.target.load();
+							video.target.classList.remove("lazy");
+							lazyVideoObserver.unobserve(video.target);
+						}
+					});
+				});
+
+				lazyVideos.forEach(function(lazyVideo) {
+					lazyVideoObserver.observe(lazyVideo);
+				});
+			}
+		});
+		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+				if ("IntersectionObserver" in window) {
+					let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+						entries.forEach(function(entry) {
+							if (entry.isIntersecting) {
+								let lazyImage = entry.target;
+								lazyImage.src = lazyImage.dataset.src;
+								lazyImage.srcset = lazyImage.dataset.srcset;
+								lazyImage.classList.remove("lazy");
+								lazyImageObserver.unobserve(lazyImage);
+							}
+						});
+					});
+
+					lazyImages.forEach(function(lazyImage) {
+						lazyImageObserver.observe(lazyImage);
+					});
+				} else {
+					// Possibly fall back to a more compatible method here
+				}
+			});
+		</script>
+		
 		<script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 		<!-- Custom scripts for this template -->
 		<script defer src="index.min.js"></script>
@@ -434,6 +432,7 @@
 				});
 			});
 			</script>
+			<script async defer src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 		<!-- FEATURES FORM-->
 		
