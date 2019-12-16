@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">    
+
+    <!--custom stylesheets -->
+
+    <link href="css/almost.css" rel="stylesheet">
+    <link href="css/ghost.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+  <title>Almost CMS</title>
+  </head>
+
+  <body id="page-top">
+      <div class="d-lg-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="mobibar" id="sidebar-wrapper">
+          <div class="">
+            <div class="list-group list-group-flush">
+              <div class="dropdown list-group-item p-0">
+                <button class="dropbtn" name="intro-dropdown">Introduction
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="intro-dropdown">
+                  <a href="#background"><span>Background</span></a>
+                  <a href="#what-is-super-easy-forms-"><span>The Tool</span></a>
+                </div>
+              </div>
+              <a href="#what-is-new-in-version-2-0" class="list-group-item list-group-item-action">New Features</a>
+              <div class="dropdown list-group-item p-0">
+                <button class="dropbtn" name="app-dropdown">Installation
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="app-dropdown">
+                  <a href="#pre-requisites"><span>Pre Requisites</span></a>
+                  <a href="#installation"><span>Installation</span></a>
+                  <a href="#setup"><span>Setup</span></a>
+                  
+                  
+                  <div class="sub-dropdown">
+                      <button class="dropbtn" name="app-amplify-dropdown"><span>AWS Amplify</span>
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content" id="app-amplify-dropdown">
+                        <a href="#app-amplify-authentication"><span>Authentication</span></a>
+                        <a href="#app-amplify-storage"><span>Storage</span></a>
+                        <a href="#app-amplify-api"><span>API</span></a>
+                        <a href="#app-amplify-deployment"><span>Deployment</span></a>
+                      </div>
+                  </div>
+                  <div class="sub-dropdown">
+                      <button class="dropbtn" name="app-react-dropdown"><span>React Components</span>
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content" id="app-react-dropdown">
+                        <a href="#app-react-addToStorage"><span>AddToStorage</span></a>
+                        <a href="#app-react-copyToBucket"><span>CopyToBucket</span></a>
+                        <a href="#app-react-createItemIndex"><span>CreateItemIndex</span></a>
+                        <a href="#app-react-AddItem"><span>Deployment</span></a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+             
+              <a href="#" class="list-group-item list-group-item-action">Events</a>
+              <a href="#" class="list-group-item list-group-item-action">Profile</a>
+              <a href="#" class="list-group-item list-group-item-action">Status</a>
+            </div>
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+    
+        <!-- Navigation -->
+
+        
+        <!-- Navigation -->
+		<nav class="navbar navbar-expand-lg fixed-top bg-primary px-5">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-2x fa-bars"></span>
+				</button>
+			
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto navbar-right">
+						<li class="nav-item active">
+							<a class="nav-link" href="#features">Features <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#how-it-works">How it works</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#roadmap">Roadmap</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#vision">Vision</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="docs.html">Docs</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+        <!--  BODY -->
+      <div class="container" style="padding-top: 10rem;">
+        <h1 id="super-easy-forms-documentation">Super Easy Forms Documentation</h1>
+
+        <h2 id="background">Background</h2>
+        <p>In the last couple of years with the introduction of AWS lambda and the other kubernetes-based FAAS platforms static websites have been becoming more useful as we are able to bypass most of their pains such as adding a contact form. At Torus Digital we design/develop custom static websites and we built and use super easy forms to make all of our web forms. we hope you find it useful :)</p>
+        
+        <h2 id="what-is-super-easy-forms-">What is super easy forms?</h2>
+        <p>Its a tool that generates serverless web forms (front-end and back-end) in seconds. Now Featuring increased usability, security, and flexibility with the release of version 2.0. It leverages <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> templates to create all of your necessary resources in the AWS cloud including a A Dynamo DB table, an API Gateway endpoint, and a lambda function. It also automatically generates a ready-to-go html contact form that you can copy-paste into your site. the tool is very easy to use and completely free as all the AWS resources created have a <a href="https://aws.amazon.com/free/">free tier</a>.</p>
+        
+        <h2 id="new-features-in-version-2-0">New features in version 2.0</h2>
+        <ul>
+          <li><strong>Updated to node 10.X</strong></li>
+          <li><strong>Easier installation</strong> Built in commands have been added to further facilitate installation/configuration/setup</li>
+          <li><strong>Documentation:</strong> Detailed documentation includes an API method glossary, CLI commands and everything else you need to use/integrate/collaborate with super-easy-forms.</li>
+          <li><strong>Support for multiple Forms:</strong> Create and monitor as many forms as you want.</li>
+          <li><strong>Export your form submissions:</strong> Command that lets you export the database table of your form as either JSON or CSV.</li>
+          <li><strong>Reusable methods:</strong> Easily integrate super-easy-forms into your own project or build your own workflows using components from super-easy-forms.</li>
+          <li><strong>Local config files:</strong> Allow you to easily monitor and update each of your forms</li>
+          <li><strong>Independent multi CLI:</strong> A separate package (<a href="https://github.com/gkpty/super-easy-forms-cli">super-easy-forms-cli</a>) with multiple commands that have several options and flags allowing you to customize and create/update/delete any of the components in a form individually or together.</li>
+          <li><a href="https://aws.amazon.com/cloudformation/"><strong>CloudFormation</strong></a> <strong>template:</strong> Easily keep track of the multiple AWS resources for each one of your forms. You can also modify the templates directly to customize the resources in your form.</li>
+          <li><strong>Input sanitation:</strong> Uses an AWS API Gateway Model and API validator to insure that the parameters supplied are the correct ones before the call even reaches the lambda function.</li>
+          <li><strong>Support for all html types:</strong> Check <a href="https://www.w3schools.com/html/html_form_input_types.asp">W3schools</a> for a list of all the valid html types</li>
+          <li><strong>Support for html select with options:</strong> Add Select lists to your form and supply the options
+          <strong>**- </strong>Support for required attributes:** Choose which fields in your form you want to make required</li>
+          <li><strong>Smart labels:</strong> The parser will read your input fields and create labels for you by separating camel cased values and sepparating dashes/underscores and capitalizing first letters. E.g. first_name → First Name or  firstName → First Name</li>
+          <li><strong>Optional</strong> <a href="https://developers.google.com/recaptcha/intro"><strong>reCAPTCHA</strong></a><strong>:</strong> Add Google’s ReCaptcha v2 to your contact form to insure that requests are only coming in from a trusted source i.e. your website and that the users submitting it are indeed humans.</li>
+       </ul>
+       
+       <h2 id="pre-requisites">Pre-requisites</h2>
+       <ul>
+        <li>Make sure you have node.js (10.x +) and npm installed. You can checkout this <a href="https://medium.com/@lucaskay/install-node-and-npm-using-nvm-in-mac-or-linux-ubuntu-f0c85153e173">tutorial</a> to install npm and node in mac, linux (debian/ubuntu).</li>
+        <li><p>You need to have an AWS account. If you don't have one, you can easily create one <a href="https://portal.aws.amazon.com/billing/signup?#/start">here</a>. Dont worry, its free!</p>
+       </ul>
+       
+       <h2 id="installation">Installation</h2>
+       <ol>
+        <li><p>Create a a new directory for yournew super easy forms project. </p>
+        </li>
+        <li>Install super easy forms with npm. <code>npm install super-easy-forms</code></li>
+        <li>Install the super easy forms CLI with npm. <code>npm install -g super-easy-forms-cli</code></li>
+       </ol>
+       
+       <h2 id="setup">Setup</h2>
+       <ol>
+        <li><strong>Create the necesary local files</strong> Run <code>$ sef build</code> from the root of the project.</li>
+        <li><strong>Create an IAM user with administrator access.</strong> you can use the <code>sef iam profilename -c</code> command replacing profilename for the desired name of your IAM user. hold on to the access Id and secret key displayed.</li>
+        <li><strong>Update the local profile in your machine.</strong> The local profiles are stored in <code>~/.aws/credentials</code> in mac/linux or in <code>C:\Users\USER_NAME\.aws\credentials</code> in windows. you can create/edit this file by runing <code>sudo nano ~/.aws/credentials</code> or something similar. add the profile keys in the format shown bellow and save the file.
+        <pre><code>
+            [profilename]
+            aws_access_key_id = <YOUR_ACCESS_KEY_ID>
+            aws_secret_access_key = <YOUR_SECRET_ACCESS_KEY>
+        </code></pre>
+        <li>*Optionally you can add the IAM user’s credentials directly in the .env w/o creating the local profile.</li>
+        <pre><code>
+            AWS_ACCESS_KEY_ID=your-access-key
+            AWS_SECRET_ACCESS_KEY=your-secert-access-key 
+        </code></pre>
+       <li>Add your AWS region to the next line of the .env file <code>AWS_REGION=us-east-1</code>. refer to the table bellow for a list of valid AWS regions.
+      </ol>
+       <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+            <th><strong>Region Name</strong></th>
+            <th><strong>Region</strong></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>US East (Ohio)</td>
+            <td>us-east-2</td>
+            </tr>
+            <tr>
+            <td>US East (N. Virginia)</td>
+            <td>us-east-1</td>
+            </tr>
+            <tr>
+            <td>US West (N. California)</td>
+            <td>us-west-1</td>
+            </tr>
+            <tr>
+            <td>US West (Oregon)</td>
+            <td>us-west-2</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Hong Kong)</td>
+            <td>ap-east-1</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Mumbai)</td>
+            <td>ap-south-1</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Osaka-Local)</td>
+            <td>ap-northeast-3</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Seoul)</td>
+            <td>ap-northeast-2</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Singapore)</td>
+            <td>ap-southeast-1</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Sydney)</td>
+            <td>ap-southeast-2</td>
+            </tr>
+            <tr>
+            <td>Asia Pacific (Tokyo)</td>
+            <td>ap-northeast-1</td>
+            </tr>
+            <tr>
+            <td>Canada (Central)</td>
+            <td>ca-central-1</td>
+            </tr>
+            <tr>
+            <td>China (Beijing)</td>
+            <td>cn-north-1</td>
+            </tr>
+            <tr>
+            <td>China (Ningxia)</td>
+            <td>cn-northwest-1</td>
+            </tr>
+            <tr>
+            <td>EU (Frankfurt)</td>
+            <td>eu-central-1</td>
+            </tr>
+            <tr>
+            <td>EU (Ireland)</td>
+            <td>eu-west-1</td>
+            </tr>
+            <tr>
+            <td>EU (London)</td>
+            <td>eu-west-2</td>
+            </tr>
+            <tr>
+            <td>EU (Paris)</td>
+            <td>eu-west-3</td>
+            </tr>
+            <tr>
+            <td>EU (Stockholm)</td>
+            <td>eu-north-1</td>
+            </tr>
+            <tr>
+            <td>Middle East (Bahrain)</td>
+            <td>me-south-1</td>
+            </tr>
+            <tr>
+            <td>South America (Sao Paulo)</td>
+            <td>sa-east-1</td>
+            </tr>
+            <tr>
+            <td>AWS GovCloud (US-East)</td>
+            <td>us-gov-east-1</td>
+            </tr>
+            <tr>
+            <td>AWS GovCloud (US-West)</td>
+            <td>us-gov-west-1</td>
+            </tr>
+          </tbody>
+        </table>
+       
+        <h2 id="usage">Usage</h2>
+       <pre><code>
+         USAGE FUNCTION
+       </code></pre>
+       
+       <h2 id="quick-start">Quick start</h2>
+       <ol>
+        <li>open up the terminal and go to the root of your project  <code>$ cd your-project-name</code></li>
+        <li>run the command bellow</li>
+        <li>Copy-paste the created form directly into your static website’s body wherever you want it.</li>
+        <li>Customize it however you want.</li>
+       </ol>
+       <pre><code>
+         $ sef fullform formname --email=your@email.com --fields=fullName=text=required,email=email=required,paymentMethod=select=required=visa/master_card/cash,paymentAmount=number=required --recipients=recipient1@email.com,recipient2@email.com
+        </code></pre>
+      <p>*This command creates the stack and the html for a form called formname. the form will have the fields Full Name, Email, Payment method (with options Visa, Master Card, or Cash) and payment amount. Whenever someone submits the form an email will be sent from your@email.com to recipient1@email.com and recipient2@email.com.</p>
+       <h2 id="optional-arguments-callbacks">Optional Arguments & Callbacks</h2>
+       <p>All forms will generate a folder for that form within your project. this folder will contain the forms config.json file which keeps track of all of that form’s variables.</p>
+       <p>All of the super easy form commands make use of optional arguments and optional callbacks. if a required argument isn’t supplied to one of the methods that method will check the form`s local config file and use the value stored there. if the argument isn&#39;t provided in params and isn&#39;t found in the form’s config the method will output an error.</p>
+       <p>All methods have the <code>function(formName, options, callback)</code> format and all  the callbacks have the <code>function(err,data)</code></p>
+       <p>Optional callbacks allow you to use any of the methods synchronously or asynchronously. If a callback isn’t provided methods will return the data value or throw an error in the case of an error. If you don’t provide any options you can provide the callback as the second argument.</p>
+       <h2 id="project-structure">Project structure</h2>
+       <p>At the root of the project you will find the </p>
+       <ul>
+        <li>settings.json</li>
+        <li>forms/<ul>
+        <li>form-name/<ul>
+        <li>config.json</li>
+        <li>template.json</li>
+        <li>form-name.html</li>
+        <li>lambdaFunction.js</li>
+       </ul>
+       </li>
+       </ul>
+       </li>
+       <li>.env</li>
+       <li>gitignore</li>
+       <li>node_modules<ul>
+       <li>super_easy_forms<ul>
+       <li>index.js</li>
+       <li>build.js</li>
+       <li>.travis.yml</li>
+       <li>LICENSE</li>
+       <li>README</li>
+       <li>modules<ul>
+       <li>Config.js</li>
+       <li>CreateForm.js</li>
+       <li>CreateIamUser.js</li>
+       <li>CreateLambda.js</li>
+       <li>CreateStack.js</li>
+       <li>CreatTemplate.js</li>
+       <li>GetApiUrl.js</li>
+       <li>Internalmodules.js</li>
+       <li>SesEmail.js</li>
+       <li>ValidateTemplate.js</li>
+       </ul>
+       </li>
+       </ul>
+       </li>
+       </ul>
+       </li>
+       </ul>
+       <h2 id="config-file-structure">Config file Structure</h2>
+       <pre><code>{
+         <span class="hljs-attr">"email"</span>:<span class="hljs-string">""</span>,
+         <span class="hljs-attr">"recipients"</span>:[],
+         <span class="hljs-attr">"formFields"</span>:{},
+         <span class="hljs-attr">"stackId"</span>:<span class="hljs-string">""</span>,
+         <span class="hljs-attr">"endPointUrl"</span>:<span class="hljs-string">""</span>
+       }
+       </code></pre><h2 id="the-lambda-function">The Lambda Function</h2>
+       <ol>
+       <li>The lambda function will receive a JSON object with all the fields to be submitted.</li>
+       <li>It will then format the fields to be stored in dynamoDB and call the dynamoDB put item to save the item.</li>
+       <li><p>If this operation is successful it will send an email using SES to the desired recipients.
+       
+       <pre><code> 
+         LAMBDA FUNCTION
+       </code></pre>
+
+       </li>
+       </ol>
+       <h2 id="the-cloudformation-template">The CloudFormation Template</h2>
+       <p>AWS CloudFormation is a IaC (Infrastructure as code) service from AWS that allows you to define stacks composed of AWS resources in a JSON or YAML file called a cloudformation template. This makes it easy to keep track of the multiple resources used in the super easy forms stack. The cloudformation template is stored in each form’s directory in the file template.json.</p>
+       <p><img src="https://paper-attachments.dropbox.com/s_B70B5B93F7E2794EC706951FA6D762D4D2818CCCBBF59F7D45472AC441AABAE2_1576391819245_template1-designer.png" alt="Diagram exported from AWS CloudFormation Designer"></p>
+       
+       <h2 id="the-form-generator">The Form Generator</h2>
+       <p>The parseFields function takes in a string in the follwoign format <code>--fields=fullName=text=required,email=email=required,paymentMethod=select=required=visa/master_card/cash,paymentAmount=number=required</code> and converts it to a JSON object with the format shown bellow to be stored in the forms config file and passed to the createForm function. The createForm function takes in a JSON object and outputs an HTML contact with bootstrap and all the necessary jQuery scripts. Ready to copy paste into your site. you can add labels/placeholders automatically and provide options for things like required fields, different html types and many other things. The HTML form is completely customizable as it is pure HTML; no iframes 🙂 </p>
+       <pre><code>
+          THE FORMFIELDS
+       </code></pre>
+       
+       <h2 id="registering-emails">Registering emails</h2>
+        <p>In the config.json file are the general configurations for supereasyforms. Here all of your emails will be stored and your default settings will be set for when a form is created. Here you will store all of your emails and your default email provider. You will store all of your email-alias pairs </p>
+        <p><strong>SES emails</strong>: SES allows you to send emails programmatically using any email provider (gmail included). If you have another email client that is not gmail this is a good option for you. (it might have costs associated but its pretty cheap)</p>
+        <ul>
+        <li>Run the register email command <code>sef addemail alias provider</code> use ses for provider</li>
+        </ul>
+        <p>This will run the AWS sdk command to add your desired email to SES and will prompt you to confirm the SES email and then will add your email to the email config and will set the email config option to SES in your config file.</p>
+        <p><strong>Gmail emails:</strong> each gmail email consists of a different account and needs different API keys:</p>
+        <ul>
+        <li>To reister your API keys for a new gmail email please follow this link</li>
+        <li>Then you need to provide the new email in your config and provide the new API public and private keys in the .ENV file replace alias with your emails alias. Your private keys need to be saved in the following format
+          alias_EMAIL_PUBLIC:
+          alias_EMAIL_SECRET:</li>
+        </ul>
+        <p>Then you can run the command <code>sef addemail alias provider</code> use gmail for provider. This will check that you have created the required keys and will add your email address to the email config and will set the email config option to gmail in your config file.</p>
+        <p>By default a contact form will send emails to the same sender email. To send email to other contacts you provide the recipients flag --recipients or -r. This will prompt you to enter all the email adresses you want to send email to. Then your lambda function will be created to send emails to those adresses.</p>
+        
+        <h2 id="recaptcha">ReCAPTCHA</h2>
+        <p>Super easy forms allows you to easily integrate google recapcha into your contact forms.</p>
+        <p>Before being able to use the recapcha option/flag make sure you have signed up for a reCapcha key pair. <a href="http://www.google.com/recaptcha/admin/create">sign up for an API key pair</a>\</p>
+        <p>Then you must add </p>
+        <p>If you are adding reCaptcha to a form that you are updating; make sure to also update your lambda function and cloudformation templates. </p>
+       
+        <h2 id="api-glossary">API Glossary</h2>
+       <ol>
+       <li>GetSubmissions(formName, callback)<ol>
+       <li>formName: the name of the form</li>
+       </ol>
+       </li>
+       <li>ExportSubmission(formName, format, callback)<ol>
+       <li>formName: the name of the form</li>
+       <li>format: the format of your export. csv | json</li>
+       </ol>
+       </li>
+       <li>CreateForm(formName, options, callback) <ol>
+       <li>options = {&quot;endpointUrl&quot;:&quot;&quot;, &quot;formFields&quot;:{}}</li>
+       </ol>
+       </li>
+       <li>CreateLambdaFunction(formName, options, callback)</li>
+       <li>CreateTemplate</li>
+       <li>ValidateTemplate</li>
+       <li>CreateStack</li>
+       <li>UpdateStack</li>
+       <li>DeleteStack</li>
+       <li>GetApiUrl </li>
+       <li>VerifyDefaultEmail</li>
+       <li>SesEmail</li>
+       <li>VerifySesEmail</li>
+       <li>ValidateSesEmail</li>
+       <li>CreateIamUser</li>
+       <li>//UpdateAwsProfile</li>
+       <li>//UpdateAwsRegion</li>
+       <li>ParseFields</li>
+       <li>AddConfigVariable</li>
+       <li>Build </li>
+       <li>CreateLabel</li>
+       <li>FormSetup</li>
+       </ol>
+       <ol>
+       <li><strong>addVar(formName, variable, value):</strong> add a variable to the config file of a form.</li>
+       <li><strong>CheckEmail(formName, email):</strong> Validate email address w/ regex</li>
+       <li><strong>VerifyDefaultEmail():</strong> verifies a default email to be used with SES and adds it to the settinggs file defaults section</li>
+       <li><strong>VerifySesEmail():</strong> verifies a new email identity to be used with AWS SES and adds it form config. if the email hasnt been added before it also adds it to the eamil section.</li>
+       <li><strong>ValidateSesEmail(formName, email):</strong> returns the sesArn if the email has been confirmed. If the email hasnt been confirmed it returns false. Confirms that your email vas been verified by SES</li>
+       <li><strong>ValidateConfig</strong></li>
+       <li><strong>ValidateTemplate</strong></li>
+       <li><strong>addFormFields:</strong> parses an array of form fields from input into a JSON object stored in the form config file.</li>
+       <li><strong>ValidateProfile</strong></li>
+       <li><strong>createIAMuser(profile)</strong></li>
+       <li><strong>createLambdaFunction(formName, options, callback)</strong>: creates a lambda function and saves it as a js file in the form folder. returns the function body as a string. optionally zips the lambda function in the desired folder to make a deployment package.<ol>
+       <li><strong>formName:</strong> String: the name of the form </li>
+       <li><strong>options:</strong> JSON Object: has the follwoing format  <code>{sourceEmail: STRING, formFields: OBJECT}</code><ol>
+       <li><strong>sourceEmail:</strong> String: a valid email address that has been verified with AWS SES to send email.</li>
+       <li><strong>formFields:</strong> JSON Object: must have the following format depicted bellow</li>
+       </ol>
+       </li>
+       </ol>
+       </li>
+       <li><strong>updateLambdaFunction():</strong> Updates the cloudformation template to include the new lambda function in its body.</li>
+       <li><strong>createTemplate(formName, options, callback):</strong> creates a cloudformation template for your form. You can then customize the template for the form and deploy it using deploy stack<ol>
+       <li><strong>options:</strong> JSON Object: has the follwoing format  <code>{emailArn: STRING, formFields: OBJECT}</code><ol>
+       <li><strong>emailArn:</strong> String: a valid Arn (AWS resource name) for the email identity registered with SES</li>
+       <li><strong>formFields:</strong> JSON Object: must have the following format depicted bellow</li>
+       <li><strong>lambdaFunction:</strong> String: contains the body of the lambda function as a string</li>
+       </ol>
+       </li>
+       </ol>
+       </li>
+       <li><strong>createStack(formName, templateBody, callback):</strong> deploys the stack for the generated template. Saves the stackArn and the API endpoint URL. return the API endpoint url. </li>
+       <li><strong>updateStack(formName, lambdaFunction):</strong> updates the stack for a generated template. if lambdaFunction parameter is set to true it will replace the lambda function with the contents of the lambdafunction.js file in the form’s config file.</li>
+       <li><strong>getEndPoint(stackName, callback):</strong> get the API endpoint</li>
+       <li><strong>createForm(formName, options, callback):</strong> generates a form according to formFields supplied in options or from the form config.<ol>
+       <li>formName: String: the name of the form </li>
+       <li>options: JSON Object: has the follwoing format  <code>{enpointUrl: STRING, formFields: OBJECT}</code><ol>
+       <li>url must be a valid API Gateway Endpoint URL</li>
+       <li>the <code>fields</code> object must have the following format depicted bellow
+       &quot;fields&quot;:{
+       &quot;firstName&quot;: {
+          &quot;type&quot;:&quot;text&quot;, 
+          &quot;label&quot;:&quot;First Name&quot;,
+          &quot;required&quot;: true
+        },
+       &quot;lastName&quot;: {
+          &quot;type&quot;:&quot;text&quot;, 
+          &quot;label&quot;:&quot;Last Name&quot;,
+          &quot;required&quot;: true
+        },
+       &quot;paymentOptions&quot;: {
+          &quot;type&quot;:&quot;select&quot;, 
+          &quot;label&quot;: &quot;Payment Options&quot;,
+          &quot;required&quot;: true, 
+          &quot;options&quot;:{<pre><code>   <span class="hljs-string">"visa"</span>:<span class="hljs-string">"Visa"</span>, 
+          <span class="hljs-string">"mastercard"</span>:<span class="hljs-string">"Master Card"</span>, 
+          <span class="hljs-string">"cash"</span>:<span class="hljs-string">"Cash"</span>
+        }
+       </code></pre> },
+       &quot;email&quot;: {&quot;type&quot;:&quot;email&quot;, &quot;label&quot;:&quot;email&quot;},
+       &quot;message&quot;:{&quot;type&quot;:&quot;textarea&quot;, &quot;label&quot;:&quot;Message&quot;}
+       }</li>
+       </ol>
+       </li>
+       </ol>
+       </li>
+       <li><strong>createStackWithForm(formName, fromFields, callback):</strong> generates the stack and the contact form. returns the html form, ready to use with the url.</li>
+       <li><strong>getContacts(formName):</strong> outputs a json file with the contacts in the console</li>
+       <li><strong>exportContacts(formName):</strong> exports the contacts for the desired form as a CSV file</li>
+       </ol>
+       <h2 id="cli-commands">CLI Commands</h2>
+       <ol>
+       <li><strong>build</strong></li>
+       <li><strong>iam</strong> user<ol>
+       <li>--new → -n → creates a new IAM user and adds his profile to .env</li>
+       </ol>
+       </li>
+       <li><strong>email</strong> form fromaddress toaddresses<ol>
+       <li>form: the name of the form</li>
+       <li>--fromaddress → -f → the email address you want to send the emails with</li>
+       <li>--toadress → -t → the email addresses which you want to recieve email. if none are supplied the emails will be sent from the fromaddress to the fromaddress.</li>
+       <li>--validate → -v → defaults to true. will verify the email w/ AWS SES before adding to config.</li>
+       <li>--new → -n → verifies the new email w/ AWS SES before sending you the mail.</li>
+       <li>--provider → -p →the demail provider SES | GMAIL. defaults to SES.</li>
+       </ol>
+       </li>
+       <li><strong>form</strong> name<ol>
+       <li><strong>name</strong>: the name of the form</li>
+       <li><strong>--fields</strong> → -f → desired form fields. must be a string sepparated by commas were each formfiled has the followinmg format formFieldName=formFieldType=required. check out the example bellow</li>
+       <li><strong>--labels</strong> → -l → automatically generate labels and placeholders for your form. will seppearate camelcased values or values epparated by - or _ and capitalize all the first letters. <strong>e.g.</strong> <code>firstName → First Name</code> or <code>first_name → First Name</code></li>
+       <li><strong>--url</strong> → -u → a custom url endpoint for your form. 
+       firstName=text=required,lastName=text,email=email=required,message=textarea=required`</li>
+       </ol>
+       </li>
+       <li><strong>lambda name</strong> <ol>
+       <li>--attach → -a → attaches the generated lambda function to the cloudformation template if one exists.</li>
+       </ol>
+       </li>
+       <li><strong>stack</strong><ol>
+       <li>--generate→ -g → create/replace a cloudformation template for your form</li>
+       <li>--lambda → -l → will automatically generate a lambda function based on supplied params. defaults to false. and uses the lambda function already saved in the form folder.</li>
+       <li>--update → -u → updates the value for a spicified param in the cloudformation template. -u=variable=value</li>
+       </ol>
+       </li>
+       <li><strong>deploy</strong> form <ol>
+       <li>--create → -c → creates a new deployment</li>
+       <li>--update → -u → updates an already deployed stack</li>
+       </ol>
+       </li>
+       <li><strong>fullform</strong> formName <ol>
+       <li>--fields → -f →</li>
+       <li>--deploy → -d → automatically deploys the form. defaults to true.</li>
+       <li>--email</li>
+       </ol>
+       </li>
+       <li><strong>var</strong> form variable<ol>
+       <li>--check → -c → returns the value of the variable saved in config file of formName</li>
+       <li>--add → -a → adds a variable to the cofnig file of formName</li>
+       <li>--remove → -r → adds a variable to the cofnig file of formName</li>
+       <li>--value → -v → supplies the value of the variable</li>
+       </ol>
+       </li>
+       <li><strong>subs</strong> form<ol>
+       <li>--list → -l → outputs all form submissions to the terminal</li>
+       <li>--export → -e → downloads a file with all form submissions for the form name</li>
+       <li>--format → -f → the format to export in. defaults to CSV.</li>
+       </ol>
+       </li>
+       </ol>
+       <h2 id="tests">Tests</h2>
+       <ol>
+       <li>Email<ol>
+       <li>verifyDefaultEmail(): returns “Success” → needs AWS SDK mock<ol>
+       <li>if email is valid, should add an email to the defaults section of the general settings file.</li>
+       </ol>
+       </li>
+       <li>verifySesEmail(): returns true or false → need AWS SDK mock<ol>
+       <li>if email is valid, should add an email to the formName config file with the value of the email</li>
+       </ol>
+       </li>
+       </ol>
+       </li>
+       <li>CreateForm(): returns an html form body as a string<ol>
+       <li>the body of the form returned should match the form created in the form’s config file.</li>
+       <li>the form should be created with the form fields supplied in the options if the options are supplied. </li>
+       <li>if a callback is supplied in the second argument it should execute.</li>
+       </ol>
+       </li>
+       <li>CreateLambda(): returns html with the lambda form or the s3 bucket address in case of zip deployment<ol>
+       <li>the body of the form returned should match the form created in the form’s config file.</li>
+       <li>the form should be created with the form fields supplied in the options if the options are supplied. </li>
+       <li>if a callback is supplied in the second argument it should execute.</li>
+       </ol>
+       </li>
+       <li>CreateTemplate(): returns an html string with the template body → need AWS SDK and AWS SDK mock<ol>
+       <li>must run the verify email operation for the template. if an email is supplied in options it will add that email to config and will verify that email instead.</li>
+       <li>Check format of FormModel and RequiredFields</li>
+       <li>the body of the function returned should match the form created in the form’s config file.</li>
+       <li>the function body should be created with the form fields supplied in the options if the options are supplied. </li>
+       <li>if a callback is supplied in the second argument it should execute.</li>
+       <li>the template that gets built should be a valid cloudformation template</li>
+       <li><del>if zip folder is used verify that the contnets of a zip folder are an appropriate node js or python package</del></li>
+       </ol>
+       </li>
+       <li>CReateIam() <ol>
+       <li>returns a url as a string</li>
+       <li>validate the url with regex</li>
+       <li>make sure the environment variables are added or replaced.</li>
+       </ol>
+       </li>
+       <li></li>
+       <li>CreateStack() → need AWS sdk mock<ol>
+       <li>returns: “Success”</li>
+       <li>the function body should be created from the template in file if a template body is not supplied.</li>
+       <li>if a callback is supplied in the second argument it should execute.</li>
+       </ol>
+       </li>
+       </ol>
+       <h2 id="errors">Errors</h2>
+       <p>API Errors:</p>
+       <ul>
+       <li>Inconsistent with model</li>
+       <li>API request validation failed</li>
+       </ul>
+       <p>Lambda  errors:</p>
+       <ul>
+       <li>Incompatible object (not JSON)</li>
+       <li>Error. External API returned an invalid response</li>
+       <li>Error. You must solve the correct ReCaptcha challenge to submit</li>
+       <li>Error saving to dynamoDB</li>
+       <li>Error sending email</li>
+       </ul>
+       <h2 id="troubleshooting-steps">Troubleshooting steps</h2>
+       <p>If your commands fail for some reason after a modification of the super easy forms code, you can follow any of these steps to troubleshoot.</p>
+       <ol>
+       <li>Validate your cloud formation template</li>
+       </ol>
+       <p>you can use the validateTemplate() command or use the AWS CLI</p>
+       <pre><code>$ aws cloudformation validate-<span class="hljs-keyword">template</span> --<span class="hljs-keyword">template</span>-<span class="hljs-keyword">body</span> file:<span class="hljs-comment">//forms/testform/template.json</span>
+       </code></pre><ol>
+       <li>Test the lambda function by using the test feature</li>
+       <li>Test the API by using curl using the AWS CLI 
+        curl -d &#39;{&quot;id&quot;:&quot;&quot;, &quot;firstName&quot;:&quot;john&quot;,&quot;lastName&quot;:&quot;doe&quot;, &quot;email&quot;:&quot;johndoe@email.com&quot;, &quot;message&quot;:&quot;hello world&quot;}&#39; -H &#39;Content-Type: application/json&#39; <a href="https://your-api-url">https://your-api-url</a></li>
+       <li>Test your API from an external form: insure that CORS is properluy enabled in your API</li>
+       </ol>
+       <p>generate a form for your API and try submitting. check out the console in google chrome for any errors.</p>
+      </div>
+      <!-- Footer -->
+      <footer class="bg-primary py-5" style="z-index: 5;">
+        <div class="container-fluid">
+          <div class="row small text-center text-muted">
+            <div class="col-md-6">
+              <div>Copyright &copy; 2019 - Almost CMS</div>
+            </div>
+            <div class="col-md-6">
+              <div> Powered By <a href="http://torus.digital">Almost CMS</a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/ghost.js"></script>
+    <!-- Optional JavaScript -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
