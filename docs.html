@@ -15,7 +15,7 @@
     <link href="css/ghost.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
-  <title>Almost CMS</title>
+  <title>Super Easy Forms Docs</title>
   </head>
 
   <body id="page-top">
@@ -282,7 +282,22 @@
        
         <h2 id="usage">Usage</h2>
        <pre><code>
-         USAGE FUNCTION
+          const SEF = require('super-easy-forms')
+
+          SEF.CreateForm(formName, options, function(err, data){
+            if(err) console.error(err)
+            else{
+              //Do Something
+            }
+          })
+          const SEF = require('super-easy-forms')
+
+          SEF.CreateForm(formName, options, function(err, data){
+            if(err) console.error(err)
+            else{
+              //Do Something
+            }
+          })
        </code></pre>
        
        <h2 id="quick-start">Quick start</h2>
@@ -296,346 +311,280 @@
          $ sef fullform formname --email=your@email.com --fields=fullName=text=required,email=email=required,paymentMethod=select=required=visa/master_card/cash,paymentAmount=number=required --recipients=recipient1@email.com,recipient2@email.com
         </code></pre>
       <p>*This command creates the stack and the html for a form called formname. the form will have the fields Full Name, Email, Payment method (with options Visa, Master Card, or Cash) and payment amount. Whenever someone submits the form an email will be sent from your@email.com to recipient1@email.com and recipient2@email.com.</p>
-       <h2 id="optional-arguments-callbacks">Optional Arguments & Callbacks</h2>
+       
+      <h2 id="optional-arguments-callbacks">Optional Arguments & Callbacks</h2>
        <p>All forms will generate a folder for that form within your project. this folder will contain the forms config.json file which keeps track of all of that form’s variables.</p>
        <p>All of the super easy form commands make use of optional arguments and optional callbacks. if a required argument isn’t supplied to one of the methods that method will check the form`s local config file and use the value stored there. if the argument isn&#39;t provided in params and isn&#39;t found in the form’s config the method will output an error.</p>
        <p>All methods have the <code>function(formName, options, callback)</code> format and all  the callbacks have the <code>function(err,data)</code></p>
        <p>Optional callbacks allow you to use any of the methods synchronously or asynchronously. If a callback isn’t provided methods will return the data value or throw an error in the case of an error. If you don’t provide any options you can provide the callback as the second argument.</p>
+       
        <h2 id="project-structure">Project structure</h2>
-       <p>At the root of the project you will find the </p>
-       <ul>
-        <li>settings.json</li>
-        <li>forms/<ul>
-        <li>form-name/<ul>
-        <li>config.json</li>
-        <li>template.json</li>
-        <li>form-name.html</li>
-        <li>lambdaFunction.js</li>
-       </ul>
-       </li>
-       </ul>
-       </li>
-       <li>.env</li>
-       <li>gitignore</li>
-       <li>node_modules<ul>
-       <li>super_easy_forms<ul>
-       <li>index.js</li>
-       <li>build.js</li>
-       <li>.travis.yml</li>
-       <li>LICENSE</li>
-       <li>README</li>
-       <li>modules<ul>
-       <li>Config.js</li>
-       <li>CreateForm.js</li>
-       <li>CreateIamUser.js</li>
-       <li>CreateLambda.js</li>
-       <li>CreateStack.js</li>
-       <li>CreatTemplate.js</li>
-       <li>GetApiUrl.js</li>
-       <li>Internalmodules.js</li>
-       <li>SesEmail.js</li>
-       <li>ValidateTemplate.js</li>
-       </ul>
-       </li>
-       </ul>
-       </li>
-       </ul>
-       </li>
-       </ul>
+       <p>At the root of the project you will find the forms folder which will contain all of your forms</p>
+       <pre><code>
+        |- forms/
+        |- yourFrom/
+            |- exports/
+            |- yourForm.html
+            |- config.json
+            |- template.json
+            |- lambdaFunction.js
+        |- .env
+        |- .gitignore
+        |- settings.json
+        |- node_modules
+        |- super_easy_forms
+            |- img/
+            |- lib/
+            |- node_modules/
+            |- test
+            |- .travis.yml
+            |- build.jd
+            |- index.js
+            |- LICENSE
+            |- package.json
+            |- package-lock.json
+            |- README.md
+       </code></pre>
+
        <h2 id="config-file-structure">Config file Structure</h2>
-       <pre><code>{
-         <span class="hljs-attr">"email"</span>:<span class="hljs-string">""</span>,
-         <span class="hljs-attr">"recipients"</span>:[],
-         <span class="hljs-attr">"formFields"</span>:{},
-         <span class="hljs-attr">"stackId"</span>:<span class="hljs-string">""</span>,
-         <span class="hljs-attr">"endPointUrl"</span>:<span class="hljs-string">""</span>
-       }
-       </code></pre><h2 id="the-lambda-function">The Lambda Function</h2>
+       <pre><code>
+          {
+            "email":"String",
+            "recipients":[Array],
+            "formFields":{Object},
+            "stackId":"String",
+            "endPointUrl":"String"
+          }
+       </code></pre>
+       
+       <h2 id="the-lambda-function">The Lambda Function</h2>
        <ol>
        <li>The lambda function will receive a JSON object with all the fields to be submitted.</li>
        <li>It will then format the fields to be stored in dynamoDB and call the dynamoDB put item to save the item.</li>
-       <li><p>If this operation is successful it will send an email using SES to the desired recipients.
+       <li><p>If this operation is successful it will send an email using SES to the desired recipients.</p></li>
        
-       <pre><code> 
-         LAMBDA FUNCTION
-       </code></pre>
+       <pre><code class="language-html" data-lang="html">   
+          var AWS = require('aws-sdk');
+          var ses = new AWS.SES({apiVersion: '2010-12-01'});
+          var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 
-       </li>
+          exports.handler = (event, context, callback) => {
+            let uniqNow = Math.floor(Math.random() * 900000000000000000).toString(28) + new Date().toISOString().replace(":","-").replace(":","-").replace(".","-") + Math.floor(Math.random() * 90000000).toString(28);    
+            var jsonBase = ${lambdaFields};
+            Object.keys(event).map(function(key, index) {
+              jsonBase[key] = {S:event[key]};
+            });
+            jsonBase['id'] = {S:uniqNow};
+            let params = {
+              Item: jsonBase, 
+              TableName: "${formName}",
+            };
+            var contactInfo = '';
+            for(let item in event){ 
+              contactInfo += '' + item + ': ' + event[item] + ''; 
+            }
+            const emailMessage = 'New Contact Someone has just filled out your super easy form! bellow are their details: < br>' + contactInfo;
+            dynamodb.putItem(params, function(err, data) {
+              if (err) {
+                callback(err)
+              }
+              else {
+                var params = {
+                  Destination: {
+                    ToAddresses: [${recipientString}]
+                  }, 
+                  Message: {
+                    Body: {
+                      Html: {
+                        Charset: "UTF-8", 
+                        Data: emailMessage
+                      }, 
+                      Text: {
+                        Charset: "UTF-8", 
+                        Data: "This is the message body in text format."
+                      }
+                    }, 
+                    Subject: {
+                      Charset: "UTF-8", 
+                      Data: "Super Easy Forms - New Contact"
+                    }
+                  }, 
+                  ReplyToAddresses: [], 
+                  Source: "${email}", 
+                };
+                ses.sendEmail(params, function(err, data) {
+                  if (err) {
+                    callback(err)
+                  } 
+                  else {
+                    callback(null, 'Success')
+                  }   
+                });
+              }
+            });
+          };
+        </code></pre>
        </ol>
+       
        <h2 id="the-cloudformation-template">The CloudFormation Template</h2>
        <p>AWS CloudFormation is a IaC (Infrastructure as code) service from AWS that allows you to define stacks composed of AWS resources in a JSON or YAML file called a cloudformation template. This makes it easy to keep track of the multiple resources used in the super easy forms stack. The cloudformation template is stored in each form’s directory in the file template.json.</p>
-       <p><img src="https://paper-attachments.dropbox.com/s_B70B5B93F7E2794EC706951FA6D762D4D2818CCCBBF59F7D45472AC441AABAE2_1576391819245_template1-designer.png" alt="Diagram exported from AWS CloudFormation Designer"></p>
+       <div class="container"><img class="img-fluid" src="https://paper-attachments.dropbox.com/s_B70B5B93F7E2794EC706951FA6D762D4D2818CCCBBF59F7D45472AC441AABAE2_1576391819245_template1-designer.png" alt="Diagram exported from AWS CloudFormation Designer"></div>
        
        <h2 id="the-form-generator">The Form Generator</h2>
-       <p>The parseFields function takes in a string in the follwoign format <code>--fields=fullName=text=required,email=email=required,paymentMethod=select=required=visa/master_card/cash,paymentAmount=number=required</code> and converts it to a JSON object with the format shown bellow to be stored in the forms config file and passed to the createForm function. The createForm function takes in a JSON object and outputs an HTML contact with bootstrap and all the necessary jQuery scripts. Ready to copy paste into your site. you can add labels/placeholders automatically and provide options for things like required fields, different html types and many other things. The HTML form is completely customizable as it is pure HTML; no iframes 🙂 </p>
-       <pre><code>
-          THE FORMFIELDS
+       <p>The parseFields function takes in a string in the format shown bellow; then it converts it to a JSON object with the format shown bellow to be stored in the forms config file and passed to the createForm function. The createForm function takes in a JSON object and outputs an HTML contact with bootstrap and all the necessary jQuery scripts. Ready to copy paste into your site. you can add labels/placeholders automatically and provide options for things like required fields, different html types and many other things. The HTML form is completely customizable as it is pure HTML; no iframes 🙂 </p>
+        <pre><code>
+          --fields=fullName=text=required,email=email=required,paymentMethod=select=required=visa/master_card/cash,paymentAmount=number=required
+        </code></pre>
+        
+        <h2>formFields Object format</h2>
+         <pre><code>
+            "formFields":{
+              "fullName":{
+                "type":"text",
+                "label":"Full Name",
+                "required":true
+              },
+              "email":{
+                "type":"email",
+                "label":"Email",
+                "required":false
+                },
+              "payment":{
+                "type":"select",
+                "label":"Payment",
+                "required":true,
+                "options":{
+                  "visa":"Visa",
+                  "master_card":"Master card",
+                  "cash":"Cash"
+                }
+              },
+              "paymentAmount":{
+                "type":"number",
+                "label":"Payment Amount",
+                "required":true
+              }
+            },
        </code></pre>
        
        <h2 id="registering-emails">Registering emails</h2>
-        <p>In the config.json file are the general configurations for supereasyforms. Here all of your emails will be stored and your default settings will be set for when a form is created. Here you will store all of your emails and your default email provider. You will store all of your email-alias pairs </p>
-        <p><strong>SES emails</strong>: SES allows you to send emails programmatically using any email provider (gmail included). If you have another email client that is not gmail this is a good option for you. (it might have costs associated but its pretty cheap)</p>
-        <ul>
-        <li>Run the register email command <code>sef addemail alias provider</code> use ses for provider</li>
-        </ul>
-        <p>This will run the AWS sdk command to add your desired email to SES and will prompt you to confirm the SES email and then will add your email to the email config and will set the email config option to SES in your config file.</p>
-        <p><strong>Gmail emails:</strong> each gmail email consists of a different account and needs different API keys:</p>
-        <ul>
-        <li>To reister your API keys for a new gmail email please follow this link</li>
-        <li>Then you need to provide the new email in your config and provide the new API public and private keys in the .ENV file replace alias with your emails alias. Your private keys need to be saved in the following format
-          alias_EMAIL_PUBLIC:
-          alias_EMAIL_SECRET:</li>
-        </ul>
-        <p>Then you can run the command <code>sef addemail alias provider</code> use gmail for provider. This will check that you have created the required keys and will add your email address to the email config and will set the email config option to gmail in your config file.</p>
-        <p>By default a contact form will send emails to the same sender email. To send email to other contacts you provide the recipients flag --recipients or -r. This will prompt you to enter all the email adresses you want to send email to. Then your lambda function will be created to send emails to those adresses.</p>
+       <p> SES allows you to send emails programmatically using any email provider (gmail included). If you have another email client that is not gmail this is a good option sending emails programatically. Please be aware that if you want to use AWS SES to send emails to external recipients (whose email addresses haven&#39;t been verified with SES in your AWS account) you must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html">move out of the AWS SES Sandbox.</a></p>
+       <p> To verify a new email with AWS SES run <code>sef email formName your@email.com -n</code> replacing formName with the name of your form and your@email with the email you want to verify.</p>
+        <p>By default a contact form will send emails to the same sender email. To send email to other email addresses you can provide the recipients flag --recipients or -r. </p>
         
         <h2 id="recaptcha">ReCAPTCHA</h2>
-        <p>Super easy forms allows you to easily integrate google recapcha into your contact forms.</p>
-        <p>Before being able to use the recapcha option/flag make sure you have signed up for a reCapcha key pair. <a href="http://www.google.com/recaptcha/admin/create">sign up for an API key pair</a>\</p>
-        <p>Then you must add </p>
-        <p>If you are adding reCaptcha to a form that you are updating; make sure to also update your lambda function and cloudformation templates. </p>
+        <p>Super easy forms allows you to easily integrate google reCAPTCHA into your html forms.</p>
+        <p>Before being able to use the recapcha option/flag make sure you have signed up for a reCapcha key pair. <a href="http://www.google.com/recaptcha/admin/create">sign up for an API key pair</a></p>
+        <p>If you are adding reCaptcha to an already deployed form make sure to also update your lambda function and CloudFormation templates. </p>
        
-        <h2 id="api-glossary">API Glossary</h2>
-       <ol>
-       <li>GetSubmissions(formName, callback)<ol>
-       <li>formName: the name of the form</li>
-       </ol>
-       </li>
-       <li>ExportSubmission(formName, format, callback)<ol>
-       <li>formName: the name of the form</li>
-       <li>format: the format of your export. csv | json</li>
-       </ol>
-       </li>
-       <li>CreateForm(formName, options, callback) <ol>
-       <li>options = {&quot;endpointUrl&quot;:&quot;&quot;, &quot;formFields&quot;:{}}</li>
-       </ol>
-       </li>
-       <li>CreateLambdaFunction(formName, options, callback)</li>
-       <li>CreateTemplate</li>
-       <li>ValidateTemplate</li>
-       <li>CreateStack</li>
-       <li>UpdateStack</li>
-       <li>DeleteStack</li>
-       <li>GetApiUrl </li>
-       <li>VerifyDefaultEmail</li>
-       <li>SesEmail</li>
-       <li>VerifySesEmail</li>
-       <li>ValidateSesEmail</li>
-       <li>CreateIamUser</li>
-       <li>//UpdateAwsProfile</li>
-       <li>//UpdateAwsRegion</li>
-       <li>ParseFields</li>
-       <li>AddConfigVariable</li>
-       <li>Build </li>
-       <li>CreateLabel</li>
-       <li>FormSetup</li>
-       </ol>
-       <ol>
-       <li><strong>addVar(formName, variable, value):</strong> add a variable to the config file of a form.</li>
-       <li><strong>CheckEmail(formName, email):</strong> Validate email address w/ regex</li>
-       <li><strong>VerifyDefaultEmail():</strong> verifies a default email to be used with SES and adds it to the settinggs file defaults section</li>
-       <li><strong>VerifySesEmail():</strong> verifies a new email identity to be used with AWS SES and adds it form config. if the email hasnt been added before it also adds it to the eamil section.</li>
-       <li><strong>ValidateSesEmail(formName, email):</strong> returns the sesArn if the email has been confirmed. If the email hasnt been confirmed it returns false. Confirms that your email vas been verified by SES</li>
-       <li><strong>ValidateConfig</strong></li>
-       <li><strong>ValidateTemplate</strong></li>
-       <li><strong>addFormFields:</strong> parses an array of form fields from input into a JSON object stored in the form config file.</li>
-       <li><strong>ValidateProfile</strong></li>
-       <li><strong>createIAMuser(profile)</strong></li>
-       <li><strong>createLambdaFunction(formName, options, callback)</strong>: creates a lambda function and saves it as a js file in the form folder. returns the function body as a string. optionally zips the lambda function in the desired folder to make a deployment package.<ol>
-       <li><strong>formName:</strong> String: the name of the form </li>
-       <li><strong>options:</strong> JSON Object: has the follwoing format  <code>{sourceEmail: STRING, formFields: OBJECT}</code><ol>
-       <li><strong>sourceEmail:</strong> String: a valid email address that has been verified with AWS SES to send email.</li>
-       <li><strong>formFields:</strong> JSON Object: must have the following format depicted bellow</li>
-       </ol>
-       </li>
-       </ol>
-       </li>
-       <li><strong>updateLambdaFunction():</strong> Updates the cloudformation template to include the new lambda function in its body.</li>
-       <li><strong>createTemplate(formName, options, callback):</strong> creates a cloudformation template for your form. You can then customize the template for the form and deploy it using deploy stack<ol>
-       <li><strong>options:</strong> JSON Object: has the follwoing format  <code>{emailArn: STRING, formFields: OBJECT}</code><ol>
-       <li><strong>emailArn:</strong> String: a valid Arn (AWS resource name) for the email identity registered with SES</li>
-       <li><strong>formFields:</strong> JSON Object: must have the following format depicted bellow</li>
-       <li><strong>lambdaFunction:</strong> String: contains the body of the lambda function as a string</li>
-       </ol>
-       </li>
-       </ol>
-       </li>
-       <li><strong>createStack(formName, templateBody, callback):</strong> deploys the stack for the generated template. Saves the stackArn and the API endpoint URL. return the API endpoint url. </li>
-       <li><strong>updateStack(formName, lambdaFunction):</strong> updates the stack for a generated template. if lambdaFunction parameter is set to true it will replace the lambda function with the contents of the lambdafunction.js file in the form’s config file.</li>
-       <li><strong>getEndPoint(stackName, callback):</strong> get the API endpoint</li>
-       <li><strong>createForm(formName, options, callback):</strong> generates a form according to formFields supplied in options or from the form config.<ol>
-       <li>formName: String: the name of the form </li>
-       <li>options: JSON Object: has the follwoing format  <code>{enpointUrl: STRING, formFields: OBJECT}</code><ol>
-       <li>url must be a valid API Gateway Endpoint URL</li>
-       <li>the <code>fields</code> object must have the following format depicted bellow
-       &quot;fields&quot;:{
-       &quot;firstName&quot;: {
-          &quot;type&quot;:&quot;text&quot;, 
-          &quot;label&quot;:&quot;First Name&quot;,
-          &quot;required&quot;: true
-        },
-       &quot;lastName&quot;: {
-          &quot;type&quot;:&quot;text&quot;, 
-          &quot;label&quot;:&quot;Last Name&quot;,
-          &quot;required&quot;: true
-        },
-       &quot;paymentOptions&quot;: {
-          &quot;type&quot;:&quot;select&quot;, 
-          &quot;label&quot;: &quot;Payment Options&quot;,
-          &quot;required&quot;: true, 
-          &quot;options&quot;:{<pre><code>   <span class="hljs-string">"visa"</span>:<span class="hljs-string">"Visa"</span>, 
-          <span class="hljs-string">"mastercard"</span>:<span class="hljs-string">"Master Card"</span>, 
-          <span class="hljs-string">"cash"</span>:<span class="hljs-string">"Cash"</span>
-        }
-       </code></pre> },
-       &quot;email&quot;: {&quot;type&quot;:&quot;email&quot;, &quot;label&quot;:&quot;email&quot;},
-       &quot;message&quot;:{&quot;type&quot;:&quot;textarea&quot;, &quot;label&quot;:&quot;Message&quot;}
-       }</li>
-       </ol>
-       </li>
-       </ol>
-       </li>
-       <li><strong>createStackWithForm(formName, fromFields, callback):</strong> generates the stack and the contact form. returns the html form, ready to use with the url.</li>
-       <li><strong>getContacts(formName):</strong> outputs a json file with the contacts in the console</li>
-       <li><strong>exportContacts(formName):</strong> exports the contacts for the desired form as a CSV file</li>
-       </ol>
-       <h2 id="cli-commands">CLI Commands</h2>
-       <ol>
-       <li><strong>build</strong></li>
-       <li><strong>iam</strong> user<ol>
-       <li>--new → -n → creates a new IAM user and adds his profile to .env</li>
-       </ol>
-       </li>
-       <li><strong>email</strong> form fromaddress toaddresses<ol>
-       <li>form: the name of the form</li>
-       <li>--fromaddress → -f → the email address you want to send the emails with</li>
-       <li>--toadress → -t → the email addresses which you want to recieve email. if none are supplied the emails will be sent from the fromaddress to the fromaddress.</li>
-       <li>--validate → -v → defaults to true. will verify the email w/ AWS SES before adding to config.</li>
-       <li>--new → -n → verifies the new email w/ AWS SES before sending you the mail.</li>
-       <li>--provider → -p →the demail provider SES | GMAIL. defaults to SES.</li>
-       </ol>
-       </li>
-       <li><strong>form</strong> name<ol>
-       <li><strong>name</strong>: the name of the form</li>
-       <li><strong>--fields</strong> → -f → desired form fields. must be a string sepparated by commas were each formfiled has the followinmg format formFieldName=formFieldType=required. check out the example bellow</li>
-       <li><strong>--labels</strong> → -l → automatically generate labels and placeholders for your form. will seppearate camelcased values or values epparated by - or _ and capitalize all the first letters. <strong>e.g.</strong> <code>firstName → First Name</code> or <code>first_name → First Name</code></li>
-       <li><strong>--url</strong> → -u → a custom url endpoint for your form. 
-       firstName=text=required,lastName=text,email=email=required,message=textarea=required`</li>
-       </ol>
-       </li>
-       <li><strong>lambda name</strong> <ol>
-       <li>--attach → -a → attaches the generated lambda function to the cloudformation template if one exists.</li>
-       </ol>
-       </li>
-       <li><strong>stack</strong><ol>
-       <li>--generate→ -g → create/replace a cloudformation template for your form</li>
-       <li>--lambda → -l → will automatically generate a lambda function based on supplied params. defaults to false. and uses the lambda function already saved in the form folder.</li>
-       <li>--update → -u → updates the value for a spicified param in the cloudformation template. -u=variable=value</li>
-       </ol>
-       </li>
-       <li><strong>deploy</strong> form <ol>
-       <li>--create → -c → creates a new deployment</li>
-       <li>--update → -u → updates an already deployed stack</li>
-       </ol>
-       </li>
-       <li><strong>fullform</strong> formName <ol>
-       <li>--fields → -f →</li>
-       <li>--deploy → -d → automatically deploys the form. defaults to true.</li>
-       <li>--email</li>
-       </ol>
-       </li>
-       <li><strong>var</strong> form variable<ol>
-       <li>--check → -c → returns the value of the variable saved in config file of formName</li>
-       <li>--add → -a → adds a variable to the cofnig file of formName</li>
-       <li>--remove → -r → adds a variable to the cofnig file of formName</li>
-       <li>--value → -v → supplies the value of the variable</li>
-       </ol>
-       </li>
-       <li><strong>subs</strong> form<ol>
-       <li>--list → -l → outputs all form submissions to the terminal</li>
-       <li>--export → -e → downloads a file with all form submissions for the form name</li>
-       <li>--format → -f → the format to export in. defaults to CSV.</li>
-       </ol>
-       </li>
-       </ol>
-       <h2 id="tests">Tests</h2>
-       <ol>
-       <li>Email<ol>
-       <li>verifyDefaultEmail(): returns “Success” → needs AWS SDK mock<ol>
-       <li>if email is valid, should add an email to the defaults section of the general settings file.</li>
-       </ol>
-       </li>
-       <li>verifySesEmail(): returns true or false → need AWS SDK mock<ol>
-       <li>if email is valid, should add an email to the formName config file with the value of the email</li>
-       </ol>
-       </li>
-       </ol>
-       </li>
-       <li>CreateForm(): returns an html form body as a string<ol>
-       <li>the body of the form returned should match the form created in the form’s config file.</li>
-       <li>the form should be created with the form fields supplied in the options if the options are supplied. </li>
-       <li>if a callback is supplied in the second argument it should execute.</li>
-       </ol>
-       </li>
-       <li>CreateLambda(): returns html with the lambda form or the s3 bucket address in case of zip deployment<ol>
-       <li>the body of the form returned should match the form created in the form’s config file.</li>
-       <li>the form should be created with the form fields supplied in the options if the options are supplied. </li>
-       <li>if a callback is supplied in the second argument it should execute.</li>
-       </ol>
-       </li>
-       <li>CreateTemplate(): returns an html string with the template body → need AWS SDK and AWS SDK mock<ol>
-       <li>must run the verify email operation for the template. if an email is supplied in options it will add that email to config and will verify that email instead.</li>
-       <li>Check format of FormModel and RequiredFields</li>
-       <li>the body of the function returned should match the form created in the form’s config file.</li>
-       <li>the function body should be created with the form fields supplied in the options if the options are supplied. </li>
-       <li>if a callback is supplied in the second argument it should execute.</li>
-       <li>the template that gets built should be a valid cloudformation template</li>
-       <li><del>if zip folder is used verify that the contnets of a zip folder are an appropriate node js or python package</del></li>
-       </ol>
-       </li>
-       <li>CReateIam() <ol>
-       <li>returns a url as a string</li>
-       <li>validate the url with regex</li>
-       <li>make sure the environment variables are added or replaced.</li>
-       </ol>
-       </li>
-       <li></li>
-       <li>CreateStack() → need AWS sdk mock<ol>
-       <li>returns: “Success”</li>
-       <li>the function body should be created from the template in file if a template body is not supplied.</li>
-       <li>if a callback is supplied in the second argument it should execute.</li>
-       </ol>
-       </li>
-       </ol>
-       <h2 id="errors">Errors</h2>
-       <p>API Errors:</p>
-       <ul>
-       <li>Inconsistent with model</li>
-       <li>API request validation failed</li>
-       </ul>
-       <p>Lambda  errors:</p>
-       <ul>
-       <li>Incompatible object (not JSON)</li>
-       <li>Error. External API returned an invalid response</li>
-       <li>Error. You must solve the correct ReCaptcha challenge to submit</li>
-       <li>Error saving to dynamoDB</li>
-       <li>Error sending email</li>
-       </ul>
-       <h2 id="troubleshooting-steps">Troubleshooting steps</h2>
-       <p>If your commands fail for some reason after a modification of the super easy forms code, you can follow any of these steps to troubleshoot.</p>
-       <ol>
-       <li>Validate your cloud formation template</li>
-       </ol>
-       <p>you can use the validateTemplate() command or use the AWS CLI</p>
-       <pre><code>$ aws cloudformation validate-<span class="hljs-keyword">template</span> --<span class="hljs-keyword">template</span>-<span class="hljs-keyword">body</span> file:<span class="hljs-comment">//forms/testform/template.json</span>
-       </code></pre><ol>
-       <li>Test the lambda function by using the test feature</li>
-       <li>Test the API by using curl using the AWS CLI 
-        curl -d &#39;{&quot;id&quot;:&quot;&quot;, &quot;firstName&quot;:&quot;john&quot;,&quot;lastName&quot;:&quot;doe&quot;, &quot;email&quot;:&quot;johndoe@email.com&quot;, &quot;message&quot;:&quot;hello world&quot;}&#39; -H &#39;Content-Type: application/json&#39; <a href="https://your-api-url">https://your-api-url</a></li>
-       <li>Test your API from an external form: insure that CORS is properluy enabled in your API</li>
-       </ol>
-       <p>generate a form for your API and try submitting. check out the console in google chrome for any errors.</p>
-      </div>
+       
+        <h1 id="api-glossary">API Glossary</h1>
+        <ol>
+        <li><strong>GetSubmissions(formName, callback):</strong> Lists all of the responses recieved to stdout<ol>
+        <li><strong>formName</strong>: String: the name of the form</li>
+        <li><strong>returns</strong> an array of JSON Objects</li>
+        </ol>
+        </li>
+        <li><strong>ExportSubmission(formName, format, callback):</strong> Exports all of the responses saved by your form.<ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>format:</strong> String: the format of your export. csv | json</li>
+        <li><strong>returns:</strong> String: Success</li>
+        </ol>
+        </li>
+        <li><strong>CreateForm(formName, options, callback):</strong> generates a form according to formFields supplied in options or from the form config. <em>**</em><ol>
+        <li><strong>options</strong> = {&quot;endpointUrl&quot;:&quot;&quot;, &quot;formFields&quot;:{}}<ol>
+        <li><strong>endpointUrl:</strong> String: The URL of an AWES API Gateway endpoint.</li>
+        <li><strong>formFields:</strong> Object: JSON object with the formFields. Check out the form generator section for the correct format.</li>
+        </ol>
+        </li>
+        <li><strong>returns:</strong> String: the html form as a string</li>
+        </ol>
+        </li>
+        <li><strong>CreateLambdaFunction(formName, options, callback):</strong> creates a lambda function and saves it as a js file in the form folder<ol>
+        <li><strong>options</strong> = {&quot;email&quot;: &quot;&quot;, &quot;formFields&quot;:&quot;&quot;, &quot;recipients&quot;:[]}<ol>
+        <li><strong>email:</strong> String: the email you will use to send submissions</li>
+        <li><strong>formFields:</strong> Object: JSON object with the formFields. Check out the form generator section for the correct format.</li>
+        <li><strong>recipients:</strong> Array: an array of emails (strings)</li>
+        </ol>
+        </li>
+        <li><strong>returns</strong>: String: The Body of the lambda function.</li>
+        </ol>
+        </li>
+        <li><strong>CreateTemplate(formName, options, callback):</strong> creates a cloudformation template for your form. You can then customize the template for the form and deploy it<ol>
+        <li><strong>options</strong> = {&quot;formFields&quot;: {},&quot;email&quot;:&quot;&quot;} </li>
+        <li><strong>returns</strong> the cloudformation template as a string</li>
+        </ol>
+        </li>
+        <li><strong>ValidateTemplate(formName, templateBody, callback)</strong>: returns the ARN of the SES  property if the email has been confirmed.<ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>templateBody</strong>: String: the cloudformation template as a string. </li>
+        <li><strong>returns</strong> the ARN of the stack</li>
+        </ol>
+        </li>
+        <li><strong>CreateStack(formName, templateBody, callback):</strong> Deploys the desired stack with AWS cloudformation which takes care of deploying all the individual resources in the correct order.<ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>templateBody:</strong> String: the format of your export. csv | json</li>
+        <li><strong>returns</strong> the ARN of the stack</li>
+        </ol>
+        </li>
+        <li><strong>UpdateStack(formName, templateBody, callback)</strong><ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>templateBody:</strong> String: the format of your export. csv | json</li>
+        <li><strong>returns</strong> ‘done’</li>
+        </ol>
+        </li>
+        <li><strong>DeleteStack(formName, callback):</strong> Deletes all of the resources in the AWS cloud for the desired form. <em>**</em><ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>returns</strong> ‘done’</li>
+        </ol>
+        </li>
+        <li><strong>GetApiUrl(formName, stackId, callback):</strong> Fetches the ARN for the Rest API created for the form and returns the endpoint URL. <ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>returns</strong> a string with the url of the API gateway endpoint</li>
+        </ol>
+        </li>
+        <li><strong>VerifydefaultEmail(email, callback)</strong>: verifies a new email identity to be used with AWS SES and adds it form config. if the email hasnt been added before it also adds it to the eamil section.</li>
+        <ol>
+        <li><strong>email</strong> String: the email you will use to send submissions</li>
+        <li><strong>returns</strong> false</li>
+        </ol>
+        </li>
+        <li><strong>VerifySesEmail(email, callback):</strong> Verifies a new provided email with AWS SES. After running this command youll recieve an email from AWS SES which you must confirm.<ol>
+        <li><strong>email:</strong> String: the email you use to send submissions</li>
+        <li><strong>returns</strong> true or false</li>
+        </ol>
+        </li>
+        <li><strong>ValidateSesEmail(formName, email, callback)</strong>: checks that the supplied email vas been verified with AWS<ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>email:</strong> String: the email you use to send submissions</li>
+        <li><strong>returns</strong> true or false</li>
+        </ol>
+        </li>
+        <li><strong>CreateIamUser(iamUserName, awsRegion, callback):</strong> Returns a URL that will take you to the last step of the IAM users creation in the AWS console.  <em>**</em><ol>
+        <li><strong>iamUserName</strong>: String: desired name for the new iam user and the local profile you will create.</li>
+        <li><strong>awsRegion</strong>: String: a valid AWS region. check out the table above for valid codes.</li>
+        <li><strong>returns</strong> an AWS url that takes you to the last step of the IAM user’s creation.</li>
+        </ol>
+        </li>
+        <li><strong>ParseFields(fields, labels)</strong><ol>
+        <li><strong>fields:</strong> String: a string that contains all formfields and options. each formfield can contain name=type=required. by default required is set to false and type to text. each form field must be sepparrated by comas. options in the slect field must be sepparated by /.</li>
+        <li><strong>labels:</strong> Bollean: true or false if you want to automatically add labels.</li>
+        </ol>
+        </li>
+        <li><strong>AddConfigVariable(formName, variable, value, callback)</strong>: add a variable to the config file of a form<ol>
+        <li><strong>formName:</strong> String: the name of the form</li>
+        <li><strong>email</strong>: String: the email you use to send submissions</li>
+        <li><strong>returns</strong>: String: Success</li>
+        </ol>
+        </li>
+        <li><strong>Build()</strong>: Builds the required files and directories in the root of the project.</li>
+        <li><strong>CreateLabel(value)</strong>: takes in a a value and returns a label.<ol>
+        <li><strong>value:</strong> String: string value for your form input field.</li>
+        </ol>
+        </li>
+        </ol>
+
+
       <!-- Footer -->
       <footer class="bg-primary py-5" style="z-index: 5;">
         <div class="container-fluid">
