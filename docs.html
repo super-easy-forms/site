@@ -584,7 +584,87 @@
         </li>
         </ol>
 
-
+        <h1 id="tests">Tests</h1>
+        <ol>
+        <li>Email<ol>
+        <li>verifyDefaultEmail(): returns “Success” → needs AWS SDK mock<ol>
+        <li>if email is valid, should add an email to the defaults section of the general settings file.</li>
+        </ol>
+        </li>
+        <li>verifySesEmail(): returns true or false → need AWS SDK mock<ol>
+        <li>if email is valid, should add an email to the formName config file with the value of the email</li>
+        </ol>
+        </li>
+        </ol>
+        </li>
+        <li>CreateForm(): returns an html form body as a string<ol>
+        <li>the body of the form returned should match the form created in the form’s config file.</li>
+        <li>the form should be created with the form fields supplied in the options if the options are supplied. </li>
+        <li>if a callback is supplied in the second argument it should execute.</li>
+        </ol>
+        </li>
+        <li>CreateLambda(): returns html with the lambda form or the s3 bucket address in case of zip deployment<ol>
+        <li>the body of the form returned should match the form created in the form’s config file.</li>
+        <li>the form should be created with the form fields supplied in the options if the options are supplied. </li>
+        <li>if a callback is supplied in the second argument it should execute.</li>
+        </ol>
+        </li>
+        <li>CreateTemplate(): returns an html string with the template body → need AWS SDK and AWS SDK mock<ol>
+        <li>must run the verify email operation for the template. if an email is supplied in options it will add that email to config and will verify that email instead.</li>
+        <li>Check format of FormModel and RequiredFields</li>
+        <li>the body of the function returned should match the form created in the form’s config file.</li>
+        <li>the function body should be created with the form fields supplied in the options if the options are supplied. </li>
+        <li>if a callback is supplied in the second argument it should execute.</li>
+        <li>the template that gets built should be a valid cloudformation template</li>
+        <li><del>if zip folder is used verify that the contnets of a zip folder are an appropriate node js or python package</del></li>
+        </ol>
+        </li>
+        <li>CReateIam() <ol>
+        <li>returns a url as a string</li>
+        <li>validate the url with regex</li>
+        <li>make sure the environment variables are added or replaced.</li>
+        </ol>
+        </li>
+        <li></li>
+        <li>CreateStack() → need AWS sdk mock<ol>
+        <li>returns: “Success”</li>
+        <li>the function body should be created from the template in file if a template body is not supplied.</li>
+        <li>if a callback is supplied in the second argument it should execute.</li>
+        </ol>
+        </li>
+        </ol>
+        <h1 id="errors">Errors</h1>
+        <p>API Errors:</p>
+        <ul>
+        <li>Inconsistent with model</li>
+        <li>API request validation failed</li>
+        </ul>
+        <p>Lambda  errors:</p>
+        <ul>
+        <li>Incompatible object (not JSON)</li>
+        <li>Error. External API returned an invalid response</li>
+        <li>Error. You must solve the correct ReCaptcha challenge to submit</li>
+        <li>Error saving to dynamoDB</li>
+        <li>Error sending email</li>
+        </ul>
+        <h2 id="troubleshooting-steps">Troubleshooting steps</h2>
+        <p>If your commands fail for some reason after a modification of the super easy forms code, you can follow any of these steps to troubleshoot.</p>
+        <ol>
+        <li>Validate your cloud formation template</li>
+        </ol>
+        <p>you can use the validateTemplate() command or use the AWS CLI</p>
+        <pre><code>$ aws cloudformation validate-<span class="hljs-keyword">template</span> --<span class="hljs-keyword">template</span>-<span class="hljs-keyword">body</span> file:<span class="hljs-comment">//forms/testform/template.json</span>
+        </code></pre><ol>
+        <li>Test the lambda function by using the test feature</li>
+        <li>Test the API by using curl using the AWS CLI 
+        curl -d &#39;{&quot;id&quot;:&quot;&quot;, &quot;firstName&quot;:&quot;john&quot;,&quot;lastName&quot;:&quot;doe&quot;, &quot;email&quot;:&quot;johndoe@email.com&quot;, &quot;message&quot;:&quot;hello world&quot;}&#39; -H &#39;Content-Type: application/json&#39; <a href="https://your-api-url">https://your-api-url</a></li>
+        <li>Test your API from an external form: insure that CORS is properluy enabled in your API</li>
+        </ol>
+        <p>generate a form for your API and try submitting. check out the console in google chrome for any errors.</p>
+        <ol>
+        <li>Review your tests, you can run tests by running <code>npm test test-name</code></li>
+        </ol>
+      
       <!-- Footer -->
       <footer class="bg-primary py-5" style="z-index: 5;">
         <div class="container-fluid">
