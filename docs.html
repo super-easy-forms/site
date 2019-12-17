@@ -4,20 +4,18 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">    
-
+    <!-- favicon -->
+		<link rel="icon" href="img/sef-favicon.png">
     <!--custom stylesheets -->
-
-    <link href="css/almost.css" rel="stylesheet">
-    <link href="css/ghost.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
   <title>Super Easy Forms Docs</title>
   </head>
-
+  
   <body id="page-top">
       <div class="d-lg-flex" id="wrapper">
 
@@ -31,49 +29,53 @@
                 </button>
                 <div class="dropdown-content" id="intro-dropdown">
                   <a href="#background"><span>Background</span></a>
-                  <a href="#what-is-super-easy-forms-"><span>The Tool</span></a>
+                  <a href="#what-is-super-easy-forms-"><span>Super Easy Froms</span></a>
                 </div>
               </div>
               <a href="#what-is-new-in-version-2-0" class="list-group-item list-group-item-action">New Features</a>
               <div class="dropdown list-group-item p-0">
-                <button class="dropbtn" name="app-dropdown">Installation
+                <button class="dropbtn" name="install-dropdown">Installation
                   <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content" id="app-dropdown">
+                <div class="dropdown-content" id="install-dropdown">
                   <a href="#pre-requisites"><span>Pre Requisites</span></a>
                   <a href="#installation"><span>Installation</span></a>
                   <a href="#setup"><span>Setup</span></a>
-                  
-                  
-                  <div class="sub-dropdown">
-                      <button class="dropbtn" name="app-amplify-dropdown"><span>AWS Amplify</span>
-                        <i class="fa fa-caret-down"></i>
-                      </button>
-                      <div class="dropdown-content" id="app-amplify-dropdown">
-                        <a href="#app-amplify-authentication"><span>Authentication</span></a>
-                        <a href="#app-amplify-storage"><span>Storage</span></a>
-                        <a href="#app-amplify-api"><span>API</span></a>
-                        <a href="#app-amplify-deployment"><span>Deployment</span></a>
-                      </div>
-                  </div>
-                  <div class="sub-dropdown">
-                      <button class="dropbtn" name="app-react-dropdown"><span>React Components</span>
-                        <i class="fa fa-caret-down"></i>
-                      </button>
-                      <div class="dropdown-content" id="app-react-dropdown">
-                        <a href="#app-react-addToStorage"><span>AddToStorage</span></a>
-                        <a href="#app-react-copyToBucket"><span>CopyToBucket</span></a>
-                        <a href="#app-react-createItemIndex"><span>CreateItemIndex</span></a>
-                        <a href="#app-react-AddItem"><span>Deployment</span></a>
-                      </div>
-                  </div>
                 </div>
               </div>
-
              
-              <a href="#" class="list-group-item list-group-item-action">Events</a>
-              <a href="#" class="list-group-item list-group-item-action">Profile</a>
-              <a href="#" class="list-group-item list-group-item-action">Status</a>
+              <a href="#usage" class="list-group-item list-group-item-action">Usage</a>
+              <a href="#quick-start" class="list-group-item list-group-item-action">Quick Start</a>
+              <a href="#optional-arguments-callbacks" class="list-group-item list-group-item-action">Optional Arguments & Callbacks</a>
+              <a href="#project-structure" class="list-group-item list-group-item-action">Project Structure</a>
+              <a href="#config-file-structure" class="list-group-item list-group-item-action">Form Config</a>
+              <a href="#the-lambda-function" class="list-group-item list-group-item-action">Lambda Function</a>
+              <a href="#the-cloudformation-template" class="list-group-item list-group-item-action">CloudFormation Template</a>
+              <a href="#the-form-generator" class="list-group-item list-group-item-action">Form Generator</a>
+              <a href="#registering-email" class="list-group-item list-group-item-action">Registering Emails</a>
+              <a href="#recaptcha" class="list-group-item list-group-item-action">ReCAPTCHA</a>
+              <a href="#api-glossary" class="list-group-item list-group-item-action">API Glossary</a>
+              <div class="dropdown list-group-item p-0">
+                  <button class="dropbtn" name="cli-dropdown">CLI
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content" id="cli-dropdown">
+                    <a href="#sef-build"><span>build</span></a>
+                    <a href="#sef-delete-name"><span>delete</span></a>
+                    <a href="#sef-deploy-name"><span>deploy</span></a>
+                    <a href="#sef-email-email-name"><span>email EMAIL [NAME]</span></a>
+                    <a href="#sef-form-name"><span>form</span></a>
+                    <a href="#sef-fullform-name"><span>fullform</span></a>
+                    <a href="#sef-help-command"><span>help</span></a>
+                    <a href="#sef-iam-user-region"><span>iam</span></a>
+                    <a href="#sef-lambda-name"><span>lambda</span></a>
+                    <a href="#sef-submissions-name"><span>submissions</span></a>
+                    <a href="#sef-template-name"><span>template</span></a>
+                    <a href="#sef-variable-name-variable-value"><span>variable</span></a>
+                  </div>
+                </div>
+
+
             </div>
           </div>
         </div>
@@ -86,41 +88,48 @@
 
         
         <!-- Navigation -->
-		<nav class="navbar navbar-expand-lg fixed-top bg-primary px-5">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
-					<img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="fa fa-2x fa-bars"></span>
-				</button>
-			
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto navbar-right">
-						<li class="nav-item active">
-							<a class="nav-link" href="#features">Features <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#how-it-works">How it works</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#roadmap">Roadmap</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#vision">Vision</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="docs.html">Docs</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+        <nav class="navbar navbar-expand-lg fixed-top bg-primary px-5">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+              <img src="img/SEF-LOGO.svg" width="auto" height="60" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-2x fa-bars"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto navbar-right">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html#features">Features <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#how-it-works">How it works</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#roadmap">Roadmap</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#vision">Vision</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#page-top">Docs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/gkpty/super-easy-forms" target="_blank"><i class="fab fa-github h4"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
         <!--  BODY -->
-      <div class="container" style="padding-top: 10rem;">
+      <div class="container docs">
         <h1 id="super-easy-forms-documentation">Super Easy Forms Documentation</h1>
+        <a href="http://gkpty.mit-license.org" rel="nofollow"><img src="https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265" alt="License" data-canonical-src="http://img.shields.io/:license-mit-blue.svg?style=flat-square" style="max-width:100%;"></a>
+        <a href="https://travis-ci.com/gkpty/super-easy-forms" rel="nofollow"><img src="https://camo.githubusercontent.com/f219bd814d2e16ce49bc9bb679a0783add229edc/68747470733a2f2f7472617669732d63692e636f6d2f676b7074792f73757065722d656173792d666f726d732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.com/gkpty/super-easy-forms.svg?branch=master" style="max-width:100%;"></a>
+        <br><br><br>
 
+        <h1 id="introduction">Introduction</h1><br>
         <h2 id="background">Background</h2>
         <p>In the last couple of years with the introduction of AWS lambda and the other kubernetes-based FAAS platforms static websites have been becoming more useful as we are able to bypass most of their pains such as adding a contact form. At Torus Digital we design/develop custom static websites and we built and use super easy forms to make all of our web forms. we hope you find it useful :)</p>
         
@@ -312,7 +321,7 @@
         </code></pre>
       <p>*This command creates the stack and the html for a form called formname. the form will have the fields Full Name, Email, Payment method (with options Visa, Master Card, or Cash) and payment amount. Whenever someone submits the form an email will be sent from your@email.com to recipient1@email.com and recipient2@email.com.</p>
        
-      <h2 id="optional-arguments-callbacks">Optional Arguments & Callbacks</h2>
+      <h2 id="ments-callbacksments-callbacks">Optional Arguments & Callbacks</h2>
        <p>All forms will generate a folder for that form within your project. this folder will contain the forms config.json file which keeps track of all of that form’s variables.</p>
        <p>All of the super easy form commands make use of optional arguments and optional callbacks. if a required argument isn’t supplied to one of the methods that method will check the form`s local config file and use the value stored there. if the argument isn&#39;t provided in params and isn&#39;t found in the form’s config the method will output an error.</p>
        <p>All methods have the <code>function(formName, options, callback)</code> format and all  the callbacks have the <code>function(err,data)</code></p>
@@ -584,288 +593,288 @@
         </li>
       </ol>
 
-<h1 id="super-easy-forms-cli">super-easy-forms-cli</h1>
-<p>a CLI for super-easy-forms</p>
-<p><a href="https://oclif.io"><img src="https://img.shields.io/badge/cli-oclif-brightgreen.svg" alt="oclif"></a>
-<a href="https://npmjs.org/package/super-easy-forms-cli"><img src="https://img.shields.io/npm/v/super-easy-forms-cli.svg" alt="Version"></a>
-<a href="https://npmjs.org/package/super-easy-forms-cli"><img src="https://img.shields.io/npm/dw/super-easy-forms-cli.svg" alt="Downloads/week"></a>
-<a href="https://github.com/gkpty/super-easy-forms-cli/blob/master/package.json"><img src="https://img.shields.io/npm/l/super-easy-forms-cli.svg" alt="License"></a></p>
-<!-- toc -->
-<ul>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#commands">Commands</a><!-- tocstop -->
-<h1 id="usage">Usage</h1>
-<!-- usage -->
-<pre><code class="lang-sh-session">$ npm install -g <span class="hljs-keyword">super</span>-easy-forms-cli
-$ sef COMMAND
-running command...
-$ sef (-v<span class="hljs-params">|--version|</span>version)
-<span class="hljs-keyword">super</span>-easy-forms-cli/<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span> linux-x64 node-v12.<span class="hljs-number">13.1</span>
-$ sef --help [COMMAND]
-USAGE
-$ sef COMMAND
-...
-</code></pre>
-<!-- usagestop -->
-<h1 id="commands">Commands</h1>
-<!-- commands --></li>
-<li><a href="#sef-build"><code>sef build</code></a></li>
-<li><a href="#sef-delete-name"><code>sef delete NAME</code></a></li>
-<li><a href="#sef-deploy-name"><code>sef deploy NAME</code></a></li>
-<li><a href="#sef-email-email-name"><code>sef email EMAIL [NAME]</code></a></li>
-<li><a href="#sef-form-name"><code>sef form NAME</code></a></li>
-<li><a href="#sef-fullform-name"><code>sef fullform NAME</code></a></li>
-<li><a href="#sef-help-command"><code>sef help [COMMAND]</code></a></li>
-<li><a href="#sef-iam-user-region"><code>sef iam USER [REGION]</code></a></li>
-<li><a href="#sef-lambda-name"><code>sef lambda NAME</code></a></li>
-<li><a href="#sef-submissions-name"><code>sef submissions NAME</code></a></li>
-<li><a href="#sef-template-name"><code>sef template NAME</code></a></li>
-<li><a href="#sef-variable-name-variable-value"><code>sef variable NAME VARIABLE VALUE</code></a></li>
-</ul>
-<h2 id="-sef-build-"><code>sef build</code></h2>
-<p>Builds the required base files and directories.</p>
-<pre><code>USAGE
-  <span class="hljs-variable">$ </span>sef build
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/build.js">src/commands/build.js</a></em></p>
-<h2 id="-sef-delete-name-"><code>sef delete NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef <span class="hljs-keyword">delete</span> <span class="hljs-keyword">NAME</span>
+      <h1 id="super-easy-forms-cli">super-easy-forms-cli</h1>
+      <p>a CLI for super-easy-forms</p>
+      <p><a href="https://oclif.io"><img src="https://img.shields.io/badge/cli-oclif-brightgreen.svg" alt="oclif"></a>
+      <a href="https://npmjs.org/package/super-easy-forms-cli"><img src="https://img.shields.io/npm/v/super-easy-forms-cli.svg" alt="Version"></a>
+      <a href="https://npmjs.org/package/super-easy-forms-cli"><img src="https://img.shields.io/npm/dw/super-easy-forms-cli.svg" alt="Downloads/week"></a>
+      <a href="https://github.com/gkpty/super-easy-forms-cli/blob/master/package.json"><img src="https://img.shields.io/npm/l/super-easy-forms-cli.svg" alt="License"></a></p>
+      <!-- toc -->
+      <ul>
+      <li><a href="#usage">Usage</a></li>
+      <li><a href="#commands">Commands</a><!-- tocstop -->
+      <h1 id="usage">Usage</h1>
+      <!-- usage -->
+      <pre><code class="lang-sh-session">$ npm install -g <span>super</span>-easy-forms-cli
+      $ sef COMMAND
+      running command...
+      $ sef (-v<span class="hljs-params">|--version|</span>version)
+      <span>super</span>-easy-forms-cli/<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span> linux-x64 node-v12.<span class="hljs-number">13.1</span>
+      $ sef --help [COMMAND]
+      USAGE
+      $ sef COMMAND
+      ...
+      </code></pre>
+      <!-- usagestop -->
+      <h1 id="commands">Commands</h1>
+      <!-- commands --></li>
+      <li><a href="#sef-build"><code>sef build</code></a></li>
+      <li><a href="#sef-delete-name"><code>sef delete NAME</code></a></li>
+      <li><a href="#sef-deploy-name"><code>sef deploy NAME</code></a></li>
+      <li><a href="#sef-email-email-name"><code>sef email EMAIL [NAME]</code></a></li>
+      <li><a href="#sef-form-name"><code>sef form NAME</code></a></li>
+      <li><a href="#sef-fullform-name"><code>sef fullform NAME</code></a></li>
+      <li><a href="#sef-help-command"><code>sef help [COMMAND]</code></a></li>
+      <li><a href="#sef-iam-user-region"><code>sef iam USER [REGION]</code></a></li>
+      <li><a href="#sef-lambda-name"><code>sef lambda NAME</code></a></li>
+      <li><a href="#sef-submissions-name"><code>sef submissions NAME</code></a></li>
+      <li><a href="#sef-template-name"><code>sef template NAME</code></a></li>
+      <li><a href="#sef-variable-name-variable-value"><code>sef variable NAME VARIABLE VALUE</code></a></li>
+      </ul>
+      <h2 id="-sef-build-"><code>sef build</code></h2>
+      <p>Builds the required base files and directories.</p>
+      <pre><code>USAGE
+        <span class="hljs-variable">$ </span>sef build
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/build.js">src/commands/build.js</a></em></p>
+      <h2 id="-sef-delete-name-"><code>sef delete NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef <span>delete</span> <span>NAME</span>
 
-ARGUMENTS
-  <span class="hljs-keyword">NAME</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">of</span> the <span class="hljs-keyword">form</span> you want <span class="hljs-keyword">to</span> <span class="hljs-keyword">delete</span>
+      ARGUMENTS
+        <span>NAME</span>  <span>name</span> <span>of</span> the <span>form</span> you want <span>to</span> <span>delete</span>
 
-OPTIONS
-  -r, <span class="hljs-comment">--resources  Delete all of the back-end resources for your form in the cloud</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/delete.js">src/commands/delete.js</a></em></p>
-<h2 id="-sef-deploy-name-"><code>sef deploy NAME</code></h2>
-<p>Deploys your stack in the AWS Cloud</p>
-<pre><code>USAGE
-  $ sef deploy NAME
+      OPTIONS
+        -r, <span>--resources  Delete all of the back-end resources for your form in the cloud</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/delete.js">src/commands/delete.js</a></em></p>
+      <h2 id="-sef-deploy-name-"><code>sef deploy NAME</code></h2>
+      <p>Deploys your stack in the AWS Cloud</p>
+      <pre><code>USAGE
+        $ sef deploy NAME
 
-ARGUMENTS
-  NAME  name <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form you want <span class="hljs-built_in">to</span> <span class="hljs-built_in">delete</span>
+      ARGUMENTS
+        NAME  name <span>of</span> <span>the</span> form you want <span class="hljs-built_in">to</span> <span class="hljs-built_in">delete</span>
 
-OPTIONS
-  -c, <span class="hljs-comment">--create  Deploy a new cloudformation stack in the AWS cloud</span>
-  -u, <span class="hljs-comment">--update  Update your stack in the AWS cloud</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/deploy.js">src/commands/deploy.js</a></em></p>
-<h2 id="-sef-email-email-name-"><code>sef email EMAIL [NAME]</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef email EMAIL [NAME]
+      OPTIONS
+        -c, <span>--create  Deploy a new cloudformation stack in the AWS cloud</span>
+        -u, <span>--update  Update your stack in the AWS cloud</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/deploy.js">src/commands/deploy.js</a></em></p>
+      <h2 id="-sef-email-email-name-"><code>sef email EMAIL [NAME]</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef email EMAIL [NAME]
 
-ARGUMENTS
-  EMAIL  the email <span class="hljs-selector-tag">address</span> that will send the <span class="hljs-selector-tag">form</span> submission emails
-  NAME   name of the <span class="hljs-selector-tag">form</span> - must be unique
+      ARGUMENTS
+        EMAIL  the email <span>address</span> that will send the <span>form</span> submission emails
+        NAME   name of the <span>form</span> - must be unique
 
-OPTIONS
-  -n, --new       verifies <span class="hljs-selector-tag">a</span> new email <span class="hljs-selector-tag">address</span> to be used by AWS SES to send email
-  -v, --validate  validates that the provided email <span class="hljs-selector-tag">address</span> was verified with AWS SES
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/email.js">src/commands/email.js</a></em></p>
-<h2 id="-sef-form-name-"><code>sef form NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef <span class="hljs-selector-tag">form</span> NAME
+      OPTIONS
+        -n, --new       verifies <span>a</span> new email <span>address</span> to be used by AWS SES to send email
+        -v, --validate  validates that the provided email <span>address</span> was verified with AWS SES
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/email.js">src/commands/email.js</a></em></p>
+      <h2 id="-sef-form-name-"><code>sef form NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef <span>form</span> NAME
 
-ARGUMENTS
-  NAME  name of the <span class="hljs-selector-tag">form</span> - must be unique
+      ARGUMENTS
+        NAME  name of the <span>form</span> - must be unique
 
-OPTIONS
-  -f, --fields=fields  Desired <span class="hljs-selector-tag">form</span> formFields
-  -l, --labels         Automatically add labels to your <span class="hljs-selector-tag">form</span>
-  -u, --url=url        The API endpoint endpointUrl <span class="hljs-keyword">for</span> your form
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/form.js">src/commands/form.js</a></em></p>
-<h2 id="-sef-fullform-name-"><code>sef fullform NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef fullform NAME
+      OPTIONS
+        -f, --fields=fields  Desired <span>form</span> formFields
+        -l, --labels         Automatically add labels to your <span>form</span>
+        -u, --url=url        The API endpoint endpointUrl <span>for</span> your form
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/form.js">src/commands/form.js</a></em></p>
+      <h2 id="-sef-fullform-name-"><code>sef fullform NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef fullform NAME
 
-ARGUMENTS
-  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+      ARGUMENTS
+        NAME  <span class="hljs-built_in">name</span> <span>of</span> <span>the</span> form - must be unique
 
-OPTIONS
-  -e, <span class="hljs-comment">--email=email            Email address that will be used to send emails</span>
-  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
-  -l, <span class="hljs-comment">--labels                 Automatically add labels to your form</span>
-  -r, <span class="hljs-comment">--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/fullform.js">src/commands/fullform.js</a></em></p>
-<h2 id="-sef-help-command-"><code>sef help [COMMAND]</code></h2>
-<p>display help for sef</p>
-<pre><code>USAGE
-  $ sef <span class="hljs-keyword">help</span> [COMMAND]
+      OPTIONS
+        -e, <span>--email=email            Email address that will be used to send emails</span>
+        -f, <span>--fields=fields          Desired form formFields</span>
+        -l, <span>--labels                 Automatically add labels to your form</span>
+        -r, <span>--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/fullform.js">src/commands/fullform.js</a></em></p>
+      <h2 id="-sef-help-command-"><code>sef help [COMMAND]</code></h2>
+      <p>display help for sef</p>
+      <pre><code>USAGE
+        $ sef <span>help</span> [COMMAND]
 
-ARGUMENTS
-  COMMAND  <span class="hljs-keyword">command</span> <span class="hljs-keyword">to</span> show <span class="hljs-keyword">help</span> <span class="hljs-keyword">for</span>
+      ARGUMENTS
+        COMMAND  <span>command</span> <span>to</span> show <span>help</span> <span>for</span>
 
-OPTIONS
-  --<span class="hljs-keyword">all</span>  see <span class="hljs-keyword">all</span> commands in CLI
-</code></pre><p><em>See code: <a href="https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts">@oclif/plugin-help</a></em></p>
-<h2 id="-sef-iam-user-region-"><code>sef iam USER [REGION]</code></h2>
-<p>the --create flag will open up a window with the AWS console so that you confirm the creation of a user with the entered name.</p>
-<pre><code>USAGE
-  $ sef iam <span class="hljs-keyword">USER</span> <span class="hljs-title">[REGION</span>]
+      OPTIONS
+        --<span>all</span>  see <span>all</span> commands in CLI
+      </code></pre><p><em>See code: <a href="https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts">@oclif/plugin-help</a></em></p>
+      <h2 id="-sef-iam-user-region-"><code>sef iam USER [REGION]</code></h2>
+      <p>the --create flag will open up a window with the AWS console so that you confirm the creation of a user with the entered name.</p>
+      <pre><code>USAGE
+        $ sef iam <span>USER</span> <span class="hljs-title">[REGION</span>]
 
-ARGUMENTS
-  <span class="hljs-keyword">USER</span>    <span class="hljs-title">name</span> of the IAM <span class="hljs-keyword">user</span>
-  <span class="hljs-title">REGION</span>  your desired AWS region.
+      ARGUMENTS
+        <span>USER</span>    <span class="hljs-title">name</span> of the IAM <span>user</span>
+        <span class="hljs-title">REGION</span>  your desired AWS region.
 
-OPTIONS
-  -c, --create  Helps you create an IAM <span class="hljs-keyword">user</span> <span class="hljs-title">and</span> adds its profile to the .env file
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/iam.js">src/commands/iam.js</a></em></p>
-<h2 id="-sef-lambda-name-"><code>sef lambda NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef lambda NAME
+      OPTIONS
+        -c, --create  Helps you create an IAM <span>user</span> <span class="hljs-title">and</span> adds its profile to the .env file
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/iam.js">src/commands/iam.js</a></em></p>
+      <h2 id="-sef-lambda-name-"><code>sef lambda NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef lambda NAME
 
-ARGUMENTS
-  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+      ARGUMENTS
+        NAME  <span class="hljs-built_in">name</span> <span>of</span> <span>the</span> form - must be unique
 
-OPTIONS
-  -e, <span class="hljs-comment">--email=email            Email address that will be used to send emails</span>
-  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
-  -r, <span class="hljs-comment">--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/lambda.js">src/commands/lambda.js</a></em></p>
-<h2 id="-sef-submissions-name-"><code>sef submissions NAME</code></h2>
-<p>validates a cloudformation template saved in your formName&#39;s dir with AWS</p>
-<pre><code>USAGE
-  $ sef submissions <span class="hljs-keyword">NAME</span>
+      OPTIONS
+        -e, <span>--email=email            Email address that will be used to send emails</span>
+        -f, <span>--fields=fields          Desired form formFields</span>
+        -r, <span>--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/lambda.js">src/commands/lambda.js</a></em></p>
+      <h2 id="-sef-submissions-name-"><code>sef submissions NAME</code></h2>
+      <p>validates a cloudformation template saved in your formName&#39;s dir with AWS</p>
+      <pre><code>USAGE
+        $ sef submissions <span>NAME</span>
 
-ARGUMENTS
-  <span class="hljs-keyword">NAME</span>  <span class="hljs-keyword">name</span> of the <span class="hljs-keyword">form</span> - must be unique
+      ARGUMENTS
+        <span>NAME</span>  <span>name</span> of the <span>form</span> - must be unique
 
-OPTIONS
-  -e, --export           Exports <span class="hljs-built_in">all</span> submissions for the <span class="hljs-keyword">form</span> to its folder
-  -f, --<span class="hljs-keyword">format</span>=csv|json  Desired <span class="hljs-keyword">format</span> csv|json
-  -l, --list             <span class="hljs-built_in">print</span> <span class="hljs-built_in">all</span> submissions for the <span class="hljs-keyword">form</span> to stdout
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/submissions.js">src/commands/submissions.js</a></em></p>
-<h2 id="-sef-template-name-"><code>sef template NAME</code></h2>
-<p>validate/create/update your cloudformation template saved locally</p>
-<pre><code>USAGE
-  $ sef template NAME
+      OPTIONS
+        -e, --export           Exports <span class="hljs-built_in">all</span> submissions for the <span>form</span> to its folder
+        -f, --<span>format</span>=csv|json  Desired <span>format</span> csv|json
+        -l, --list             <span class="hljs-built_in">print</span> <span class="hljs-built_in">all</span> submissions for the <span>form</span> to stdout
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/submissions.js">src/commands/submissions.js</a></em></p>
+      <h2 id="-sef-template-name-"><code>sef template NAME</code></h2>
+      <p>validate/create/update your cloudformation template saved locally</p>
+      <pre><code>USAGE
+        $ sef template NAME
 
-ARGUMENTS
-  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+      ARGUMENTS
+        NAME  <span class="hljs-built_in">name</span> <span>of</span> <span>the</span> form - must be unique
 
-OPTIONS
-  -c, <span class="hljs-comment">--create         Create a new cloudformation temmplate and saves it locally</span>
-  -e, <span class="hljs-comment">--email=email    Email address that will be used to send emails</span>
-  -f, <span class="hljs-comment">--fields=fields  Desired form formFields</span>
-  -v, <span class="hljs-comment">--validate       Validate your cloudformation template with AWS</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/template.js">src/commands/template.js</a></em></p>
-<h2 id="-sef-variable-name-variable-value-"><code>sef variable NAME VARIABLE VALUE</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef <span class="hljs-built_in">variable</span> NAME VARIABLE VALUE
+      OPTIONS
+        -c, <span>--create         Create a new cloudformation temmplate and saves it locally</span>
+        -e, <span>--email=email    Email address that will be used to send emails</span>
+        -f, <span>--fields=fields  Desired form formFields</span>
+        -v, <span>--validate       Validate your cloudformation template with AWS</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/template.js">src/commands/template.js</a></em></p>
+      <h2 id="-sef-variable-name-variable-value-"><code>sef variable NAME VARIABLE VALUE</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef <span class="hljs-built_in">variable</span> NAME VARIABLE VALUE
 
-ARGUMENTS
-  NAME      name <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form
-  VARIABLE  name <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">variable</span>
-  VALUE     <span class="hljs-built_in">value</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">variable</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/variable.js">src/commands/variable.js</a></em>
-<!-- commandsstop --></p>
-<ul>
-<li><a href="#sef-build"><code>sef build</code></a></li>
-<li><a href="#sef-email"><code>sef email</code></a></li>
-<li><a href="#sef-form-name"><code>sef form NAME</code></a></li>
-<li><a href="#sef-fullform-name"><code>sef fullform NAME</code></a></li>
-<li><a href="#sef-help-command"><code>sef help [COMMAND]</code></a></li>
-<li><a href="#sef-lambda-name"><code>sef lambda NAME</code></a></li>
-<li><a href="#sef-submissions"><code>sef submissions</code></a></li>
-<li><a href="#sef-template"><code>sef template</code></a></li>
-</ul>
-<h2 id="-sef-build-"><code>sef build</code></h2>
-<p>Builds the required base files and directories.</p>
-<pre><code>USAGE
-  <span class="hljs-variable">$ </span>sef build
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/build.js">src/commands/build.js</a></em></p>
-<h2 id="-sef-email-"><code>sef email</code></h2>
-<p>Describe the command here</p>
-<pre><code>USAGE
-  $ sef email
+      ARGUMENTS
+        NAME      name <span>of</span> <span>the</span> form
+        VARIABLE  name <span>of</span> <span>the</span> <span class="hljs-built_in">variable</span>
+        VALUE     <span class="hljs-built_in">value</span> <span>of</span> <span>the</span> <span class="hljs-built_in">variable</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/variable.js">src/commands/variable.js</a></em>
+      <!-- commandsstop --></p>
+      <ul>
+      <li><a href="#sef-build"><code>sef build</code></a></li>
+      <li><a href="#sef-email"><code>sef email</code></a></li>
+      <li><a href="#sef-form-name"><code>sef form NAME</code></a></li>
+      <li><a href="#sef-fullform-name"><code>sef fullform NAME</code></a></li>
+      <li><a href="#sef-help-command"><code>sef help [COMMAND]</code></a></li>
+      <li><a href="#sef-lambda-name"><code>sef lambda NAME</code></a></li>
+      <li><a href="#sef-submissions"><code>sef submissions</code></a></li>
+      <li><a href="#sef-template"><code>sef template</code></a></li>
+      </ul>
+      <h2 id="-sef-build-"><code>sef build</code></h2>
+      <p>Builds the required base files and directories.</p>
+      <pre><code>USAGE
+        <span class="hljs-variable">$ </span>sef build
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/build.js">src/commands/build.js</a></em></p>
+      <h2 id="-sef-email-"><code>sef email</code></h2>
+      <p>Describe the command here</p>
+      <pre><code>USAGE
+        $ sef email
 
-OPTIONS
-  -n, --<span class="hljs-keyword">name</span>=<span class="hljs-keyword">name</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> print
+      OPTIONS
+        -n, --<span>name</span>=<span>name</span>  <span>name</span> <span>to</span> print
 
-DESCRIPTION
-  ...
-  Extra documentation goes here
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/email.js">src/commands/email.js</a></em></p>
-<h2 id="-sef-form-name-"><code>sef form NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef <span class="hljs-selector-tag">form</span> NAME
+      DESCRIPTION
+        ...
+        Extra documentation goes here
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/email.js">src/commands/email.js</a></em></p>
+      <h2 id="-sef-form-name-"><code>sef form NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef <span>form</span> NAME
 
-ARGUMENTS
-  NAME  name of the <span class="hljs-selector-tag">form</span> - must be unique
+      ARGUMENTS
+        NAME  name of the <span>form</span> - must be unique
 
-OPTIONS
-  -f, --fields=fields  Desired <span class="hljs-selector-tag">form</span> formFields
-  -l, --labels         Automatically add labels to your <span class="hljs-selector-tag">form</span>
-  -u, --url=url        The API endpoint endpointUrl <span class="hljs-keyword">for</span> your form
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/form.js">src/commands/form.js</a></em></p>
-<h2 id="-sef-fullform-name-"><code>sef fullform NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef fullform NAME
+      OPTIONS
+        -f, --fields=fields  Desired <span>form</span> formFields
+        -l, --labels         Automatically add labels to your <span>form</span>
+        -u, --url=url        The API endpoint endpointUrl <span>for</span> your form
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/form.js">src/commands/form.js</a></em></p>
+      <h2 id="-sef-fullform-name-"><code>sef fullform NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef fullform NAME
 
-ARGUMENTS
-  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+      ARGUMENTS
+        NAME  <span class="hljs-built_in">name</span> <span>of</span> <span>the</span> form - must be unique
 
-OPTIONS
-  -e, <span class="hljs-comment">--email=email            Desired form formFields</span>
-  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
-  -l, <span class="hljs-comment">--labels                 Automatically add labels to your form</span>
-  -r, <span class="hljs-comment">--recipients=recipients  recipients that will recieve emails on your behalf.</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/fullform.js">src/commands/fullform.js</a></em></p>
-<h2 id="-sef-help-command-"><code>sef help [COMMAND]</code></h2>
-<p>display help for sef</p>
-<pre><code>USAGE
-  $ sef <span class="hljs-keyword">help</span> [COMMAND]
+      OPTIONS
+        -e, <span>--email=email            Desired form formFields</span>
+        -f, <span>--fields=fields          Desired form formFields</span>
+        -l, <span>--labels                 Automatically add labels to your form</span>
+        -r, <span>--recipients=recipients  recipients that will recieve emails on your behalf.</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/fullform.js">src/commands/fullform.js</a></em></p>
+      <h2 id="-sef-help-command-"><code>sef help [COMMAND]</code></h2>
+      <p>display help for sef</p>
+      <pre><code>USAGE
+        $ sef <span>help</span> [COMMAND]
 
-ARGUMENTS
-  COMMAND  <span class="hljs-keyword">command</span> <span class="hljs-keyword">to</span> show <span class="hljs-keyword">help</span> <span class="hljs-keyword">for</span>
+      ARGUMENTS
+        COMMAND  <span>command</span> <span>to</span> show <span>help</span> <span>for</span>
 
-OPTIONS
-  --<span class="hljs-keyword">all</span>  see <span class="hljs-keyword">all</span> commands in CLI
-</code></pre><p><em>See code: <a href="https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts">@oclif/plugin-help</a></em></p>
-<h2 id="-sef-lambda-name-"><code>sef lambda NAME</code></h2>
-<p>Builds an html form</p>
-<pre><code>USAGE
-  $ sef lambda NAME
+      OPTIONS
+        --<span>all</span>  see <span>all</span> commands in CLI
+      </code></pre><p><em>See code: <a href="https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts">@oclif/plugin-help</a></em></p>
+      <h2 id="-sef-lambda-name-"><code>sef lambda NAME</code></h2>
+      <p>Builds an html form</p>
+      <pre><code>USAGE
+        $ sef lambda NAME
 
-ARGUMENTS
-  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+      ARGUMENTS
+        NAME  <span class="hljs-built_in">name</span> <span>of</span> <span>the</span> form - must be unique
 
-OPTIONS
-  -e, <span class="hljs-comment">--email=email            Email address that will be used to send emails</span>
-  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
-  -r, <span class="hljs-comment">--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/lambda.js">src/commands/lambda.js</a></em></p>
-<h2 id="-sef-submissions-"><code>sef submissions</code></h2>
-<p>Describe the command here</p>
-<pre><code>USAGE
-  $ sef submissions
+      OPTIONS
+        -e, <span>--email=email            Email address that will be used to send emails</span>
+        -f, <span>--fields=fields          Desired form formFields</span>
+        -r, <span>--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/lambda.js">src/commands/lambda.js</a></em></p>
+      <h2 id="-sef-submissions-"><code>sef submissions</code></h2>
+      <p>Describe the command here</p>
+      <pre><code>USAGE
+        $ sef submissions
 
-OPTIONS
-  -n, --<span class="hljs-keyword">name</span>=<span class="hljs-keyword">name</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> print
+      OPTIONS
+        -n, --<span>name</span>=<span>name</span>  <span>name</span> <span>to</span> print
 
-DESCRIPTION
-  ...
-  Extra documentation goes here
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/submissions.js">src/commands/submissions.js</a></em></p>
-<h2 id="-sef-template-"><code>sef template</code></h2>
-<p>Describe the command here</p>
-<pre><code>USAGE
-  $ sef template
+      DESCRIPTION
+        ...
+        Extra documentation goes here
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/submissions.js">src/commands/submissions.js</a></em></p>
+      <h2 id="-sef-template-"><code>sef template</code></h2>
+      <p>Describe the command here</p>
+      <pre><code>USAGE
+        $ sef template
 
-OPTIONS
-  -n, --<span class="hljs-keyword">name</span>=<span class="hljs-keyword">name</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> print
+      OPTIONS
+        -n, --<span>name</span>=<span>name</span>  <span>name</span> <span>to</span> print
 
-DESCRIPTION
-  ...
-  Extra documentation goes here
-</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/template.js">src/commands/template.js</a></em></p>
+      DESCRIPTION
+        ...
+        Extra documentation goes here
+      </code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/template.js">src/commands/template.js</a></em></p>
 
 
         <h1 id="tests">Tests</h1>
@@ -937,7 +946,7 @@ DESCRIPTION
         <li>Validate your cloud formation template</li>
         </ol>
         <p>you can use the validateTemplate() command or use the AWS CLI</p>
-        <pre><code>$ aws cloudformation validate-<span class="hljs-keyword">template</span> --<span class="hljs-keyword">template</span>-<span class="hljs-keyword">body</span> file:<span class="hljs-comment">//forms/testform/template.json</span>
+        <pre><code>$ aws cloudformation validate-<span>template</span> --<span>template</span>-<span>body</span> file:<span>//forms/testform/template.json</span>
         </code></pre><ol>
         <li>Test the lambda function by using the test feature</li>
         <li>Test the API by using curl using the AWS CLI 
@@ -950,27 +959,27 @@ DESCRIPTION
         </ol>
       
       <!-- Footer -->
-      <footer class="bg-primary py-5" style="z-index: 5;">
-        <div class="container-fluid">
-          <div class="row small text-center text-muted">
-            <div class="col-md-6">
-              <div>Copyright &copy; 2019 - Almost CMS</div>
-            </div>
-            <div class="col-md-6">
-              <div> Powered By <a href="http://torus.digital">Almost CMS</a></div>
-            </div>
-          </div>
-        </div>
-      </footer>
+
+      
     </div>
+      <footer class="bg-dark sticky-bottom text-center text-white py-4">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6">
+								<p class="text-lg-left">Copyright &copy; Super Easy Forms 2019</p>
+							</div>
+							<div class="col-sm-6">
+								<p class="text-lg-right">powered by <a href="https://torus-digital.com">Torus</a></p>
+							</div>
+						</div>
+					</div>
+				</footer>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <!-- Custom scripts for this template -->
-    <script src="js/ghost.js"></script>
-    <!-- Optional JavaScript -->
-    <script src="js/index.js"></script>
+    <script src="js/simple-sidebar.js"></script>
   </body>
 </html>
