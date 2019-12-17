@@ -300,7 +300,7 @@
           })
        </code></pre>
        
-       <h2 id="quick-start">Quick start</h2>
+       <h1 id="quick-start">Quick start</h1>
        <ol>
         <li>open up the terminal and go to the root of your project  <code>$ cd your-project-name</code></li>
         <li>run the command bellow</li>
@@ -478,8 +478,8 @@
         <p>If you are adding reCaptcha to an already deployed form make sure to also update your lambda function and CloudFormation templates. </p>
        
        
-        <h1 id="api-glossary">API Glossary</h1>
-        <ol>
+      <h1 id="api-glossary">API Glossary</h1>
+      <ol>
         <li><strong>GetSubmissions(formName, callback):</strong> Lists all of the responses recieved to stdout<ol>
         <li><strong>formName</strong>: String: the name of the form</li>
         <li><strong>returns</strong> an array of JSON Objects</li>
@@ -582,7 +582,291 @@
         <li><strong>value:</strong> String: string value for your form input field.</li>
         </ol>
         </li>
-        </ol>
+      </ol>
+
+<h1 id="super-easy-forms-cli">super-easy-forms-cli</h1>
+<p>a CLI for super-easy-forms</p>
+<p><a href="https://oclif.io"><img src="https://img.shields.io/badge/cli-oclif-brightgreen.svg" alt="oclif"></a>
+<a href="https://npmjs.org/package/super-easy-forms-cli"><img src="https://img.shields.io/npm/v/super-easy-forms-cli.svg" alt="Version"></a>
+<a href="https://npmjs.org/package/super-easy-forms-cli"><img src="https://img.shields.io/npm/dw/super-easy-forms-cli.svg" alt="Downloads/week"></a>
+<a href="https://github.com/gkpty/super-easy-forms-cli/blob/master/package.json"><img src="https://img.shields.io/npm/l/super-easy-forms-cli.svg" alt="License"></a></p>
+<!-- toc -->
+<ul>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#commands">Commands</a><!-- tocstop -->
+<h1 id="usage">Usage</h1>
+<!-- usage -->
+<pre><code class="lang-sh-session">$ npm install -g <span class="hljs-keyword">super</span>-easy-forms-cli
+$ sef COMMAND
+running command...
+$ sef (-v<span class="hljs-params">|--version|</span>version)
+<span class="hljs-keyword">super</span>-easy-forms-cli/<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span> linux-x64 node-v12.<span class="hljs-number">13.1</span>
+$ sef --help [COMMAND]
+USAGE
+$ sef COMMAND
+...
+</code></pre>
+<!-- usagestop -->
+<h1 id="commands">Commands</h1>
+<!-- commands --></li>
+<li><a href="#sef-build"><code>sef build</code></a></li>
+<li><a href="#sef-delete-name"><code>sef delete NAME</code></a></li>
+<li><a href="#sef-deploy-name"><code>sef deploy NAME</code></a></li>
+<li><a href="#sef-email-email-name"><code>sef email EMAIL [NAME]</code></a></li>
+<li><a href="#sef-form-name"><code>sef form NAME</code></a></li>
+<li><a href="#sef-fullform-name"><code>sef fullform NAME</code></a></li>
+<li><a href="#sef-help-command"><code>sef help [COMMAND]</code></a></li>
+<li><a href="#sef-iam-user-region"><code>sef iam USER [REGION]</code></a></li>
+<li><a href="#sef-lambda-name"><code>sef lambda NAME</code></a></li>
+<li><a href="#sef-submissions-name"><code>sef submissions NAME</code></a></li>
+<li><a href="#sef-template-name"><code>sef template NAME</code></a></li>
+<li><a href="#sef-variable-name-variable-value"><code>sef variable NAME VARIABLE VALUE</code></a></li>
+</ul>
+<h2 id="-sef-build-"><code>sef build</code></h2>
+<p>Builds the required base files and directories.</p>
+<pre><code>USAGE
+  <span class="hljs-variable">$ </span>sef build
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/build.js">src/commands/build.js</a></em></p>
+<h2 id="-sef-delete-name-"><code>sef delete NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef <span class="hljs-keyword">delete</span> <span class="hljs-keyword">NAME</span>
+
+ARGUMENTS
+  <span class="hljs-keyword">NAME</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">of</span> the <span class="hljs-keyword">form</span> you want <span class="hljs-keyword">to</span> <span class="hljs-keyword">delete</span>
+
+OPTIONS
+  -r, <span class="hljs-comment">--resources  Delete all of the back-end resources for your form in the cloud</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/delete.js">src/commands/delete.js</a></em></p>
+<h2 id="-sef-deploy-name-"><code>sef deploy NAME</code></h2>
+<p>Deploys your stack in the AWS Cloud</p>
+<pre><code>USAGE
+  $ sef deploy NAME
+
+ARGUMENTS
+  NAME  name <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form you want <span class="hljs-built_in">to</span> <span class="hljs-built_in">delete</span>
+
+OPTIONS
+  -c, <span class="hljs-comment">--create  Deploy a new cloudformation stack in the AWS cloud</span>
+  -u, <span class="hljs-comment">--update  Update your stack in the AWS cloud</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/deploy.js">src/commands/deploy.js</a></em></p>
+<h2 id="-sef-email-email-name-"><code>sef email EMAIL [NAME]</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef email EMAIL [NAME]
+
+ARGUMENTS
+  EMAIL  the email <span class="hljs-selector-tag">address</span> that will send the <span class="hljs-selector-tag">form</span> submission emails
+  NAME   name of the <span class="hljs-selector-tag">form</span> - must be unique
+
+OPTIONS
+  -n, --new       verifies <span class="hljs-selector-tag">a</span> new email <span class="hljs-selector-tag">address</span> to be used by AWS SES to send email
+  -v, --validate  validates that the provided email <span class="hljs-selector-tag">address</span> was verified with AWS SES
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/email.js">src/commands/email.js</a></em></p>
+<h2 id="-sef-form-name-"><code>sef form NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef <span class="hljs-selector-tag">form</span> NAME
+
+ARGUMENTS
+  NAME  name of the <span class="hljs-selector-tag">form</span> - must be unique
+
+OPTIONS
+  -f, --fields=fields  Desired <span class="hljs-selector-tag">form</span> formFields
+  -l, --labels         Automatically add labels to your <span class="hljs-selector-tag">form</span>
+  -u, --url=url        The API endpoint endpointUrl <span class="hljs-keyword">for</span> your form
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/form.js">src/commands/form.js</a></em></p>
+<h2 id="-sef-fullform-name-"><code>sef fullform NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef fullform NAME
+
+ARGUMENTS
+  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+
+OPTIONS
+  -e, <span class="hljs-comment">--email=email            Email address that will be used to send emails</span>
+  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
+  -l, <span class="hljs-comment">--labels                 Automatically add labels to your form</span>
+  -r, <span class="hljs-comment">--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/fullform.js">src/commands/fullform.js</a></em></p>
+<h2 id="-sef-help-command-"><code>sef help [COMMAND]</code></h2>
+<p>display help for sef</p>
+<pre><code>USAGE
+  $ sef <span class="hljs-keyword">help</span> [COMMAND]
+
+ARGUMENTS
+  COMMAND  <span class="hljs-keyword">command</span> <span class="hljs-keyword">to</span> show <span class="hljs-keyword">help</span> <span class="hljs-keyword">for</span>
+
+OPTIONS
+  --<span class="hljs-keyword">all</span>  see <span class="hljs-keyword">all</span> commands in CLI
+</code></pre><p><em>See code: <a href="https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts">@oclif/plugin-help</a></em></p>
+<h2 id="-sef-iam-user-region-"><code>sef iam USER [REGION]</code></h2>
+<p>the --create flag will open up a window with the AWS console so that you confirm the creation of a user with the entered name.</p>
+<pre><code>USAGE
+  $ sef iam <span class="hljs-keyword">USER</span> <span class="hljs-title">[REGION</span>]
+
+ARGUMENTS
+  <span class="hljs-keyword">USER</span>    <span class="hljs-title">name</span> of the IAM <span class="hljs-keyword">user</span>
+  <span class="hljs-title">REGION</span>  your desired AWS region.
+
+OPTIONS
+  -c, --create  Helps you create an IAM <span class="hljs-keyword">user</span> <span class="hljs-title">and</span> adds its profile to the .env file
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/iam.js">src/commands/iam.js</a></em></p>
+<h2 id="-sef-lambda-name-"><code>sef lambda NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef lambda NAME
+
+ARGUMENTS
+  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+
+OPTIONS
+  -e, <span class="hljs-comment">--email=email            Email address that will be used to send emails</span>
+  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
+  -r, <span class="hljs-comment">--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/lambda.js">src/commands/lambda.js</a></em></p>
+<h2 id="-sef-submissions-name-"><code>sef submissions NAME</code></h2>
+<p>validates a cloudformation template saved in your formName&#39;s dir with AWS</p>
+<pre><code>USAGE
+  $ sef submissions <span class="hljs-keyword">NAME</span>
+
+ARGUMENTS
+  <span class="hljs-keyword">NAME</span>  <span class="hljs-keyword">name</span> of the <span class="hljs-keyword">form</span> - must be unique
+
+OPTIONS
+  -e, --export           Exports <span class="hljs-built_in">all</span> submissions for the <span class="hljs-keyword">form</span> to its folder
+  -f, --<span class="hljs-keyword">format</span>=csv|json  Desired <span class="hljs-keyword">format</span> csv|json
+  -l, --list             <span class="hljs-built_in">print</span> <span class="hljs-built_in">all</span> submissions for the <span class="hljs-keyword">form</span> to stdout
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/submissions.js">src/commands/submissions.js</a></em></p>
+<h2 id="-sef-template-name-"><code>sef template NAME</code></h2>
+<p>validate/create/update your cloudformation template saved locally</p>
+<pre><code>USAGE
+  $ sef template NAME
+
+ARGUMENTS
+  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+
+OPTIONS
+  -c, <span class="hljs-comment">--create         Create a new cloudformation temmplate and saves it locally</span>
+  -e, <span class="hljs-comment">--email=email    Email address that will be used to send emails</span>
+  -f, <span class="hljs-comment">--fields=fields  Desired form formFields</span>
+  -v, <span class="hljs-comment">--validate       Validate your cloudformation template with AWS</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/template.js">src/commands/template.js</a></em></p>
+<h2 id="-sef-variable-name-variable-value-"><code>sef variable NAME VARIABLE VALUE</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef <span class="hljs-built_in">variable</span> NAME VARIABLE VALUE
+
+ARGUMENTS
+  NAME      name <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form
+  VARIABLE  name <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">variable</span>
+  VALUE     <span class="hljs-built_in">value</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">variable</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/variable.js">src/commands/variable.js</a></em>
+<!-- commandsstop --></p>
+<ul>
+<li><a href="#sef-build"><code>sef build</code></a></li>
+<li><a href="#sef-email"><code>sef email</code></a></li>
+<li><a href="#sef-form-name"><code>sef form NAME</code></a></li>
+<li><a href="#sef-fullform-name"><code>sef fullform NAME</code></a></li>
+<li><a href="#sef-help-command"><code>sef help [COMMAND]</code></a></li>
+<li><a href="#sef-lambda-name"><code>sef lambda NAME</code></a></li>
+<li><a href="#sef-submissions"><code>sef submissions</code></a></li>
+<li><a href="#sef-template"><code>sef template</code></a></li>
+</ul>
+<h2 id="-sef-build-"><code>sef build</code></h2>
+<p>Builds the required base files and directories.</p>
+<pre><code>USAGE
+  <span class="hljs-variable">$ </span>sef build
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/build.js">src/commands/build.js</a></em></p>
+<h2 id="-sef-email-"><code>sef email</code></h2>
+<p>Describe the command here</p>
+<pre><code>USAGE
+  $ sef email
+
+OPTIONS
+  -n, --<span class="hljs-keyword">name</span>=<span class="hljs-keyword">name</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> print
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/email.js">src/commands/email.js</a></em></p>
+<h2 id="-sef-form-name-"><code>sef form NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef <span class="hljs-selector-tag">form</span> NAME
+
+ARGUMENTS
+  NAME  name of the <span class="hljs-selector-tag">form</span> - must be unique
+
+OPTIONS
+  -f, --fields=fields  Desired <span class="hljs-selector-tag">form</span> formFields
+  -l, --labels         Automatically add labels to your <span class="hljs-selector-tag">form</span>
+  -u, --url=url        The API endpoint endpointUrl <span class="hljs-keyword">for</span> your form
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/form.js">src/commands/form.js</a></em></p>
+<h2 id="-sef-fullform-name-"><code>sef fullform NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef fullform NAME
+
+ARGUMENTS
+  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+
+OPTIONS
+  -e, <span class="hljs-comment">--email=email            Desired form formFields</span>
+  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
+  -l, <span class="hljs-comment">--labels                 Automatically add labels to your form</span>
+  -r, <span class="hljs-comment">--recipients=recipients  recipients that will recieve emails on your behalf.</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/fullform.js">src/commands/fullform.js</a></em></p>
+<h2 id="-sef-help-command-"><code>sef help [COMMAND]</code></h2>
+<p>display help for sef</p>
+<pre><code>USAGE
+  $ sef <span class="hljs-keyword">help</span> [COMMAND]
+
+ARGUMENTS
+  COMMAND  <span class="hljs-keyword">command</span> <span class="hljs-keyword">to</span> show <span class="hljs-keyword">help</span> <span class="hljs-keyword">for</span>
+
+OPTIONS
+  --<span class="hljs-keyword">all</span>  see <span class="hljs-keyword">all</span> commands in CLI
+</code></pre><p><em>See code: <a href="https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts">@oclif/plugin-help</a></em></p>
+<h2 id="-sef-lambda-name-"><code>sef lambda NAME</code></h2>
+<p>Builds an html form</p>
+<pre><code>USAGE
+  $ sef lambda NAME
+
+ARGUMENTS
+  NAME  <span class="hljs-built_in">name</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> form - must be unique
+
+OPTIONS
+  -e, <span class="hljs-comment">--email=email            Email address that will be used to send emails</span>
+  -f, <span class="hljs-comment">--fields=fields          Desired form formFields</span>
+  -r, <span class="hljs-comment">--recipients=recipients  Recipients that will recieve emails on your behalf.</span>
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/lambda.js">src/commands/lambda.js</a></em></p>
+<h2 id="-sef-submissions-"><code>sef submissions</code></h2>
+<p>Describe the command here</p>
+<pre><code>USAGE
+  $ sef submissions
+
+OPTIONS
+  -n, --<span class="hljs-keyword">name</span>=<span class="hljs-keyword">name</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> print
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/submissions.js">src/commands/submissions.js</a></em></p>
+<h2 id="-sef-template-"><code>sef template</code></h2>
+<p>Describe the command here</p>
+<pre><code>USAGE
+  $ sef template
+
+OPTIONS
+  -n, --<span class="hljs-keyword">name</span>=<span class="hljs-keyword">name</span>  <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> print
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+</code></pre><p><em>See code: <a href="https://github.com/gkpty/super-easy-forms-cli/blob/v0.0.0/src/commands/template.js">src/commands/template.js</a></em></p>
+
 
         <h1 id="tests">Tests</h1>
         <ol>
