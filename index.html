@@ -178,14 +178,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="section-title text-center">Installation</h2>
+						<h2 class="section-title text-center">Getting Started</h2>
 						<ul>
 							<li>Make sure you have node.js (10.x +) and npm installed. You can checkout this tutorial to install npm and node in mac, linux (debian/ubuntu).</li>
 							<li>Have an AWS account. If you don't have an AWS account, you can easily create one here. Don't worry, everything you do with this project will fall within the AWS free tier limit!</li>
 						</ul>
 						<ol>
 							<li>Create a new directorey <code>mkdir project-name</code> and/or go into your desired project's directory <code>cd project-name</code></li>
-							<li> super easy forms <code>npm install super-easy-forms</code></li>
+							<li>Install super easy forms <code>npm install super-easy-forms</code></li>
 							<li>Install the super easy forms CLI globally <code>npm install -g super-easy-forms-cli</code></li>
 							<li>Run the build command <code>sef build -r=your-aws-region -p=profile-name</code> replace profile-name with the desired name for the IAM profile and your-aws-region with the desired AWS region code</li>
 							<li>Finish creating your IAM user in the AWS Console and hold on to the access keys. If you had already created your IAM user you can ignore this step and close the browser window</li>
@@ -194,6 +194,10 @@
 [profilename]
 aws_access_key_id = YOUR_ACCESS_KEY_ID
 aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
+							</code></pre>
+							<li>Create your form by running the command bellow. You can run <code>sef fullform --help</code> to see all the available flags</li>
+							<pre><code>
+sef fullform formname --email=your@email.com --fields=fullName=text=required,email=email=required,message=text=required
 							</code></pre>
 						</ol>
 					</div>
@@ -222,30 +226,28 @@ aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
 				</div>
 		</section>
 
-		<!-- GET STARTED -->
-		<section class="bg-primary py-5" id="get-started">
+		<!-- BUILT WITH -->
+		<section class="bg-grey py-5" id="built-with">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-sm-12 text-center pb-4">
-						<h3>Want to know more about Super Easy Forms?</h3>
+					<h3 class="h2 pb-4 title">Built With</h3>
+				</div>
+				<div class="row text-center align-middle pb-4">
+					<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
+						<a href="https://nodejs.org/en/" target="_blank">
+							<img class="tech-icon" src="img/Node.js_logo.svg" alt="node js logo">
+						</a>
 					</div>
-				</div>
-				<div class="row">
-					<!-- FORM BY SUPER EASY FORMS -->
-					<form id="super-easy-form-register" alt="Form by Super Easy Forms" class="form-inline col-12 w-100" action="#">
-						<div class="col-md-9 col-lg-10">
-							<input type="email" class="form-control py-4 w-100" id="register-email" name="email" placeholder="email" required>
-						</div>				
-						<div class="col-md-3 col-lg-2 col-6 pt-3 pt-md-0 ml-auto">
-								<button class="btn btn-light py-2 w-100" type="submit" id="super-easy-btn-register">
-									<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Sign Up
-								</button>			
-						</div>			
-					</form>
-				</div>
-				<div class="col-12">
-					<h5 id="contact-status-register" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
-					<small class="ml-0">made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
+					<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
+						<a href="https://getbootstrap.com/" target="_blank">
+							<img class="tech-icon" src="img/bootstrap-solid.svg" alt="bootstrap logo">
+						</a>
+					</div>
+					<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
+						<a href="https://aws.amazon.com/" target="_blank">
+							<img class="tech-icon" src="img/Amazon_Web_Services_Logo.svg" alt="AWS logo">
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -279,31 +281,33 @@ aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
 			</div>
 		</section>
 
-			<!-- BUILT WITH -->
-			<section class="bg-grey py-5" id="built-with">
-				<div class="container">
-					<div class="row justify-content-center">
-						<h3 class="h2 pb-4 title">Built With</h3>
-					</div>
-					<div class="row text-center align-middle pb-4">
-						<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
-							<a href="https://nodejs.org/en/" target="_blank">
-								<img class="tech-icon" src="img/Node.js_logo.svg" alt="node js logo">
-							</a>
-						</div>
-						<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
-							<a href="https://getbootstrap.com/" target="_blank">
-								<img class="tech-icon" src="img/bootstrap-solid.svg" alt="bootstrap logo">
-							</a>
-						</div>
-						<div class="col-md-4 p-2 px-lg-5 py-lg-0 py-4">
-							<a href="https://aws.amazon.com/" target="_blank">
-								<img class="tech-icon" src="img/Amazon_Web_Services_Logo.svg" alt="AWS logo">
-							</a>
-						</div>
+		<!-- Sign Up -->
+		<section class="bg-primary py-5" id="get-started">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-sm-12 text-center pb-4">
+						<h3>Want to know more about Super Easy Forms?</h3>
 					</div>
 				</div>
-			</section>
+				<div class="row">
+					<!-- FORM BY SUPER EASY FORMS -->
+					<form id="super-easy-form-register" alt="Form by Super Easy Forms" class="form-inline col-12 w-100" action="#">
+						<div class="col-md-9 col-lg-10">
+							<input type="email" class="form-control py-4 w-100" id="register-email" name="email" placeholder="email" required>
+						</div>				
+						<div class="col-md-3 col-lg-2 col-6 pt-3 pt-md-0 ml-auto">
+								<button class="btn btn-light py-2 w-100" type="submit" id="super-easy-btn-register">
+									<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Sign Up
+								</button>			
+						</div>			
+					</form>
+				</div>
+				<div class="col-12">
+					<h5 id="contact-status-register" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
+					<small class="ml-0">made with <a href="http://supereasyforms.com">super easy forms</a> </small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
+				</div>
+			</div>
+		</section>
 
 			<!-- Price -->
 			<section id="included-in-aws" class="section bg-white">
@@ -410,13 +414,12 @@ aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="text-center section-title">Roadmap</h2>
-								<p class="pb-3">Super Easy Forms doesn't stop here. We have a bunch of features planned that will make it more easy and more Super!</p> 
-								<span class="h3 font-weight-bold">Some of these include</span>
+								<p class="pb-3">Super Easy Forms doesn't stop here. We have a bunch of features planned. To stay up tp date with everything that is planned check out our project board and sign up to our newsletter</p> 
+								<span class="h3 font-weight-bold">Some Upcoming Features</span>
 								<ul class="pt-3 text-secondary">
 									<li>File submissions (images, videos, PDFs and more!)</li>
-									<li>Payment forms (integrations with leading solution providers)</li>
 									<li>Direct integration with the gmail API</li>
-									<li>Optional Captcha (Spam protection)</li>
+									<li>Payment forms (integrations with leading solution providers)</li>
 								</ul>
 							</div>
 						</div>
