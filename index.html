@@ -114,19 +114,28 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-							<div class="list pt-2">
+							<div class="pt-2">
 								<ul class="h4 text-secondary"> 
 									<li>100% customizable html forms (No iframes)</li>
-									<li>Create an unlimited amount of forms</li>
-									<li>Store unlimited form submissions</li>
-									<li>Register an unlimited amount of emails.</li>
-									<li>Easily export submissions from the database</li>
+									<li>Unlimited forms</li>
+									<li>Unlimited form submissions</li>
+									<li>Register an unlimited amount of emails</li>
+									<li>Detailed Documentation <span class="badge bg-primary text-white">New</span></li>
+									<li>Easy installation with npm <span class="badge bg-primary text-white">New</span></li>
+									<li>Easy Integration <span class="badge bg-primary text-white">New</span></li>
+									<li>Individual configuration for each form <span class="badge bg-primary text-white">New</span></li>
+									<li>Complete Command line Interface <span class="badge bg-primary text-white">New</span></li>
+									<li>Export form submissions as CSV or JSON <span class="badge bg-primary text-white">New</span></li><li>Input sanitation <span class="badge bg-primary text-white">New</span></li>
+									<li>Support for select lists, required attributes and all html types <span class="badge bg-primary text-white">New</span></li>
+									<li>Custom email notification message <span class="badge bg-primary text-white">New</span></li>
+									<li>Smart labels <span class="badge bg-primary text-white">New</span></li>
+									<li>Optional CAPTCHA <span class="badge bg-primary text-white">New</span></li>
 								</ul>
 							</div>
 					</div>
 					<div class="col-md-6 pb-0">
 						<div class="bg-primary p-4 ml-md-4">
-							<h4 class="text-center pb-4">Have Any Questions?</h4>
+							<h4 class="text-center pb-4 pt-4">Have Any Questions?</h4>
 							<!-- FORM BY SUPER EASY FORMS -->
 							<form id="super-easy-form" alt="Form by Super Easy Forms" action="#">
 								<input type="text" class="form-control mb-3" id="name" name="name" placeholder="name" required>
@@ -165,7 +174,32 @@
 		</section>
 
 		<!-- INSTALLATION -->
-		<!-- Insert the readme-->
+		<section class="section bg-grey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="section-title text-center">Installation</h2>
+						<ul>
+							<li>Make sure you have node.js (10.x +) and npm installed. You can checkout this tutorial to install npm and node in mac, linux (debian/ubuntu).</li>
+							<li>Have an AWS account. If you don't have an AWS account, you can easily create one here. Don't worry, everything you do with this project will fall within the AWS free tier limit!</li>
+						</ul>
+						<ol>
+							<li>Create a new directorey <code>mkdir project-name</code> and/or go into your desired project's directory <code>cd project-name</code></li>
+							<li> super easy forms <code>npm install super-easy-forms</code></li>
+							<li>Install the super easy forms CLI globally <code>npm install -g super-easy-forms-cli</code></li>
+							<li>Run the build command <code>sef build -r=your-aws-region -p=profile-name</code> replace profile-name with the desired name for the IAM profile and your-aws-region with the desired AWS region code</li>
+							<li>Finish creating your IAM user in the AWS Console and hold on to the access keys. If you had already created your IAM user you can ignore this step and close the browser window</li>
+							<li>Update the local profile in your machine. The local profiles are stored in ~/.aws/credentials in mac/linux or in C:\Users\USER_NAME\.aws\credentials in windows. you can create/edit this file by runing sudo nano ~/.aws/credentials. add the profile keys in the format shown bellow</li>
+							<pre><code>
+[profilename]
+aws_access_key_id = YOUR_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
+							</code></pre>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!-- CUSTOMIZE YOUR FORM -->
 		<section id="customize-form" class="section bg-lgrey">

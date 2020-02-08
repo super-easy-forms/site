@@ -76,6 +76,9 @@ section ul li strong {
 .text-black{
   color: #212529 !important;
 }
+.text-cream {
+  color: #FCFBED !important;
+}
 .bg-primary{
   background-image: linear-gradient(to right, hsla(354, 85%, 66%, .9)
 , hsla(0, 83%, 59%, .9) , hsla(354, 85%, 66%, .9));
@@ -123,6 +126,11 @@ section ul li strong {
 .tech-icon {
   max-width: 140px;
   max-height: 100px
+}
+.badge{
+  padding: .25em .4em;
+  font-size: 50%;
+  vertical-align: middle;
 }
 
 
