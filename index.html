@@ -73,8 +73,8 @@
 		<header class="container">
 			<div class="row pt-5">
 				<div class="col-sm-12 text-center">
-						<h1 class="main-title">Super Easy Forms 2.0</h1>
-						<h3 class="pb-5 px-md-5">A Free and open source tool that helps you create responsive HTML contact forms in an instant. Now featuring increased security, felixibility and usability.</h3>
+						<h1 class="main-title">Super Easy Forms</h1>
+						<h3 class="pb-5 px-md-5">A package that helps you create responsive html forms with serverless backends in an instant. Now featuring increased security, felixibility and usability.</h3>
 				</div>			
 			</div>
 			<div class="row pt-2">
@@ -82,26 +82,25 @@
 					<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" width="100%">
 						<source src="vid/SEF-intro.mp4" type="video/mp4">
 					</video>
-					<h3 class="h6 pt-4 ml-1">Serverless backend components are automatically deployed for you and linked to your HTML form.</h3>
+					<h3 class="h6 pt-4 ml-1">All the serverless resources are automatically deployed and linked to your form</h3>
 				</div>
 				<div class="col-md-5 list">
 					<ul class="h4 text-secondary ml-lg-5 pt-4 pt-sm-0">
-						<li>Install in a breeze</li>
-						<li>type in your input fields</li>
-						<li>Copy paste the form into your site</li>
-						<li>Customize as you like</li>
-						<li>Have full control of your data</li>
+						<li>Install in seconds <code>npm i super-easy-forms</code></li>
+						<li>Create and deploy your serverless form with one command <code>sef fullform</code></li>
+						<li>Customize the html form however you like</li>
+						<li>Recieve email notifications of form submissions</li>
+						<li>Have full control of your form submission data</li>
 						</ul>
 					</ul>
 				</div>
 			</div>
 		</header>
 
-		<!-- GET STARTED -->
+		<!-- Try it Now -->
 		<section class="try-it py-5" id="tryit">
 			<div class="row justify-content-center">
 				<a href="https://github.com/gkpty/super_easy_forms" class="btn btn-lg btn-main py-3 px-5">
-					<i class="fab fa-github h4"></i>
 					Try it Out!
 				</a>
 			</div>
@@ -152,14 +151,30 @@
 			</div>
 		</section>
 
+		<!-- THE CLI -->
+		<section id="customize-form" class="section bg-lgrey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="section-title text-center">The CLI</h2>
+						<p>A complete command line interface for Super Easy Forms that lets you use each of the methods individually or all together using the <code>fullform</code> command. You can install the CLI globally to use it in all of your Super Easy Forms projects by running <code>npm i -g super-easy-forms-cli</code>. </p>
+						<p>To collaborate or learn more about the project check out the <a href="https://github.com/super-easy-forms-cli">repository</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- INSTALLATION -->
+		<!-- Insert the readme-->
+
 		<!-- CUSTOMIZE YOUR FORM -->
 		<section id="customize-form" class="section bg-lgrey">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="section-title text-center">Customize your Form</h2>
-						<p>The CLI outputs an html file with your ready-to-use form preset with default bootstrap classes and an inline JQuery handler.</p>    
-						<p>You can add custom CSS, modify the HTML layout of the form and adapt it to your project however you like.</p>
+						<p>The form/fullform commands save an html file that contains your ready-to-use form with default bootstrap classes and an inline JQuery handler.</p>    
+						<p>You can open the html file and add custom CSS, modify the HTML layout of the form and adapt it to your project however you like.</p>
 						<p>If you need inpiration you can check out <a href="https://codepen.io/collection/DpzJme/" target="_blank">this collection</a> of bootstrap html contact forms in codepen.</p>
 					</div>
 				</div>
@@ -210,8 +225,9 @@
 						<p>Super Easy Forms is a simple CLI built with node js. It helps you register your email with AWS SES, it automatically creates the necessary resources for you in AWS, and it outputs a Bootstrap HTML form that's already connected to your API, ready to copy paste into your website.</p>    
 						<strong>Resources Created</strong>
 						<ol class="text-secondary">
-							<li>A Dynamodb table with your desired fields.</li>
-							<li>A lambda function that will send an email to your registered address and add the entry to the database.</li>
+							<li>A Dynamodb table to store your submissions</li>
+							<Li>An s3 bucket to store your lambda deployment package</Li>
+							<li>A lambda function that will add the form output to the database and send an email to stakeholders.</li>
 							<li>A REST API endpoint for the lambda function with a POST method.</li>
 						</ol>
 						<strong>The Form</strong>
@@ -255,14 +271,14 @@
 				</div>
 			</section>
 
-			<!-- INCLUDED -->
+			<!-- Price -->
 			<section id="included-in-aws" class="section bg-white">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2 class="text-center section-title">Whats Included with AWS in Super Easy Forms?</h2>
-							<p class="pb-4">You need to have an AWS account to be able to use Super Easy Forms. In the near future we are going to solve our vendor-lock in but for now AWS is a pretty good start.</p>    
-							<span class="h3 font-weight-bold">Super Easy Forms uses the following services from AWS</span>
+							<h2 class="text-center section-title">Price</h2>
+							<p>Super Easy Forms and the Super Easy Forms CLI are both completely free and open source under the MIT license. All of the AWS services used by Super Easy Forms have a generous free tier that is hard exceed; however if you do exceed these free tier limits you will be charged by AWS. Please refer to the list bellow for more information.</p>
+							<span class="h3 font-weight-bold">AWS Services used by Super Easy Forms</span>
 							<ul class="pt-4 text-secondary">
 								<li><strong>SES </strong> Simple Email Service. 1,000 emails/month for free then $.10 for every 1,000 emails recieved.</li>
 								<li><strong>DynamoDB </strong> Fully managed NoSQL database. 25GB of storage free for always.</li>
@@ -270,12 +286,100 @@
 								<li><strong>API Gateway </strong> 1M REST API requests/month for 12months then $3.50/1M requests.</li>
 								<li><strong>S3 Bucket </strong> Object storage for your file submissions <span class="text-primary">(Coming soon!)</span>. 5Gb free for 12 months then $0.023 for GB.</li>
 							</ul>
-							<p>Want more info? <a href="https://aws.amazon.com/free/" target="_blank"> https://aws.amazon.com/free</a></p>
+							<p>Need more info? <a href="https://aws.amazon.com/free/" target="_blank"> https://aws.amazon.com/free</a></p>
 						</div>
 					</div>
 				</div>
 			</section>
 
+			<!-- COLLABORATIONS -->
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h2>Collaborations</h2>
+							<p>The success of Open Source projects depends completely on the support of the community and the collaborations. If you think you can give us a hand please feel free to <a href="">fork the repo</a> and work on any of the issues in the <a href="">project board</a></p>
+							<p>If you use Super Easy Forms and want it to continue improving but you dont feel like writing the code yourself, you can send us a donation in BTC or USD by using the form bellow. Thanks!</p>
+							<!-- COINBASE FORM-->
+							<div>
+								<a class="donate-with-crypto"
+								   href="https://commerce.coinbase.com/checkout/79f11215-6bc7-4ea8-be18-25666b95528e">
+								  Donate with Crypto
+								</a>
+								<script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+								</script>
+							  </div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- MAIN COLLABORATORS -->
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="row">
+							<div class="col-md-4">
+							  <div class="team-member">
+								<img class="mx-auto rounded-circle" src="https://avatars0.githubusercontent.com/u/31138615?s=460&v=4" alt="gabriel kardonski">
+								<h3 class="team-heading">Gabriel Kardonski</h3>
+								<p class="text-muted">Solutions Architect</p>
+								<ul class="list-inline social-buttons">
+								  <li class="list-inline-item">
+									<a href="https://www.linkedin.com/in/gabriel-kardonski-05154990/">
+									  <i class="fa fa-linkedin"></i>
+									</a>
+								  </li>
+								  <li class="list-inline-item">
+									<a href="https://github.com/gkpty">
+									  <i class="fa fa-github"></i>
+									</a>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+							<div class="col-md-4">
+							  <div class="team-member">
+								<img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="lucas kardonski">
+								<h3 class="team-heading">Lucas Kardonski</h3>
+								<p class="text-muted">Marketing Director</p>
+								<ul class="list-inline social-buttons">
+								  <li class="list-inline-item">
+									<a href="https://www.linkedin.com/in/lucas-kardonski-9021a340/">
+									  <i class="fa fa-linkedin"></i>
+									</a>
+								  </li>
+								  <li class="list-inline-item">
+									<a href="https://github.com/lucaskardo">
+									  <i class="fa fa-github"></i>
+									</a>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+							<div class="col-md-4">
+							  <div class="team-member">
+								<img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="humberto torres">
+								<h3 class="team-heading">Humberto Torres</h3>
+								<p class="text-muted">Senior Developer</p>
+								<ul class="list-inline social-buttons">
+								  <li class="list-inline-item">
+									<a href="https://www.linkedin.com/in/humberto-torres-747a2a12">
+									  <i class="fa fa-linkedin"></i>
+									</a>
+								  </li>
+								  <li class="list-inline-item">
+									<a href="https://github.com/humber3112">
+									  <i class="fa fa-github"></i>
+									</a>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 			<!-- ROADMAP -->
 			<section id="roadmap" class="section bg-light">
 					<div class="container">
@@ -315,29 +419,6 @@
 										</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-			<!-- VISION -->
-			<section id="vision" class="section bg-white">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="text-center section-title">Our Vision</h2>
-								<p><strong>The more Open Source the Better! </strong> We are working on a suite of free & open source tools that help people use microservices effectively in smaller use cases like building websites.</p>    
-								<strong>We believe that</strong>
-								<ol class="text-secondary">
-									<li>building websites should be fun, easy and free.</li>
-									<li>The websites you build should be fast, secure and should not require any maintenance.</li>
-									<li>There shouldn’t be a compromise between what the devs consider good tech and what the beginner perceives as user-friendly.</li>
-								</ol>
-							</div>
-						</div>
-						<div class="row justify-content-center">
-							<div class="col-sm-12">
-								<p>If you share our vision, or want to learn more check out the rest of our projects at <a href="http://torusproject.org">Torus Project</a>.</p>
 							</div>
 						</div>
 					</div>
