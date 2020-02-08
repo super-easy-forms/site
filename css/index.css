@@ -121,3 +121,30 @@ section ul li strong {
   max-width: 140px;
   max-height: 100px
 }
+
+
+.team-heading {
+  font-size: 1.5rem;
+  padding-top: 8%;
+  margin-bottom: -1%;
+}
+.team-member {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.team-member img {
+  max-width: 12rem;
+  box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.team-member h4 {
+  margin-top: 25px;
+  margin-bottom: 0;
+  text-transform: none;
+}
+
+.team-member p {
+  margin-top: 0;
+  padding: 0;
+}
