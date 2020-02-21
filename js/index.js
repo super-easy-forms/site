@@ -1,32 +1,44 @@
 $(function(){
-    $('#super-easy-form').submit(function(e){
+
+    $('#super-easy-form-questions').submit(function(e){
         e.preventDefault();
-        var formdata = toJSONString(this);
-        console.log(formdata);
-        $.ajax({
-            type: "POST",
-            url: "https://5gtjl3amef.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T06-12-27-870Z/",
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify( { "id": "","name": $('#name').val(),"email": $('#email').val(),"message": $('#message').val() } ),
-            beforeSend: function(data) {
-                $('#super-easy-btn').prop('disabled', true);
-                $('#super-easy-form :input').prop('disabled', true);
-                $('#contact-status').html('Sending...').show();
-            },
-            success: function(data) {
-                console.log(data);
-                $('#contact-status').text("We'll get back to you soon").show();
-                $('#super-easy-form :input').removeProp('disabled');
-                $('#super-easy-btn').removeProp('disabled');
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $('#contact-status').text('Error. Please try again soon.').show();
-                $('#super-easy-form :input').removeProp('disabled');
-                $('#super-easy-btn').removeProp('disabled');
-            }
-        });
-    }); 
+        let captcha = grecaptcha.getResponse();
+        if(captcha.length < 1){
+            alert('please fill out the recaptcha')
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "https://oel3xxvb3h.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify( { "id": "","name": $('#name').val(),"email": $('#email').val(),"message": $('#message').val(), "captcha":captcha } ),
+                beforeSend: function(data) {
+                        $('#super-easy-btn-questions').prop('disabled', true);
+                        $('#super-easy-form-questions :input').prop('disabled', true);
+                        $('#contact-status-questions').html('Sending...').show();
+                },
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    if(status === 'success'){
+                        $('#contact-status-questions').text("We'll get back to you soon").show();
+                        $('#super-easy-form-questions :input').removeProp('disabled');
+                        $('#super-easy-btn-questions').removeProp('disabled');
+                    }
+                    else {
+                        $('#contact-status-questions').text('Error. Please try again.').show();
+                        $('#super-easy-form-questions :input').removeProp('disabled');
+                        $('#super-easy-btn-questions').removeProp('disabled');
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#contact-status-quetions').text('Error. Please check your network connection and try again.').show();
+                    $('#super-easy-form-questions :input').removeProp('disabled');
+                    $('#super-easy-btn-questions').removeProp('disabled');
+                }
+            });
+        }
+    }); 				
 
     $('#super-easy-form-register').submit(function(e){
         e.preventDefault();

@@ -29,7 +29,8 @@
 		<link rel="icon" href="img/sef-favicon.png">
 		<!-- Custom styles for this template -->
 		<link rel="stylesheet" href="css/index.css">
-
+		<!-- Google Recaptcha script -->
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 
 	<body id="page-top" class="text-center text-md-left">
@@ -137,21 +138,23 @@
 						<div class="bg-primary p-4 ml-md-4">
 							<h4 class="text-center pb-4 pt-4">Have Any Questions?</h4>
 							<!-- FORM BY SUPER EASY FORMS -->
-							<form id="super-easy-form" alt="Form by Super Easy Forms" action="#">
-								<input type="text" class="form-control mb-3" id="name" name="name" placeholder="name" required>
-								<input type="email" class="form-control mb-3" id="email" name="email" placeholder="email" required>
-								<textarea type="text" class="form-control mb-3" id="message" name="message" placeholder="message" required></textarea>
-								<h5 id="contact-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
-								<button class="btn btn-light py-2 mt-3" type="submit" id="super-easy-btn-register">
-									<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Send
-								</button>
+							<form id="super-easy-form-questions" alt="Form by Super Easy Forms" class="pb-3" action="#">									
+								<input type="text" class="form-control mb-3" id="name" name="name" placeholder="Name" required>			
+								<input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email" required>	
+								<textarea type="text" class="form-control mb-3" id="message" name="message" placeholder="Message" required></textarea>
+								<h5 id="contact-status-questions" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
+								<div class="row">
+									<div class="col-sm-8 g-recaptcha pt-3" data-sitekey="6LfdUNIUAAAAADc_ar_gObrsH75AnIjjCu13sgeZ"></div>   
+									<div class="col-sm-4 text-right">
+										<button class="btn btn-light py-2 mt-3" type="submit" id="super-easy-btn-questions">
+											<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Send
+										</button>
+									</div>
+								</div>
 							</form>
-							<div class="col-12 text-right">
+							<div class="col-12">
 								<small class="mx-auto">
-									made with
-									<a href="http://supereasyforms.com">
-										<img src="img/SEF-LOGO.svg" width="auto" height="30" alt="">
-									</a> 
+									made with Super Easy Forms
 								</small> <!-- Hope you enjoyed Super Easy Forms. Credit is always welcomed :) -->
 							</div>
 						</div>
