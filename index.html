@@ -211,8 +211,8 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="section-title text-center">Customize your Form</h2>
-						<p>The form/fullform commands save an html file that contains your ready-to-use form with default bootstrap classes and an inline JQuery handler.</p>    
-						<p>You can open the html file and add custom CSS, modify the HTML layout of the form and adapt it to your project however you like.</p>
+						<p>The form/fullform commands generates and saves an html file that contains your ready-to-use form with default bootstrap classes and an inline JQuery handler.</p>    
+						<p>You can open the html file and add custom CSS or modify the forms HTML layout. Allowing you to adapt it to your project however you like.</p>
 						<p>If you need inpiration you can check out <a href="https://codepen.io/collection/DpzJme/" target="_blank">this collection</a> of bootstrap html contact forms in codepen.</p>
 					</div>
 				</div>
@@ -258,7 +258,7 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="text-center section-title">How it Works</h2>
-						<p>Super Easy Forms is a simple CLI built with node js. It helps you register your email with AWS SES, it automatically creates the necessary resources for you in AWS, and it outputs a Bootstrap HTML form that's already connected to your API, ready to copy paste into your website.</p>    
+						<p>Super Easy forms makes use of AWS's IaC service, Cloudformation, to define and deploy the necessary infrastructure for your forms. When you run <code>sef fullform</code> some resources will be created in the AWS cloud and some files/folders will be created locally including a responsive HTML form with an inline JQuery handler.</p>    
 						<strong>Resources Created</strong>
 						<ol class="text-secondary">
 							<li>A Dynamodb table to store your submissions</li>
@@ -335,8 +335,8 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2 class="text-center section-title">Collaborations</h2>
-							<p>The success of Open Source projects depends completely on the support of the community and the collaborations. If you think you can give us a hand please feel free to <a href="">fork the repo</a> and work on any of the issues in the <a href="">project board</a></p>
+							<h2 class="text-center section-title">How to Collaborate</h2>
+							<p>Like any other Open Source project, our success depends completely on the support of the community. If you think you can give us a hand please feel free to fork the <a href="https://github.com/gkpty/super-easy-forms">repo</a> and work on any of the issues in the <a href="https://github.com/gkpty/super-easy-forms/projects/1">project board</a></p>
 							<p>If you use Super Easy Forms and want it to continue improving but you dont feel like writing the code yourself, you can send us a donation in BTC or USD by using the form bellow. Thanks!</p>
 							<!-- COINBASE FORM-->
 							<div class="text-center pb-4">
@@ -404,7 +404,6 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 								</ul>
 							  </div>
 							</div>
-							
 						</div>
 				</div>
 			</section>
