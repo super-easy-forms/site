@@ -4,6 +4,7 @@ height: 100%;
 margin: 0px;
 padding: 0px;
 font-family: 'Open Sans', sans-serif;
+text-align: left !important;
 }
 input, textarea{
   font-size: 1.3rem !important;
@@ -15,11 +16,20 @@ p, strong, li{
 h1, h2, h3, h4, h5 {
   font-family: 'Roboto Mono', monospace;
 }
+
+.text-large, .text-large ul li{
+  font-size: 1.4rem;
+}
+@media(min-width: 800px){
+  .text-large, .text-large ul li{
+    font-size: 1.8rem;
+  }
+}
 .nav-link {
   font-family: 'Roboto Mono', monospace;
 }
 .section-title {
-  padding-bottom: 6%;
+  padding-bottom: 5%;
   font-size: 2rem;
 }
 .title {
@@ -31,7 +41,7 @@ h1, h2, h3, h4, h5 {
 }
 @media(min-width:600px) {
   .section-title {
-    padding-bottom: 6%;
+    padding-bottom: 4%;
     font-size: 3rem;
   }
   .title {
@@ -52,11 +62,15 @@ header {
   padding-top: 5%;
   padding-bottom: 8%;
 }
-.list ul li{
+.large-list ul li{
   padding-bottom: 7%;
   list-style-type: none;
   margin-left: -40px !important;
-  font-size: 1.8rem;
+}
+.bullet-list ul li{
+  padding-bottom: 2%;
+  list-style-type: disc;
+  margin-left: -20px !important;
 }
 section ul li {
   list-style-type: none;
