@@ -69,34 +69,45 @@ $(function(){
         });
     }); 
 
-    $('#super-easy-form-suggestion').submit(function(e){
+    $('#sefsuggestions-form').submit(function(e){
         e.preventDefault();
-        var formdata = toJSONString(this);
-        console.log(formdata);
-        $.ajax({
-            type: "POST",
-            url: "https://i7bicxy6nh.execute-api.us-east-1.amazonaws.com/deployment2019-05-23T04-18-48-494Z/",
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify( { "id": "","message": $('#message').val() } ),
-            beforeSend: function(data) {
-                $('#super-easy-btn-suggestion').prop('disabled', true);
-                $('#super-easy-form-suggestion :input').prop('disabled', true);
-                $('#contact-status-suggestion').html('Sending...').show();
-            },
-            success: function(data) {
-                console.log(data);
-                $('#contact-status-suggestion').text("Thank you for the feedback").show();
-                $('#super-easy-form-suggestion :input').removeProp('disabled');
-                $('#super-easy-btn-suggestion').removeProp('disabled');
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $('#contact-status-suggestion').text('Error. Please try again soon.').show();
-                $('#super-easy-form-suggestion :input').removeProp('disabled');
-                $('#super-easy-btn-suggestion').removeProp('disabled');
-            }
-        });
-    }); 
+        let captcha = grecaptcha.getResponse();
+        if(captcha.length < 1){
+            alert('please fill out the recaptcha')
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "https://bdy3silvfd.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify( { "id": "","message": $('#message').val(), "captcha":captcha } ),
+                beforeSend: function(data) {
+                    $('#sefsuggestions-btn').prop('disabled', true);
+                    $('#sefsuggestions-form :input').prop('disabled', true);
+                    $('#sefsuggestions-status').html('Sending...').show();
+                },
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    if(status === 'success'){
+                        $('#sefsuggestions-status').text("We'll get back to you soon").show();
+                        $('#sefsuggestions-form :input').removeProp('disabled');
+                        $('#sefsuggestions-btn').removeProp('disabled');
+                    }
+                    else {
+                        $('#sefsuggestions-status').text('Error. Please try again.').show();
+                        $('#sefsuggestions-form :input').removeProp('disabled');
+                        $('#sefsuggestions-btn').removeProp('disabled');
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#sefsuggestions-status').text('Error. Please check your network connection and try again.').show();
+                    $('#sefsuggestions-form :input').removeProp('disabled');
+                    $('#sefsuggestions-btn').removeProp('disabled');
+                }
+            });
+        }
+    }); 				
 
     function toJSONString (form) {
     var obj = {};
