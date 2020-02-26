@@ -40,31 +40,36 @@ $(function(){
         }
     }); 				
 
-    $('#super-easy-form-register').submit(function(e){
+    $('#sefmailinglist-form').submit(function(e){
         e.preventDefault();
-        var formdata = toJSONString(this);
-        console.log(formdata);
         $.ajax({
             type: "POST",
-            url: "https://9wqrnmzlv0.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T22-53-02-822Z/",
+            url: "https://x6ryfer21g.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify( { "id": "","email": $('#email').val() } ),
             beforeSend: function(data) {
-                $('#super-easy-btn-register').prop('disabled', true);
-                $('#super-easy-form-register :input').prop('disabled', true);
-                $('#contact-status-register').html('Sending...').show();
+                $('#sefmailinglist-btn').prop('disabled', true);
+                $('#sefmailinglist-form :input').prop('disabled', true);
+                $('#sefmailinglist-status').html('Sending...').show();
             },
-            success: function(data) {
+            success: function(data, status, jqXHR) {
                 console.log(data);
-                $('#contact-status-register').text("We'll keep you posted").show();
-                $('#super-easy-form-register :input').removeProp('disabled');
-                $('#super-easy-btn-register').removeProp('disabled');
+                if(status === 'success'){
+                    $('#sefmailinglist-status').text("We'll get back to you soon").show();
+                    $('#sefmailinglist-form :input').removeProp('disabled');
+                    $('#sefmailinglist-btn').removeProp('disabled');
+                }
+                else {
+                    $('#sefmailinglist-status').text('Error. Please try again.').show();
+                    $('#sefmailinglist-form :input').removeProp('disabled');
+                    $('#sefmailinglist-btn').removeProp('disabled');
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                $('#contact-status-register').text('Error. Please try again soon.').show();
-                $('#super-easy-form-register :input').removeProp('disabled');
-                $('#super-easy-btn-register').removeProp('disabled');
+                $('#sefmailinglist-status').text('Error. Please check your network connection and try again.').show();
+                $('#sefmailinglist-form :input').removeProp('disabled');
+                $('#sefmailinglist-btn').removeProp('disabled');
             }
         });
     }); 

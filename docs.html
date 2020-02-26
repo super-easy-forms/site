@@ -494,8 +494,13 @@
         <h2 id="recaptcha">ReCAPTCHA</h2>
         <p>Super easy forms allows you to easily integrate google reCAPTCHA into your html forms.</p>
         <p>Before being able to use the recapcha option/flag make sure you have signed up for a reCapcha key pair. <a href="http://www.google.com/recaptcha/admin/create">sign up for an API key pair</a></p>
-        <p>If you are adding reCaptcha to an already deployed form make sure to also update your lambda function and CloudFormation templates. </p>
-       
+        <p>Once you have added a key pair for the correct domain of your respective project, add the following variables in your .env file by running <code>sudo nano .env</code> or opening the file in your text editor of choice.</p>
+        <pre>
+          <code>
+            RECAPTCHA_KEY=your_site_key
+    RECAPTCHA_SECRET=your_site_secret_key
+          </code>
+        </pre>
        
       <h1 id="api-glossary">API Glossary</h1>
       <ol>
