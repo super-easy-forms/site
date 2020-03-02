@@ -30,7 +30,19 @@
 		<!-- Custom styles for this template -->
 		<link rel="stylesheet" href="css/index.css">
 		<!-- Google Recaptcha script -->
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<script type="text/javascript">
+      var sefquestionsWidget;
+			var sefsuggestionsWidget;
+			var sitekey = '6LfdUNIUAAAAADc_ar_gObrsH75AnIjjCu13sgeZ';
+      var onloadCallback = function() {
+        sefquestionsWidget = grecaptcha.render('sefquestions-captcha', {
+          'sitekey' : sitekey
+        });
+        sefsuggestionsWidget = grecaptcha.render('sefsuggestions-captcha', {
+          'sitekey' : sitekey
+        });
+      };
+    </script>
 	</head>
 
 	<body id="page-top" class="text-center text-md-left">
@@ -72,7 +84,7 @@
 			<div class="row pt-5">
 				<div class="col-sm-12 text-center">
 						<h1 class="main-title">Super Easy Forms</h1>
-						<h3 class="pb-lg-5 px-md-5 text-large">A package that helps you create responsive html forms with serverless backends in an instant. Now featuring increased security, felixibility and usability.</h3>
+						<h3 class="pb-lg-5 px-md-5 text-large">An open source module that generates responsive html forms with serverless backends in an instant. Now featuring increased security, felixibility and usability.</h3>
 				</div>			
 			</div>
 			<div class="row pt-2">
@@ -82,7 +94,7 @@
 					</video>
 					<h3 class="h6 pt-lg-4 ml-1">All the serverless resources are automatically deployed and linked to your form</h3>
 				</div>
-				<div class="col-md-5 large-list text-large">
+				<div class="col-md-5 list large-list text-large">
 					<ul class="text-secondary ml-lg-5 pt-4 pt-sm-0">
 						<li>Install in seconds</li>
 						<li>Create and deploy your serverless form with one command</li>
@@ -136,12 +148,12 @@
 							<h4 class="text-center pb-4 pt-4">Have Any Questions?</h4>
 							<!-- FORM BY SUPER EASY FORMS -->
 							<form id="super-easy-form-questions" alt="Form by Super Easy Forms" class="pb-3" action="#">									
-								<input type="text" class="form-control mb-3" id="name" name="name" placeholder="Name" required>			
-								<input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email" required>	
-								<textarea type="text" class="form-control mb-3" id="message" name="message" placeholder="Message" required></textarea>
+								<input type="text" class="form-control mb-3" id="sefquestions-name" name="name" placeholder="Name" required>			
+								<input type="email" class="form-control mb-3" id="sefquestions-email" name="email" placeholder="Email" required>	
+								<textarea type="text" class="form-control mb-3" id="sefquestions-message" name="message" placeholder="Message" required></textarea>
 								<h5 id="contact-status-questions" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
 								<div class="row">
-									<div class="col-sm-8 g-recaptcha pt-3" data-sitekey="6LfdUNIUAAAAADc_ar_gObrsH75AnIjjCu13sgeZ"></div>   
+									<div class="col-sm-8 g-recaptcha pt-3" id="sefquestions-captcha"></div>   
 									<div class="col-sm-4 text-right">
 										<button class="btn btn-light py-2 mt-3" type="submit" id="super-easy-btn-questions">
 											<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Send
@@ -295,7 +307,7 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 					<!-- FORM BY SUPER EASY FORMS -->
 					<form id="sefmailinglist-form" alt="Form by Super Easy Forms" class="form-inline col-12 w-100" action="#">
 						<div class="col-md-9 col-lg-10">
-							<input type="email" class="form-control py-4 w-100" id="register-email" name="email" placeholder="email" required>
+							<input type="email" class="form-control py-4 w-100" id="sefmailinglist-email" name="email" placeholder="email" required>
 						</div>				
 						<div class="col-md-3 col-lg-2 col-6 pt-3 pt-md-0 ml-auto">
 								<button class="btn btn-light py-2 w-100" type="submit" id="sefmailinglist-btn">
@@ -315,7 +327,7 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 			<section id="included-in-aws" class="section bg-white">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-12 text-left">
+						<div class="col-md-12 text-left list">
 							<h2 class="text-center section-title">Price</h2>
 							<p>Super Easy Forms and the Super Easy Forms CLI are both completely free and open source under the MIT license. All of the AWS services used by Super Easy Forms have a generous free tier that is hard exceed; however if you do exceed these free tier limits you will be charged by AWS. Please refer to the list bellow for more information.</p>
 							<span class="h3 font-weight-bold">AWS Services used by Super Easy Forms</span>
@@ -432,10 +444,10 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 								<div class="p-5 mt-5 bg-primary">
 									<h5 class="h2 text-center pb-4">Anything else you'd like us to consider?</h5>
 									<form id="sefsuggestions-form" alt="Form by Super Easy Forms" class="pb-3" action="#">	
-										<textarea type="text" class="form-control" id="message" name="message" placeholder="Message" required></textarea>
+										<textarea type="text" class="form-control" id="sefsuggestions-message" name="message" placeholder="Message" required></textarea>
 										<h5 id="sefsuggestions-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
 										<div class="row">
-											<div class="col-sm-8 g-recaptcha pt-3" data-sitekey="6LfdUNIUAAAAADc_ar_gObrsH75AnIjjCu13sgeZ"></div>   
+											<div class="col-sm-8 g-recaptcha pt-3" id="sefsuggestions-captcha"></div>   
 											<div class="col-sm-4 text-right">
 												<button class="btn btn-light py-2 mt-3" type="submit" id="sefsuggestions-btn">
 													<img src="img/SEF-LOGO.svg" width="auto" height="30" alt=""> Send
@@ -476,6 +488,9 @@ sef fullform formname --email=your@email.com --fields=fullName=text=required,ema
 			src="https://code.jquery.com/jquery-3.4.1.min.js"
 			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			crossorigin="anonymous">
+		</script>
+		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+			async defer>
 		</script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 		<!-- Custom scripts for this template -->

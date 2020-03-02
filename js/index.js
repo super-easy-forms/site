@@ -1,8 +1,7 @@
 $(function(){
-
     $('#super-easy-form-questions').submit(function(e){
         e.preventDefault();
-        let captcha = grecaptcha.getResponse();
+        let captcha = grecaptcha.getResponse(sefquestionsWidget);
         if(captcha.length < 1){
             alert('please fill out the recaptcha')
         }
@@ -12,7 +11,7 @@ $(function(){
                 url: "https://oel3xxvb3h.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
                 dataType: "json",
                 contentType: "application/json",
-                data: JSON.stringify( { "id": "","name": $('#name').val(),"email": $('#email').val(),"message": $('#message').val(), "captcha":captcha } ),
+                data: JSON.stringify( { "id": "","name": $('#sefquestions-name').val(),"email": $('#sefquestions-email').val(),"message": $('#sefquestions-message').val(), "captcha":captcha } ),
                 beforeSend: function(data) {
                         $('#super-easy-btn-questions').prop('disabled', true);
                         $('#super-easy-form-questions :input').prop('disabled', true);
@@ -47,7 +46,7 @@ $(function(){
             url: "https://x6ryfer21g.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
             dataType: "json",
             contentType: "application/json",
-            data: JSON.stringify( { "id": "","email": $('#email').val() } ),
+            data: JSON.stringify( { "id": "","email": $('#sefmailinglist-email').val() } ),
             beforeSend: function(data) {
                 $('#sefmailinglist-btn').prop('disabled', true);
                 $('#sefmailinglist-form :input').prop('disabled', true);
@@ -76,7 +75,7 @@ $(function(){
 
     $('#sefsuggestions-form').submit(function(e){
         e.preventDefault();
-        let captcha = grecaptcha.getResponse();
+        let captcha = grecaptcha.getResponse(sefsuggestionsWidget);
         if(captcha.length < 1){
             alert('please fill out the recaptcha')
         }
@@ -86,7 +85,7 @@ $(function(){
                 url: "https://bdy3silvfd.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
                 dataType: "json",
                 contentType: "application/json",
-                data: JSON.stringify( { "id": "","message": $('#message').val(), "captcha":captcha } ),
+                data: JSON.stringify( { "id": "","message": $('#sefsuggestions-message').val(), "captcha":captcha } ),
                 beforeSend: function(data) {
                     $('#sefsuggestions-btn').prop('disabled', true);
                     $('#sefsuggestions-form :input').prop('disabled', true);

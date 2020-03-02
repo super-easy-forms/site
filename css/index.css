@@ -15,9 +15,23 @@ p, strong, li{
 pre code{
   color: #e83e8c;
 }
-
 h1, h2, h3, h4, h5 {
   font-family: 'Roboto Mono', monospace;
+}
+section, header {
+  overflow-x: hidden;
+}
+header {
+  padding-bottom: 4%;
+}
+.list ul li {
+  list-style-type: none;
+  margin-left: -40px !important;
+  padding-bottom: 2%;
+}
+.list ul li strong {
+  color: #000 !important;
+  margin-right: 1%;
 }
 
 .text-large, .text-large ul li{
@@ -55,15 +69,9 @@ h1, h2, h3, h4, h5 {
     padding-bottom: 3%;
   }
 }
-section, header {
-  overflow-x: hidden;
-}
-header {
-  padding-bottom: 4%;
-}
 .section {
   padding-top: 5%;
-  padding-bottom: 8%;
+  padding-bottom: 5%;
 }
 .large-list ul li{
   padding-bottom: 7%;
@@ -74,15 +82,6 @@ header {
   padding-bottom: 2%;
   list-style-type: disc;
   margin-left: -20px !important;
-}
-section ul li {
-  list-style-type: none;
-  margin-left: -40px !important;
-  padding-bottom: 2%;
-}
-section ul li strong {
-  color: #000 !important;
-  margin-right: 1%;
 }
 .try-it{
   background-color: #efdfb1;
