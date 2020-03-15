@@ -1,90 +1,117 @@
 $(function(){
-    $('#super-easy-form').submit(function(e){
+    $('#super-easy-form-questions').submit(function(e){
         e.preventDefault();
-        var formdata = toJSONString(this);
-        console.log(formdata);
+        let captcha = grecaptcha.getResponse(sefquestionsWidget);
+        if(captcha.length < 1){
+            alert('please fill out the recaptcha')
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "https://oel3xxvb3h.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify( { "id": "","name": $('#sefquestions-name').val(),"email": $('#sefquestions-email').val(),"message": $('#sefquestions-message').val(), "captcha":captcha } ),
+                beforeSend: function(data) {
+                        $('#super-easy-btn-questions').prop('disabled', true);
+                        $('#super-easy-form-questions :input').prop('disabled', true);
+                        $('#contact-status-questions').html('Sending...').show();
+                },
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    if(status === 'success'){
+                        $('#contact-status-questions').text("We'll get back to you soon").show();
+                        $('#super-easy-form-questions :input').removeProp('disabled');
+                        $('#super-easy-btn-questions').removeProp('disabled');
+                    }
+                    else {
+                        $('#contact-status-questions').text('Error. Please try again.').show();
+                        $('#super-easy-form-questions :input').removeProp('disabled');
+                        $('#super-easy-btn-questions').removeProp('disabled');
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#contact-status-quetions').text('Error. Please check your network connection and try again.').show();
+                    $('#super-easy-form-questions :input').removeProp('disabled');
+                    $('#super-easy-btn-questions').removeProp('disabled');
+                }
+            });
+        }
+    }); 				
+
+    $('#sefmailinglist-form').submit(function(e){
+        e.preventDefault();
         $.ajax({
             type: "POST",
-            url: "https://5gtjl3amef.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T06-12-27-870Z/",
+            url: "https://x6ryfer21g.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
             dataType: "json",
             contentType: "application/json",
-            data: JSON.stringify( { "id": "","name": $('#name').val(),"email": $('#email').val(),"message": $('#message').val() } ),
+            data: JSON.stringify( { "id": "","email": $('#sefmailinglist-email').val() } ),
             beforeSend: function(data) {
-                $('#super-easy-btn').prop('disabled', true);
-                $('#super-easy-form :input').prop('disabled', true);
-                $('#contact-status').html('Sending...').show();
+                $('#sefmailinglist-btn').prop('disabled', true);
+                $('#sefmailinglist-form :input').prop('disabled', true);
+                $('#sefmailinglist-status').html('Sending...').show();
             },
-            success: function(data) {
+            success: function(data, status, jqXHR) {
                 console.log(data);
-                $('#contact-status').text("We'll get back to you soon").show();
-                $('#super-easy-form :input').removeProp('disabled');
-                $('#super-easy-btn').removeProp('disabled');
+                if(status === 'success'){
+                    $('#sefmailinglist-status').text("We'll get back to you soon").show();
+                    $('#sefmailinglist-form :input').removeProp('disabled');
+                    $('#sefmailinglist-btn').removeProp('disabled');
+                }
+                else {
+                    $('#sefmailinglist-status').text('Error. Please try again.').show();
+                    $('#sefmailinglist-form :input').removeProp('disabled');
+                    $('#sefmailinglist-btn').removeProp('disabled');
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                $('#contact-status').text('Error. Please try again soon.').show();
-                $('#super-easy-form :input').removeProp('disabled');
-                $('#super-easy-btn').removeProp('disabled');
+                $('#sefmailinglist-status').text('Error. Please check your network connection and try again.').show();
+                $('#sefmailinglist-form :input').removeProp('disabled');
+                $('#sefmailinglist-btn').removeProp('disabled');
             }
         });
     }); 
 
-    $('#super-easy-form-register').submit(function(e){
+    $('#sefsuggestions-form').submit(function(e){
         e.preventDefault();
-        var formdata = toJSONString(this);
-        console.log(formdata);
-        $.ajax({
-            type: "POST",
-            url: "https://9wqrnmzlv0.execute-api.us-east-1.amazonaws.com/deployment2019-05-22T22-53-02-822Z/",
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify( { "id": "","email": $('#email').val() } ),
-            beforeSend: function(data) {
-                $('#super-easy-btn-register').prop('disabled', true);
-                $('#super-easy-form-register :input').prop('disabled', true);
-                $('#contact-status-register').html('Sending...').show();
-            },
-            success: function(data) {
-                console.log(data);
-                $('#contact-status-register').text("We'll keep you posted").show();
-                $('#super-easy-form-register :input').removeProp('disabled');
-                $('#super-easy-btn-register').removeProp('disabled');
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $('#contact-status-register').text('Error. Please try again soon.').show();
-                $('#super-easy-form-register :input').removeProp('disabled');
-                $('#super-easy-btn-register').removeProp('disabled');
-            }
-        });
-    }); 
-
-    $('#super-easy-form-suggestion').submit(function(e){
-        e.preventDefault();
-        var formdata = toJSONString(this);
-        console.log(formdata);
-        $.ajax({
-            type: "POST",
-            url: "https://i7bicxy6nh.execute-api.us-east-1.amazonaws.com/deployment2019-05-23T04-18-48-494Z/",
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify( { "id": "","message": $('#message').val() } ),
-            beforeSend: function(data) {
-                $('#super-easy-btn-suggestion').prop('disabled', true);
-                $('#super-easy-form-suggestion :input').prop('disabled', true);
-                $('#contact-status-suggestion').html('Sending...').show();
-            },
-            success: function(data) {
-                console.log(data);
-                $('#contact-status-suggestion').text("Thank you for the feedback").show();
-                $('#super-easy-form-suggestion :input').removeProp('disabled');
-                $('#super-easy-btn-suggestion').removeProp('disabled');
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $('#contact-status-suggestion').text('Error. Please try again soon.').show();
-                $('#super-easy-form-suggestion :input').removeProp('disabled');
-                $('#super-easy-btn-suggestion').removeProp('disabled');
-            }
-        });
-    }); 
+        let captcha = grecaptcha.getResponse(sefsuggestionsWidget);
+        if(captcha.length < 1){
+            alert('please fill out the recaptcha')
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "https://bdy3silvfd.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify( { "id": "","message": $('#sefsuggestions-message').val(), "captcha":captcha } ),
+                beforeSend: function(data) {
+                    $('#sefsuggestions-btn').prop('disabled', true);
+                    $('#sefsuggestions-form :input').prop('disabled', true);
+                    $('#sefsuggestions-status').html('Sending...').show();
+                },
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    if(status === 'success'){
+                        $('#sefsuggestions-status').text("We'll get back to you soon").show();
+                        $('#sefsuggestions-form :input').removeProp('disabled');
+                        $('#sefsuggestions-btn').removeProp('disabled');
+                    }
+                    else {
+                        $('#sefsuggestions-status').text('Error. Please try again.').show();
+                        $('#sefsuggestions-form :input').removeProp('disabled');
+                        $('#sefsuggestions-btn').removeProp('disabled');
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#sefsuggestions-status').text('Error. Please check your network connection and try again.').show();
+                    $('#sefsuggestions-form :input').removeProp('disabled');
+                    $('#sefsuggestions-btn').removeProp('disabled');
+                }
+            });
+        }
+    }); 				
 
     function toJSONString (form) {
     var obj = {};
